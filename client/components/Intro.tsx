@@ -4,9 +4,9 @@ import Image from "next/image"
 
 const Intro = () => {
   return (
-    <div className="flex gap-x-4 justify-center items-center">
+    <div className="flex gap-x-4 justify-center md:items-center">
         {/* image  */}
-        <div className="rounded-full hover:scale-110 transition-all ease-in-out duration-125 hover:opacity-60">
+        <div className="mt-2 md:mt-0 rounded-full hover:scale-110 transition-all ease-in-out duration-125 hover:opacity-60">
             <Image className="rounded-full " src={'/IntroImg.jpeg'} height={100} width={100} alt="Into_img"/>
         </div>
         {/* details  */}
