@@ -70,3 +70,13 @@ export const socialData=[
         link:'mailto:shobhnikw@gmail.com',
     }
 ]
+
+
+export const experienceData=[
+    {
+        id:1,
+        title:'Full Stack Developer Intern , Web3Scope',
+        duration:'Oct, 2023 - Nov, 2023',
+        overview:['anajsajs','hsjahsjahsa','shjashahsjahsja','shjhajshajshja']
+    }
+]

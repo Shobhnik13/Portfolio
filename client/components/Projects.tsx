@@ -9,11 +9,11 @@ import { GoArrowUpRight } from "react-icons/go"
 const Projects = () => {
     
   return (
-    <div className="flex flex-col justify-center mt-20 md:mt-32 pb-10">
+    <div className="flex flex-col justify-center mt-16 pb-10">
          <p className="font-[500]">projects.</p>  
-        <div className="flex flex-col mt-10 gap-y-8">
+        <div className="flex flex-col mt-8 gap-y-8">
             {projectData.map((data)=>(
-                <div className="border-l-2 hover:border-orange-300  hover:duration-200 flex flex-col gap-y-1 p-4" key={data.id}>
+                <div className="border-l-2 hover:border-purple-300  hover:duration-200 flex flex-col gap-y-1 p-4" key={data.id}>
                     <p className="text-base font-[500] capitalize">{data.title}</p>
                     <div className="flex flex-row gap-x-4 text-sm 2xl:text-base text-gray-500/85">
                         <Link className="flex gap-x-1 items-center justify-center hover:underline" target="_blank" href={`${data.LiveLink}`}>Live preview  <GoArrowUpRight className="text-base mt-1"/></Link>

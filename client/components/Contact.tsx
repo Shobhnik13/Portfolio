@@ -6,7 +6,7 @@ import { GoArrowUpRight } from "react-icons/go"
 
 const Contact = () => {
   return (
-    <div className="flex flex-col justify-center mt-20  pb-10">
+    <div className="flex flex-col justify-center mt-10  pb-20">
           <p className="font-[500]">contact, socials & coding profiles.</p>
           <div className="flex flex-col mt-8 gap-y-4">
                 {socialData.map((data)=>(

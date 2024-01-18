@@ -1,5 +1,6 @@
 import AboutMe from '@/components/AboutMe'
 import Contact from '@/components/Contact'
+import Experiences from '@/components/Experiences'
 import HireMe from '@/components/HireMe'
 import Intro from '@/components/Intro'
 import Projects from '@/components/Projects'
@@ -10,6 +11,7 @@ export default function Home() {
         <Intro/>
         <AboutMe/>
         <HireMe/>
+        <Experiences/>
         <Projects/>
         <Contact/>
       </div> 
