@@ -1,22 +1,61 @@
 export const projectData=[
     {
         id:1,
-        title:'abcd',
-        LiveLink:'nadjd',
-        GithubLink:'sjdjsd',
-        status:'ongoing 🏗️',
-        techStack:'asjahsjas,next js',
-        overview:['hsjahsja','sjajskas','sahsjahsjas']
+        title:'SynthAI',
+        LiveLink:'https://synth-ai-omega.vercel.app/',
+        GithubLink:'https://github.com/Shobhnik13/SynthAI',
+        status:'maintained 👍🏽',
+        techStack:'Next.js, Typescript, OpenAi, Css, SQL, Prisma, Stripe, Zustand',
+        overview:[
+            'Developed an end-to-end AI SaaS platform, providing users with a comprehensive solution for their artificial intelligence needs which is serving 30+ Active Users currently.',
+            'Implemented the frontend using Next.js, TypeScript, Zustand.',
+            'Employed Prisma as the database ORM and SQL as a database service.',
+            'Integrated Stripe for secure and seamless payment processing.',
+            'Implemented Clerk for authentication management, ensuring a secure and user-friendly authentication process.'
+    ]
     },
     {
         id:2,
-        title:'abcd',
-        LiveLink:'nadjd',
-        GithubLink:'sjdjsd',
-        status:'completed 👍🏽',
-        techStack:'asjahsjas ',
-        overview:['hsjahsja','sjajskas','sahsjahsjas']
+        title:'QuikChat',
+        LiveLink:'https://github.com/Shobhnik13/QuikChat',
+        GithubLink:'https://github.com/Shobhnik13/QuikChat',
+        status:'ongoing 🏗️',
+        techStack:'Next.js, Redis, Web-Sockets, Typescript ',
+        overview:[
+            'Developed a real-time chat application using WebSocket services, enabling instant message delivery and responsive user interactions.',
+            'Utilized WebSocket technology for bidirectional communication, ensuring low latency and efficient message processing.',
+            'Integrated Redis as a database solution to enhance message processing speed and overall performance.',
+            'Developed a user authentication and a friend request system, allowing users to send, accept, or deny friend requests.'
+        ]
     },
+    {
+        id:3,
+        title:'ReferCompose',
+        LiveLink:'https://refer-compose.vercel.app/',
+        GithubLink:'https://github.com/Shobhnik13/ReferCompose',
+        status:'maintained 👍🏽',
+        techStack:'Next.js, Typescript, OpenAi, Css, Supabse-Auth, Shadcn/ui',
+        overview:[
+            'Utilizing AI, the project crafts tailored cold emails based on user inputs for effective outreach.',
+            'Developed as a fun project with Next.js, TypeScript, Shadcn, Supabase-Auth and OpenAI, ensuring both innovation and enjoyment in the user experience.',
+            'Successfully serving 50+ users',
+      
+    ]
+    },
+    {
+        id:4,
+        title:'Connectify',
+        LiveLink:'https://github.com/Shobhnik13/Connectify',
+        GithubLink:'https://github.com/Shobhnik13/Connectify',
+        status:'ongoing 🏗️',
+        techStack:'Next.js, Typescript, MongoDB, Clerk ',
+        overview:[
+            'The project offers a fast and dynamic social media website with a modern and responsive user interface.',
+            'The platform supports a range of essential social media functionalities, including creating and deleting posts, commenting on posts, managing user profiles, and forming or joining groups/communities.',
+            'Utilizing MongoDB for data storage, the project ensures scalability and flexibility, allowing for efficient management and retrieval of user-generated content, posts, and community data.',
+        ]
+    },
+
 ]
 
 
@@ -77,6 +116,11 @@ export const experienceData=[
         id:1,
         title:'Full Stack Developer Intern , Web3Scope',
         duration:'Oct, 2023 - Nov, 2023',
-        overview:['anajsajs','hsjahsjahsa','shjashahsjahsja','shjhajshajshja']
+        overview:[
+            'Created a robust and scalable component library using Next.js and TypeScript, ensuring code reusability and maintainability.',
+            'Leveraged Framer Motion to implement smooth and interactive animations, enhancing the overall user experience of the components.',
+            'Actively contributed to the rapid development of the Minimum Viable Product (MVP) by implementing key features aligned with project goals and user requirements.',
+            'Collaborated closely with cross-functional teams to gather feedback and iterate on features, ensuring a quick and effective development cycle.'
+        ]
     }
 ]

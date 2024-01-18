@@ -6,8 +6,8 @@ import { GoArrowUpRight } from "react-icons/go";
 const HireMe = () => {
   return (
     <div className=" flex flex-col justify-center gap-y-3 mt-4 bg-purple-100 shadow-md rounded-lg p-4">
-        <p className="text-sm 2xl:text-base">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque odit repellendus beatae consequuntur illum illo nobis magni ipsum itaque deleniti?</p>
-        <p className=" text-sm 2xl:text-base">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam enim sunt perferendis consectetur laudantium natus nulla laborum impedit cum deleniti.</p>
+        <p className="text-sm 2xl:text-base">I am currently open for software engineering intern roles, which involves user interface, frontend engineering, building and maintaining scalable web apps.</p>
+        <p className=" text-sm 2xl:text-base">Developers or freelancers, who are building great softwares or businesses. Interested in working together? Feel free to schedule a meet!</p>
         <div className="flex gap-x-4">
             <Link href={'https://cal.com/shobhnik13/15min'} target="_blank">
             <Button className="hover:scale-95 ease-in-out transition-all duration-100">Schedule a meet / cal.com</Button>
