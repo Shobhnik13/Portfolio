@@ -30,6 +30,20 @@ export const projectData=[
     },
     {
         id:3,
+        title:'SketchIt',
+        LiveLink:'https://sketch-it-frontend.vercel.app/',
+        GithubLink:'https://github.com/Shobhnik13/SketchIt-frontend',
+        status:'maintained 👍🏽',
+        techStack:'Next.js, Typescript, Tailwind, Socket.io, Node.js, Express.js',
+        overview:[
+            'Implement a collaborative drawing board where multiple users can join and draw simultaneously in real-time.',
+            'Utilize Next.js , TypeScript, Tailwind for user interface and design',
+            'Employ Express.js and Node.js for the backend to handle HTTP requests',
+            'Implement WebSocket protocol with Socket.io library to enable real-time communication between the server and clients, facilitating multiplayer drawing functionality with instant updates across all connected users.'
+        ]
+    },
+    {
+        id:4,
         title:'ReferCompose',
         LiveLink:'https://refer-compose.vercel.app/',
         GithubLink:'https://github.com/Shobhnik13/ReferCompose',
@@ -40,22 +54,8 @@ export const projectData=[
             'Developed as a fun project with Next.js, TypeScript, Shadcn, Supabase-Auth and OpenAI, ensuring both innovation and enjoyment in the user experience.',
             'Successfully serving 50+ users',
       
-    ]
-    },
-    {
-        id:4,
-        title:'Connectify',
-        LiveLink:'https://github.com/Shobhnik13/Connectify',
-        GithubLink:'https://github.com/Shobhnik13/Connectify',
-        status:'ongoing 🏗️',
-        techStack:'Next.js, Typescript, MongoDB, Clerk ',
-        overview:[
-            'The project offers a fast and dynamic social media website with a modern and responsive user interface.',
-            'The platform supports a range of essential social media functionalities, including creating and deleting posts, commenting on posts, managing user profiles, and forming or joining groups/communities.',
-            'Utilizing MongoDB for data storage, the project ensures scalability and flexibility, allowing for efficient management and retrieval of user-generated content, posts, and community data.',
         ]
     },
-
 ]
 
 
