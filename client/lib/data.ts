@@ -1,20 +1,5 @@
 export const projectData=[
     {
-        id:1,
-        title:'SynthAI',
-        LiveLink:'https://synth-ai-omega.vercel.app/',
-        GithubLink:'https://github.com/Shobhnik13/SynthAI',
-        status:'maintained 👍🏽',
-        techStack:'Next.js, Typescript, OpenAi, Css, SQL, Prisma, Stripe, Zustand',
-        overview:[
-            'Developed an end-to-end AI SaaS platform, providing users with a comprehensive solution for their artificial intelligence needs which is serving 30+ Active Users currently.',
-            'Implemented the frontend using Next.js, TypeScript, Zustand.',
-            'Employed Prisma as the database ORM and SQL as a database service.',
-            'Integrated Stripe for secure and seamless payment processing.',
-            'Implemented Clerk for authentication management, ensuring a secure and user-friendly authentication process.'
-    ]
-    },
-    {
         id:2,
         title:'QuikChat',
         LiveLink:'https://github.com/Shobhnik13/QuikChat',
