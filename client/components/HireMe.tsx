@@ -14,7 +14,7 @@ const HireMe = () => {
             </Link>
  
  
-            <Link target="_blank" className="flex text-sm 2xl:text-base hover:underline flex-row gap-x-1 items-center justify-center" href={'https://drive.google.com/file/d/1D65MUYphic4Nzp38AW66yYsjxhil7FZd/view?usp=sharing'}>Resume <GoArrowUpRight className="text-base mt-1"/> </Link>
+            <Link target="_blank" className="flex text-sm 2xl:text-base hover:underline flex-row gap-x-1 items-center justify-center" href={'https://drive.google.com/file/d/1tj_9XzInXa_4w5MgbRCUunO576liHSCi/view?usp=sharing'}>Resume <GoArrowUpRight className="text-base mt-1"/> </Link>
         </div>
     </div>
   )

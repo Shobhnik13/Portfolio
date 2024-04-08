@@ -1,10 +1,24 @@
 export const projectData=[
     {
+        id:1,
+        title:'Promogenie',
+        LiveLink:'https://promogenie.xyz/',
+        GithubLink:'',
+        status:'maintained 👍🏽',
+        techStack:'Next.js, Node.js, Express.js, Typescript, JavaScript, Supabase, MongoDB',
+        overview:[
+            'Developed a SaaS (Software as a Service) application for AI content generation targeting various social media platforms.',
+            'It was launced a month ago and currently it has 50+ Monthly Active Users.',
+            'Implemented Next.js and TypeScript for the frontend service, ensuring robust and efficient user interactions and Utilized Node.js and Express.js for the backend service, facilitating seamless data processing and API handling.',
+            'Also implemented PWA webapp concept so that the user can download this webapp on their mobilephones and use it frequently in their day to day lives.'
+        ]
+    },
+    {
         id:2,
         title:'QuikChat',
         LiveLink:'https://github.com/Shobhnik13/QuikChat',
         GithubLink:'https://github.com/Shobhnik13/QuikChat',
-        status:'ongoing 🏗️',
+        status:'maintained 👍🏽',
         techStack:'Next.js, Redis, Web-Sockets, Typescript ',
         overview:[
             'Developed a real-time chat application using WebSocket services, enabling instant message delivery and responsive user interactions.',
@@ -27,20 +41,7 @@ export const projectData=[
             'Implement WebSocket protocol with Socket.io library to enable real-time communication between the server and clients, facilitating multiplayer drawing functionality with instant updates across all connected users.'
         ]
     },
-    {
-        id:4,
-        title:'ReferCompose',
-        LiveLink:'https://refer-compose.vercel.app/',
-        GithubLink:'https://github.com/Shobhnik13/ReferCompose',
-        status:'maintained 👍🏽',
-        techStack:'Next.js, Typescript, OpenAi, Css, Supabse-Auth, Shadcn/ui',
-        overview:[
-            'Utilizing AI, the project crafts tailored cold emails based on user inputs for effective outreach.',
-            'Developed as a fun project with Next.js, TypeScript, Shadcn, Supabase-Auth and OpenAI, ensuring both innovation and enjoyment in the user experience.',
-            'Successfully serving 50+ users',
-      
-        ]
-    },
+   
 ]
 
 
