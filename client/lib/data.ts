@@ -8,7 +8,7 @@ export const projectData=[
         techStack:'Next.js, Node.js, Express.js, Typescript, JavaScript, Supabase, MongoDB',
         overview:[
             'Developed a SaaS (Software as a Service) application for AI content generation targeting various social media platforms.',
-            'It was launced a month ago and currently it has 50+ Monthly Active Users.',
+            'It was launched few months ago and currently it has 50+ Monthly Active Users.',
             'Implemented Next.js and TypeScript for the frontend service, ensuring robust and efficient user interactions and Utilized Node.js and Express.js for the backend service, facilitating seamless data processing and API handling.',
             'Also implemented PWA webapp concept so that the user can download this webapp on their mobilephones and use it frequently in their day to day lives.'
         ]
