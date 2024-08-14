@@ -86,7 +86,7 @@ export const socialData=[
         id:7,
         title:'Resume',
         subText:'shobhnik13/resume',
-        link:'https://drive.google.com/file/d/1-g3eK0N73DkjA7ZaY1eUl5fv7GJOucXc/view?usp=sharing',
+        link:'https://drive.google.com/file/d/1AMEkA7j-GI4QH0kDLo-oZDYYX-dkLcKy/view?usp=sharing',
     },
     {
         id:8,
@@ -100,6 +100,16 @@ export const socialData=[
 export const experienceData=[
     {
         id:1,
+        duration:'July, 2024 - Aug, 2024',
+        title:'Software Engineering Intern , GBTL',
+        overview:[
+            'Leveraged ABAP and SAP ERP to customize and optimize sales and distribution processes, enhancing system efficiency.',
+            'Developed and customized sales and distribution modules using ABAP in SAP ERP, streamlining order processing and inventory management for improved business performance.',
+            'Worked closely with cross-functional teams to resolve issues and implement best practices in SAP ERP systems using ABAP.',
+        ]
+      },
+    {
+        id:2,
         title:'Full Stack Developer Intern , Web3Scope',
         duration:'Oct, 2023 - Nov, 2023',
         overview:[
@@ -108,5 +118,13 @@ export const experienceData=[
             'Actively contributed to the rapid development of the Minimum Viable Product (MVP) by implementing key features aligned with project goals and user requirements.',
             'Collaborated closely with cross-functional teams to gather feedback and iterate on features, ensuring a quick and effective development cycle.'
         ]
-    }
+    },
+    {
+        id:3,
+        title:'Frontend Developer , Comify Technologies',
+        overview:[
+            'Developed a responsive and attractive landing page using Next.js, TypeScript, and AOS npm package.',
+            'Increased adoption of existing product features through collaborative efforts with developers and designers resulting in improved product performance and customer satisfaction.',
+        ]
+    },
 ]

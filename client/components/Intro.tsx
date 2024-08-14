@@ -13,7 +13,7 @@ const Intro = () => {
         <div className="">
             <h2 className="text-base md:text-xl 2xl:text-2xl font-bold">👋 Hi, I am Shobhnik</h2>
             <p className="text-gray-500/85 text-sm md:text-base 2xl:text-lg mt-3">A frontend software engineer, a lifelong learning fullstack engineer. </p>
-            <p className="text-gray-500/85 pt-2 xl:pt-0 text-sm md:text-base 2xl:text-lg">20, he/him</p>
+            <p className="text-gray-500/85 pt-2 xl:pt-0 text-sm md:text-base 2xl:text-lg">21, he/him</p>
         </div>
     </div>
   )
