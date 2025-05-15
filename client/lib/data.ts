@@ -3,7 +3,7 @@ export const projectData = [
         id: 1,
         title: 'MakeMySkill',
         LiveLink: 'https://makemyskill.vercel.app',
-        GithubLink:'',
+        GithubLink: '',
         status: 'Live 👍🏽',
         techStack: 'Next.js, Shadcn/ui, PostgreSQL, Drizzle ORM, Framer Motion, Web Speech API, Node.js, Express.js',
         overview: [
@@ -14,20 +14,20 @@ export const projectData = [
             ['Used ', 'Web Speech-to-Text API', ' to capture spoken responses, convert them to text, and stream them to AI for real-time feedback.']
         ]
     },
-        {
-            id: 2,
-            title: 'MakeMyPath',
-            LiveLink: 'https://makemypath.xyz',
-            GithubLink:'',
-            status: 'Live 👍🏽',
-            techStack: 'Next.js, Shadcn/ui, Node.js, Express.js, Framer Motion, Clerk',
-            overview: [
-              ['Developed a web application where users input a ', 'domain', ' and AI dynamically generates tailored career roadmaps with milestones and personalized learning paths.'],
-              ['Built and integrated ', 'Node.js', ' and ', 'Express.js', ' based APIs to fetch dynamic AI-driven content.'],
-              ['Designed a modern, responsive UI using ', 'Framer Motion', ' animations and ', 'Shadcn/UI', ' component library.'],
-              ['Implemented secure authentication and session management using ', 'Clerk', ' to handle user data across the platform.']
-            ]
-          },          
+    {
+        id: 2,
+        title: 'MakeMyPath',
+        LiveLink: 'https://makemypath.xyz',
+        GithubLink: '',
+        status: 'Live 👍🏽',
+        techStack: 'Next.js, Shadcn/ui, Node.js, Express.js, Framer Motion, Clerk',
+        overview: [
+            ['Developed a web application where users input a ', 'domain', ' and AI dynamically generates tailored career roadmaps with milestones and personalized learning paths.'],
+            ['Built and integrated ', 'Node.js', ' and ', 'Express.js', ' based APIs to fetch dynamic AI-driven content.'],
+            ['Designed a modern, responsive UI using ', 'Framer Motion', ' animations and ', 'Shadcn/UI', ' component library.'],
+            ['Implemented secure authentication and session management using ', 'Clerk', ' to handle user data across the platform.']
+        ]
+    },
     // {
     //     id: 3,
     //     title: 'Promogenie',
@@ -42,20 +42,50 @@ export const projectData = [
     //         'Also implemented PWA webapp concept so that the user can download this webapp on their mobilephones and use it frequently in their day to day lives.'
     //     ]
     // },
-    // {
-    //     id: 4,
-    //     title: 'QuikChat',
-    //     LiveLink: 'https://github.com/Shobhnik13/QuikChat',
-    //     GithubLink: 'https://github.com/Shobhnik13/QuikChat',
-    //     status: 'Under Review',
-    //     techStack: 'Next.js, Redis, Web-Sockets, Typescript, Pusher.js ',
-    //     overview: [
-    //         'Developed a real-time chat application using WebSocket services, enabling instant message delivery and responsive user interactions.',
-    //         'Utilized WebSocket technology for bidirectional communication, ensuring low latency and efficient message processing.',
-    //         'Integrated Redis as a database solution to enhance message processing speed and overall performance.',
-    //         'Developed a user authentication and a friend request system, allowing users to send, accept, or deny friend requests.'
-    //     ]
-    // },
+    {
+        id: 3,
+        title: 'BingePicks',
+        LiveLink: 'https://bingepicks.vercel.app/',
+        GithubLink: '',
+        status: 'Live 👍🏽',
+        techStack: 'Next.js, Drizzle ORM, PostgreSQL, Shadcn/UI',
+        overview: [
+            ['Built a platform where users can ', 'add and share movies/shows', ' with others to reduce time spent deciding what to watch.'],
+            ['Enabled users to ', 'rate each other’s recommendations', ', promoting community-driven discovery and rankings.'],
+            ['Top-rated movies are shown globally using a ', 'dynamic leaderboard system', ' based on user votes and feedback.'],
+            ['Implemented the core using ', 'Next.js', ', structured backend via ', 'Drizzle ORM', ' and database with ', 'PostgreSQL', '.'],
+            ['Crafted a responsive UI using ', 'Shadcn/UI', ' components for clean and modern design aesthetics.']
+        ]
+    },
+    {
+        id: 4,
+        title: 'Excuz Me',
+        LiveLink: 'https://excuzme.vercel.app',
+        GithubLink: '',
+        status: 'Live 👍🏽',
+        techStack: 'Next.js, Gemini API, ShadCN UI, Tailwind CSS, TypeScript',
+        overview: [
+            ['Developed a ', 'corporate excuse generator', ' that creates professional-sounding reasons for workplace situations.'],
+            ['Integrated ', 'Google Gemini API', ' to generate contextually appropriate and customizable excuses based on user inputs.'],
+            ['Implemented ', 'custom gemini key addition feature', ' allowing users to provide and embbed their own key, for fast and seamless responses.'],
+            ['Designed a ', 'clean, intuitive interface', ' using ShadCN UI components and Tailwind CSS for a seamless user experience.']
+        ]
+    },
+    {
+        id: 5,
+        title: 'QuikChat',
+        LiveLink: '',
+        GithubLink: 'https://github.com/Shobhnik13/QuikChat',
+        status: 'Under Review',
+        techStack: 'Next.js, Redis, WebSockets, TypeScript, Pusher.js',
+        overview: [
+            ['Built a ', 'real-time chat application', ' using ', 'WebSockets', ', enabling instant messaging and responsive user interaction.'],
+            ['Leveraged ', 'Pusher.js', ' to implement ', 'bidirectional communication', ', ensuring low latency and smooth message flow.'],
+            ['Integrated ', 'Redis', ' to manage message streams efficiently, improving system performance and scalability.'],
+            ['Implemented ', 'user authentication', ' and a ', 'friend request system', ', allowing users to send, accept, or decline chat invites.']
+        ]
+    },
+  
     // {
     //     id:3,
     //     title:'SketchIt',
@@ -70,6 +100,7 @@ export const projectData = [
     //         'Implement WebSocket protocol with Socket.io library to enable real-time communication between the server and clients, facilitating multiplayer drawing functionality with instant updates across all connected users.'
     //     ]
     // },
+
 ]
 
 
