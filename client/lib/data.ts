@@ -1,5 +1,37 @@
 export const projectData = [
     {
+        id: 6,
+        title: 'MyBrainDump',
+        LiveLink: 'https://mybraindump.shobhnik.xyz',
+        GithubLink: '',
+        status: 'Live 👍🏽',
+        techStack: 'Next.js, Shadcn/ui, MongoDB, Node.js, Express.js, Web Speech API, Gemini API, Clerk',
+        overview: [
+            ['Built an ', 'AI-powered task and date management platform', ' where users can ', 'speak their thoughts naturally', ' and have them ', 'converted into actionable tasks by AI', '.'],
+            ['Integrated ', 'Web Speech API', ' for capturing voice input and ', 'Gemini API', ' for intelligent task and date parsing.'],
+            ['Users can ', 'edit, complete, delete, or restore tasks', ' seamlessly within an intuitive dashboard.'],
+            ['Implemented a feature for ', 'storing important dates through voice', ' with automated ', 'reminder notifications before the event', '.'],
+            ['Used ', 'MongoDB', ' with a custom schema to manage user-specific tasks and dates, ensuring scalability and performance.'],
+            ['Secured user data and sessions using ', 'Clerk authentication', ' and managed routes with a ', 'Node.js + Express backend', '.']
+        ]
+    },
+    {
+        id: 7,
+        title: 'Gitalyze',
+        LiveLink: 'https://gitalyze.xyz/',
+        GithubLink: '',
+        status: 'Live 👍🏽',
+        techStack: 'React.js, Node.js, Express.js,  Shadcn/UI, Github API, Redis',
+        overview: [
+            ['Developed a ', 'GitHub profile analyzer', ' that allows users to enter their GitHub username and instantly view a ', 'visually rich dashboard', ' of their repositories, contributions, and coding stats.'],
+            ['Used the ', 'GitHub API', ' to fetch real-time user data, including commit history, repository details, and language usage.'],
+            ['Generated ', 'skill-based statistics and insights', ' by analyzing commit patterns, repo metadata, and language distribution, offering a unique and engaging representation of a developer\'s work.'],
+            ['Designed the frontend with ', 'React.js and Shadcn/UI', ' for a clean, modern, and responsive interface.'],
+            ['Implemented a ', 'Node.js and Express.js backend', ' with optimized API routes and caching using ', 'Redis', ' for fast and efficient data delivery.'],
+            ['Used by over ', '100+ developers', ' to showcase their GitHub activity in a more exciting and insightful way.']
+        ]
+    },    
+    {
         id: 1,
         title: 'MakeMySkill',
         LiveLink: 'https://makemyskill.vercel.app',
@@ -85,7 +117,7 @@ export const projectData = [
             ['Implemented ', 'user authentication', ' and a ', 'friend request system', ', allowing users to send, accept, or decline chat invites.']
         ]
     },
-  
+
     // {
     //     id:3,
     //     title:'SketchIt',
@@ -133,10 +165,17 @@ export const socialData = [
     },
     {
         id: 5,
-        title: 'Instagram',
-        subText: '@shobhnik__13',
-        link: 'https://www.instagram.com/shobhnik__13/',
+        title: 'Medium',
+        subText: '@shobhnikw',
+        link: 'https://medium.com/@shobhnikw',
     },
+    {
+        id: 10,
+        title: 'Peerlist',
+        subText: '@shobhnik13',
+        link: 'https://peerlist.io/shobhnik13',
+    },
+    
     {
         id: 6,
         title: 'Schedule a meeting',
@@ -185,13 +224,12 @@ export const experienceData = [
     },
     {
         id: 3,
-        title: 'Full Stack Developer Intern, Web3Scope',
-        duration: 'Oct, 2023 - Dec, 2023',
+        title: 'Freelancing / Contract work',
+        duration: 'Oct, 2023 - July, 2024',
         overview: [
-            ['Built a scalable component library using ', 'Next.js', ' and ', 'TypeScript', ', ensuring long-term code reusability and maintainability.'],
-            ['Implemented smooth and responsive animations with ', 'Framer Motion', ' to elevate component user experience.'],
-            ['Contributed to fast-paced development of the ', 'MVP', ', implementing key features aligned with business goals.'],
-            ['Collaborated with cross-functional teams to iterate quickly on features based on user feedback.']
+            ['Served 10+ international clients providing full stack solutions'],
+            ['Developed mutiple MVPs, DB migrations and deployement monitoring'],
+            ['Tech used: Typescript, Javascript, React.js, Next.js, Node.js, Express.js, Tailwind, AWS, Vercel, Azure, MongoDb, Postgres, Redis, Docker'],
         ]
     },
     // {
@@ -221,7 +259,7 @@ export const skillData = [
     {
         id: 1,
         "category": "languages",
-        "skills": ["JavaScript", "TypeScript", "C++", "C", "SQL"]
+        "skills": ["JavaScript", "TypeScript", "C++", "C"]
     },
     {
         id: 2,
@@ -235,7 +273,17 @@ export const skillData = [
     },
     {
         id: 4,
-        "category": "tools",
-        "skills": ["Git", "Docker", "Postman", "AWS (EC2, S3, Cloudfront)", "Cloudflare-workers(Serverless)", "Burp Suite", "Vercel"]
+        "category": "devops/infra",
+        "skills": ["Git", "Docker", "Postman", "AWS (EC2, S3, Cloudfront)", "Azure(Key Vault, Blob storage , VM)", "Cloudflare-workers(Serverless)", "Burp Suite", "Vercel", "Messaging Queues", ]
     }
 ]
+
+export const blogData = [
+    {
+        id: 1,
+        title: "How to build a fully scalable and customisable job scheduler that can handle thousands of concurrent requests in node.js?",
+        image: "/blog_nodejs.webp",
+        link: "https://medium.com/@shobhnikw/how-to-build-a-fully-scalable-and-customisable-job-scheduler-that-can-handle-thousands-of-13dc5b2d564b"
+    },
+   
+];

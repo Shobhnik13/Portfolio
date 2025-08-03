@@ -13,7 +13,7 @@ const HireMe = () => {
             <Button className="hover:scale-95 ease-in-out transition-all duration-100">Schedule a meet / cal.com</Button>
             </Link>
  
- 
+  
             <Link target="_blank" className="flex text-sm 2xl:text-base hover:underline flex-row gap-x-1 items-center justify-center" href={'https://drive.google.com/file/d/18TMjPV4I-4BJm3emtaymUXye7CmUgRJu/view?usp=sharing'}>Resume <GoArrowUpRight className="text-base mt-1"/> </Link>
         </div>
     </div>

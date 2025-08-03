@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const Projects = () => {
   const [viewMore, setViewMore] = useState(false)
-  const visibleProjects = projectData.slice(0, 2)
+  const visibleProjects = projectData.slice(0, 4)
 
   return (
     <div className="flex flex-col justify-center mt-16 pb-10">
@@ -22,14 +22,14 @@ const Projects = () => {
           {(viewMore ? projectData : visibleProjects).map((data) => (
             <motion.div
               layout
-              key={data.id}
+              key={data?.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="border-l-2 hover:border-purple-300 hover:duration-200 flex flex-col gap-y-1 p-4"
             >
-              <p className="text-base font-[500] capitalize">{data.title}</p>
+              <p className="text-base font-[500] capitalize">{data?.title}</p>
               <div className="flex flex-row gap-x-4 text-sm 2xl:text-base text-gray-500/85">
                 {data?.LiveLink && (
                   <Link
@@ -53,15 +53,15 @@ const Projects = () => {
               <Badge
                 variant="secondary"
                 className={`mt-2 ${
-                  data.status === 'Under Review'
+                  data?.status === 'Under Review'
                     ? 'bg-orange-500 text-white'
                     : 'bg-green-500 text-black'
                 } capitalize w-[110px] flex items-center justify-center text-center`}
               >
-                {data.status}
+                {data?.status}
               </Badge>
               <ul className="flex p-4 flex-col gap-y-2">
-                {data.overview.map((item, idx) => (
+                {data?.overview.map((item, idx) => (
                   <li key={idx} className="list-disc text-sm 2xl:text-base text-gray-500/85">
                     {Array.isArray(item)
                       ? item.map((part, i) =>
@@ -77,7 +77,7 @@ const Projects = () => {
                   </li>
                 ))}
               </ul>
-              <p className="capitalize text-sm 2xl:text-base text-gray-500/85">{`tech stack: ${data.techStack}`}</p>
+              <p className="capitalize text-sm 2xl:text-base text-gray-500/85">{`tech stack: ${data?.techStack}`}</p>
             </motion.div>
           ))}
         </AnimatePresence>
