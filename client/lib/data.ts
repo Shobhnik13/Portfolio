@@ -30,7 +30,7 @@ export const projectData = [
             ['Implemented a ', 'Node.js and Express.js backend', ' with optimized API routes and caching using ', 'Redis', ' for fast and efficient data delivery.'],
             ['Used by over ', '100+ developers', ' to showcase their GitHub activity in a more exciting and insightful way.']
         ]
-    },    
+    },
     {
         id: 1,
         title: 'MakeMySkill',
@@ -175,7 +175,7 @@ export const socialData = [
         subText: '@shobhnik13',
         link: 'https://peerlist.io/shobhnik13',
     },
-    
+
     {
         id: 6,
         title: 'Schedule a meeting',
@@ -206,12 +206,15 @@ export const experienceData = [
         duration: 'Feb 2025 – Present',
         location: 'Noida (In-office)',
         overview: [
-            ['Developed scalable frontend features using ', 'React.js', ' (Bulk File Upload, Role-Based Access Management, Analytics Dashboard), enhancing ', 'UX', ' and improving user retention by ', '30%', '.'],
-            ['Built robust ', 'Node.js', ' and ', 'Express.js', ' APIs, including a custom ', 'EDI parser', ', full ', 'user activity logging', ', and integrated ', 'Azure Key Vault', ' for secure secret handling.'],
-            ['Optimized backend performance using ', 'SQL stored procedures', ', ', 'query indexing', ', and ', 'Redis caching', ', improving data retrieval speed and scalability.'],
-            ['Collaborated with ', 'UI/UX', ' and ', 'QA teams', ' to deliver responsive, bug-free interfaces with high-quality, ', 'production-ready deployments', '.']
+            ['Developed scalable and reusable frontend components using ', 'React.js', ' (Bulk File Upload, Role-Based Access Management, Analytics Dashboard), enhancing ', 'UX', ' and boosting user retention by ', '30%', '.'],
+            ['Built and optimized high-performance ', 'Node.js', ' and ', 'Express.js APIs', ', reducing average execution time from ', '10 seconds to <1000ms', ' through logic refactoring and Redis-based caching.'],
+            ['Delivered and deployed a core product feature that led to a revenue increase of over ', '166%', ' annually'],
+            ['Engineered a custom ', 'EDI parser', ' capable of processing over ', '5.5 million records in minutes', ', enabling fast, large-scale file parsing.'],
+            ['Improved database performance through advanced ', 'MySQL InnoDB buffer tuning', ', strategic ', 'query indexing', ', and optimal schema design — significantly cutting down I/O bottlenecks.'],
+            ['Handled deployments and secure infrastructure setup using ', 'Nginx', ', ', 'Azure Blob Storage', ', and ', 'Azure Key Vault', ' for encrypted secret and asset management.'],
         ]
-    },
+    }
+    ,
     {
         id: 2,
         title: 'Software Engineering Intern, Publicis Groupe',
@@ -274,7 +277,7 @@ export const skillData = [
     {
         id: 4,
         "category": "devops/infra",
-        "skills": ["Git", "Docker", "Postman", "AWS (EC2, S3, Cloudfront)", "Azure(Key Vault, Blob storage , VM)", "Cloudflare-workers(Serverless)", "Burp Suite", "Vercel", "Messaging Queues", ]
+        "skills": ["Git", "Docker", "Postman", "AWS (EC2, S3, Cloudfront)", "Azure(Key Vault, Blob storage , VM)", "Cloudflare-workers(Serverless)", "Burp Suite", "Vercel", "Messaging Queues",]
     }
 ]
 
@@ -285,5 +288,5 @@ export const blogData = [
         image: "/blog_nodejs.webp",
         link: "https://medium.com/@shobhnikw/how-to-build-a-fully-scalable-and-customisable-job-scheduler-that-can-handle-thousands-of-13dc5b2d564b"
     },
-   
+
 ];
