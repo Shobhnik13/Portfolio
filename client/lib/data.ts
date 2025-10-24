@@ -1,141 +1,128 @@
 export const projectData = [
     {
-        id: 6,
-        title: 'MyBrainDump',
-        LiveLink: 'https://mybraindump.shobhnik.xyz',
-        GithubLink: '',
-        status: 'Live 👍🏽',
-        techStack: 'Next.js, Shadcn/ui, MongoDB, Node.js, Express.js, Web Speech API, Gemini API, Clerk',
+        id: 5,
+        title: "NovaEnv",
+        name: "novaenv",
+        LiveLink: "https://novaenv.shobhnik.xyz",
+        gitLink: "https://github.com/Shobhnik13/NovaEnv-frontend",
+        status: "Building 🧩",
+        techStack: ["Next.js", "Typescript", "Node.js", "Express.js", "MongoDB", "AES-256 Encryption", "Tailwind CSS", "shadcn/ui"],
         overview: [
-            ['Built an ', 'AI-powered task and date management platform', ' where users can ', 'speak their thoughts naturally', ' and have them ', 'converted into actionable tasks by AI', '.'],
-            ['Integrated ', 'Web Speech API', ' for capturing voice input and ', 'Gemini API', ' for intelligent task and date parsing.'],
-            ['Users can ', 'edit, complete, delete, or restore tasks', ' seamlessly within an intuitive dashboard.'],
-            ['Implemented a feature for ', 'storing important dates through voice', ' with automated ', 'reminder notifications before the event', '.'],
-            ['Used ', 'MongoDB', ' with a custom schema to manage user-specific tasks and dates, ensuring scalability and performance.'],
-            ['Secured user data and sessions using ', 'Clerk authentication', ' and managed routes with a ', 'Node.js + Express backend', '.']
-        ]
-    },
-    {
-        id: 7,
-        title: 'Gitalyze',
-        LiveLink: 'https://gitalyze.xyz/',
-        GithubLink: '',
-        status: 'Live 👍🏽',
-        techStack: 'React.js, Node.js, Express.js,  Shadcn/UI, Github API, Redis',
-        overview: [
-            ['Developed a ', 'GitHub profile analyzer', ' that allows users to enter their GitHub username and instantly view a ', 'visually rich dashboard', ' of their repositories, contributions, and coding stats.'],
-            ['Used the ', 'GitHub API', ' to fetch real-time user data, including commit history, repository details, and language usage.'],
-            ['Generated ', 'skill-based statistics and insights', ' by analyzing commit patterns, repo metadata, and language distribution, offering a unique and engaging representation of a developer\'s work.'],
-            ['Designed the frontend with ', 'React.js and Shadcn/UI', ' for a clean, modern, and responsive interface.'],
-            ['Implemented a ', 'Node.js and Express.js backend', ' with optimized API routes and caching using ', 'Redis', ' for fast and efficient data delivery.'],
-            ['Used by over ', '100+ developers', ' to showcase their GitHub activity in a more exciting and insightful way.']
-        ]
+            "Dark, metallic-themed environment variable manager.",
+            "Project-based organization with token-based structure.",
+        ],
+        type: "fullstack",
+        image: "/projects/nenv.png",
     },
     {
         id: 1,
-        title: 'MakeMySkill',
-        LiveLink: 'https://makemyskill.vercel.app',
-        GithubLink: '',
-        status: 'Live 👍🏽',
-        techStack: 'Next.js, Shadcn/ui, PostgreSQL, Drizzle ORM, Framer Motion, Web Speech API, Node.js, Express.js',
+        title: "MyBrainDump",
+        name: "mybraindump",
+        LiveLink: "https://mybraindump.shobhnik.xyz",
+        gitLink: "https://github.com/Shobhnik13/MyBrainDump-frontend", // Add GitHub link if available
+        status: "Live 👍🏽",
+        techStack: [
+            "Next.js",
+            "Shadcn/ui",
+            "MongoDB",
+            "Node.js",
+            "Express.js",
+            "Web Speech API",
+            "Gemini API",
+            "Clerk",
+        ],
         overview: [
-            ['Developed an ', 'AI Mock Interview Platform', ' where users can create interviews, receive ', 'domain-specific questions', ', record answers, and get real-time ', 'AI-generated feedback', '.'],
-            ['Integrated APIs for fetching dynamic interview data powered by ', 'Node.js', ' and ', 'Express.js', '.'],
-            ['Built the platform using ', 'Next.js', ' with serverless API routes, ensuring fast performance and scalable architecture.'],
-            ['Implemented ', 'Drizzle ORM', ' with ', 'PostgreSQL', ' to handle secure and efficient database interactions for user data and sessions.'],
-            ['Used ', 'Web Speech-to-Text API', ' to capture spoken responses, convert them to text, and stream them to AI for real-time feedback.']
-        ]
+            "AI-powered task and date manager.",
+            "Users speak naturally, and AI converts it into actionable tasks, so that you can focus on what matters.",
+        ],
+        type: "fullstack",
+        image: "/projects/mbd.png",
     },
     {
         id: 2,
-        title: 'MakeMyPath',
-        LiveLink: 'https://makemypath.xyz',
-        GithubLink: '',
-        status: 'Live 👍🏽',
-        techStack: 'Next.js, Shadcn/ui, Node.js, Express.js, Framer Motion, Clerk',
+        title: "Gitalyze",
+        name: "gitalyze",
+        LiveLink: "https://gitalyze.xyz",
+        gitLink: "https://github.com/Shobhnik13/Gitalyze",
+        status: "Stable 🟢",
+        techStack: ["Next.js", "Redis", 'GitHub API', "Shadcn/ui", "Node.js", "Express.js"],
         overview: [
-            ['Developed a web application where users input a ', 'domain', ' and AI dynamically generates tailored career roadmaps with milestones and personalized learning paths.'],
-            ['Built and integrated ', 'Node.js', ' and ', 'Express.js', ' based APIs to fetch dynamic AI-driven content.'],
-            ['Designed a modern, responsive UI using ', 'Framer Motion', ' animations and ', 'Shadcn/UI', ' component library.'],
-            ['Implemented secure authentication and session management using ', 'Clerk', ' to handle user data across the platform.']
-        ]
+            "Developed a GitHub profile analyzer that allows users to enter their GitHub username and instantly view a visually rich dashboard of their repositories, contributions, and coding stats."
+        ],
+        type: "fullstack",
+        image: "/projects/gl.png",
     },
-    // {
-    //     id: 3,
-    //     title: 'Promogenie',
-    //     LiveLink: 'https://promogenie.xyz/',
-    //     GithubLink: 'https://github.com/Shobhnik13/Promogenie',
-    //     status: 'Under Review',
-    //     techStack: 'Next.js, Node.js, Express.js, Typescript, JavaScript, Supabase, MongoDB',
-    //     overview: [
-    //         'Developed a SaaS (Software as a Service) application for AI content generation targeting various social media platforms.',
-    //         'It was launched few months ago and currently it has 50+ Monthly Active Users.',
-    //         'Implemented Next.js and TypeScript for the frontend service, ensuring robust and efficient user interactions and Utilized Node.js and Express.js for the backend service, facilitating seamless data processing and API handling.',
-    //         'Also implemented PWA webapp concept so that the user can download this webapp on their mobilephones and use it frequently in their day to day lives.'
-    //     ]
-    // },
     {
         id: 3,
-        title: 'BingePicks',
-        LiveLink: 'https://bingepicks.vercel.app/',
-        GithubLink: '',
-        status: 'Live 👍🏽',
-        techStack: 'Next.js, Drizzle ORM, PostgreSQL, Shadcn/UI',
+        title: "MakeMyPath",
+        name: "makemypath",
+        LiveLink: "https://makemypath.shobhnik.xyz/",
+        gitLink: "https://github.com/Shobhnik13/makemypath",
+        status: "In Progress 🧠",
+        techStack: ["Next.js", "OpenAI API", "TypeScript", "Tailwind CSS", "Shadcn/ui", "Framer Motion"],
         overview: [
-            ['Built a platform where users can ', 'add and share movies/shows', ' with others to reduce time spent deciding what to watch.'],
-            ['Enabled users to ', 'rate each other’s recommendations', ', promoting community-driven discovery and rankings.'],
-            ['Top-rated movies are shown globally using a ', 'dynamic leaderboard system', ' based on user votes and feedback.'],
-            ['Implemented the core using ', 'Next.js', ', structured backend via ', 'Drizzle ORM', ' and database with ', 'PostgreSQL', '.'],
-            ['Crafted a responsive UI using ', 'Shadcn/UI', ' components for clean and modern design aesthetics.']
-        ]
+            "An AI-powered roadmap generator that helps users create personalized learning paths based on their goals and interests.",
+        ],
+        type: "fullstack",
+        image: "/projects/mmp.png",
     },
     {
         id: 4,
-        title: 'Excuz Me',
-        LiveLink: 'https://excuzme.vercel.app',
-        GithubLink: '',
-        status: 'Live 👍🏽',
-        techStack: 'Next.js, Gemini API, ShadCN UI, Tailwind CSS, TypeScript',
+        title: "ChatApp",
+        name: "chatapp",
+        LiveLink: "",
+        gitLink: "https://github.com/Shobhnik13/chatApp",
+        status: "Stable 💪",
+        techStack: ["Redis", "Pub-sub", "Socket.io", "Typescript", "Turborepo", "Node.js", "Express.js"],
         overview: [
-            ['Developed a ', 'corporate excuse generator', ' that creates professional-sounding reasons for workplace situations.'],
-            ['Integrated ', 'Google Gemini API', ' to generate contextually appropriate and customizable excuses based on user inputs.'],
-            ['Implemented ', 'custom gemini key addition feature', ' allowing users to provide and embbed their own key, for fast and seamless responses.'],
-            ['Designed a ', 'clean, intuitive interface', ' using ShadCN UI components and Tailwind CSS for a seamless user experience.']
-        ]
+            "A scalable chat app template built to integrate with various frontends and services.",
+        ],
+        type: "backend",
+        image: "/projects/chat.png",
     },
     {
-        id: 5,
-        title: 'QuikChat',
-        LiveLink: '',
-        GithubLink: 'https://github.com/Shobhnik13/QuikChat',
-        status: 'Under Review',
-        techStack: 'Next.js, Redis, WebSockets, TypeScript, Pusher.js',
+        id: 6,
+        title: "DownDetective",
+        name: "downdetective",
+        LiveLink: "",
+        gitLink: "https://github.com/Shobhnik13/DownDetective",
+        status: "Stable 💪",
+        techStack: ["Golang"],
         overview: [
-            ['Built a ', 'real-time chat application', ' using ', 'WebSockets', ', enabling instant messaging and responsive user interaction.'],
-            ['Leveraged ', 'Pusher.js', ' to implement ', 'bidirectional communication', ', ensuring low latency and smooth message flow.'],
-            ['Integrated ', 'Redis', ' to manage message streams efficiently, improving system performance and scalability.'],
-            ['Implemented ', 'user authentication', ' and a ', 'friend request system', ', allowing users to send, accept, or decline chat invites.']
-        ]
+            "A fun project to monitor websites and check whether they are up or down",
+        ],
+        type: "backend",
+        image: "/projects/golang.png",
     },
-
-    // {
-    //     id:3,
-    //     title:'SketchIt',
-    //     LiveLink:'https://sketch-it-frontend.vercel.app/',
-    //     GithubLink:'https://github.com/Shobhnik13/SketchIt-frontend',
-    //     status:'Under Review',
-    //     techStack:'Next.js, Typescript, Tailwind, Socket.io, Node.js, Express.js',
-    //     overview:[
-    //         'Implement a collaborative drawing board where multiple users can join and draw simultaneously in real-time.',
-    //         'Utilize Next.js , TypeScript, Tailwind for user interface and design',
-    //         'Employ Express.js and Node.js for the backend to handle HTTP requests',
-    //         'Implement WebSocket protocol with Socket.io library to enable real-time communication between the server and clients, facilitating multiplayer drawing functionality with instant updates across all connected users.'
-    //     ]
-    // },
-
+    {
+        id: 6,
+        title: "Job Scheduler",
+        name: "jobscheduler",
+        LiveLink: "",
+        gitLink: "https://github.com/Shobhnik13/Scheduler",
+        status: "Stable 💪",
+        techStack: ["Golang", "Goroutine", "Channel", "Mutex"],
+        overview: [
+            "A customizable job scheduler for scheduling one time and recurring jobs",
+        ],
+        type: "backend",
+        image: "/projects/gs.png",
+    },
+    {
+        id: 6,
+        title: "LoadBalancer",
+        name: "loadbalancer",
+        LiveLink: "",
+        gitLink: "https://github.com/Shobhnik13/Load-Balancer",
+        status: "Stable 💪",
+        techStack: ["Golang", "Round Robin Algorithm", "HTTP", "Goroutine", "Mutex"],
+        overview: [
+            "A simple load balancer implementing the round robin algorithm to distribute incoming HTTP requests across multiple servers.",
+        ],
+        type: "backend",
+        image: "/projects/lb.png",
+    }
 ]
-
-
 
 
 export const socialData = [
@@ -160,8 +147,8 @@ export const socialData = [
     {
         id: 4,
         title: 'Linkedin',
-        subText: 'linkedin.com/in/shobhnik',
-        link: 'https://www.linkedin.com/in/shobhnik-wadhwa-9986b6203/',
+        subText: 'linkedin.com/in/shobhnik13',
+        link: 'https://www.linkedin.com/in/shobhnik13/',
     },
     {
         id: 5,
@@ -186,7 +173,7 @@ export const socialData = [
         id: 7,
         title: 'Resume',
         subText: 'shobhnik13/resume',
-        link: 'https://drive.google.com/file/d/1soW_yXzdn079YGAISVL6arcG_KvnDWDq/view?usp=sharing',
+        link: 'https://drive.google.com/file/d/1aTxVfQoofBxWySbcsZO-iTZa8IIyjgmz/view?usp=sharing',
     },
     {
         id: 8,
@@ -196,9 +183,6 @@ export const socialData = [
     }
 ]
 
-
-
-
 export const experienceData = [
     {
         id: 1,
@@ -206,87 +190,178 @@ export const experienceData = [
         duration: 'Feb 2025 – Present',
         location: 'Noida (In-office)',
         overview: [
-            ['Developed scalable and reusable frontend components using ', 'React.js', ' (Bulk File Upload, Role-Based Access Management, Analytics Dashboard), enhancing ', 'UX', ' and boosting user retention by ', '30%', '.'],
-            ['Built and optimized high-performance ', 'Node.js', ' and ', 'Express.js APIs', ', reducing average execution time from ', '10 seconds to <1000ms', ' through logic refactoring and Redis-based caching.'],
-            ['Delivered and deployed a core product feature that led to a revenue increase of over ', '166%', ' annually'],
-            ['Engineered a custom ', 'EDI parser', ' capable of processing over ', '5.5 million records in minutes', ', enabling fast, large-scale file parsing.'],
-            ['Improved database performance through advanced ', 'MySQL InnoDB buffer tuning', ', strategic ', 'query indexing', ', and optimal schema design — significantly cutting down I/O bottlenecks.'],
-            ['Handled deployments and secure infrastructure setup using ', 'Nginx', ', ', 'Azure Blob Storage', ', and ', 'Azure Key Vault', ' for encrypted secret and asset management.'],
+            [
+                'Owned and engineered a custom ',
+                'EDI parser',
+                ' capable of processing over ',
+                '20k files (~6M records) in minutes',
+                ', directly boosting platform efficiency and increasing revenue by ',
+                '166%',
+                '.'
+            ],
+            [
+                'Redesigned backend using ',
+                'Node.js',
+                ' + ',
+                'Express',
+                ', ',
+                'PostgreSQL',
+                ', and ',
+                'Redis',
+                ', optimized queries, reduced API response times from ',
+                '10s → <1s',
+                ', and built event-driven microservices integrated with ',
+                'Kafka',
+                ', ',
+                'Grafana',
+                ', and ',
+                'Prometheus',
+                ' for full observability.'
+            ],
+            [
+                'Developed full-stack features including ',
+                'React dashboards with Chart.js',
+                ', integrated APIs, implemented a dynamic ',
+                'RBAC module',
+                ', and built ',
+                'bulk file upload with real-time progress tracking',
+                '.'
+            ]
         ]
     }
     ,
     {
         id: 2,
-        title: 'Software Engineering Intern, Publicis Groupe',
-        duration: 'Aug, 2024 - Oct, 2024',
+        title: 'Software Engineer, Freelancing – Remote',
+        duration: 'Oct 2024 – Jan 2025',
         overview: [
-            ['Worked in the ', 'Cybersecurity team', ', gaining hands-on experience in information security practices and tooling.'],
-            ['Used ', 'Burp Suite', ' to assess web vulnerabilities and explored real-world attacks including the ', 'OWASP Top 10', '.'],
-            ['Automated internal tasks using ', 'Python scripts', ' and ', 'shell scripting', ', improving operational efficiency.']
+            [
+                'Built a scalable ticketing platform for customer support using ',
+                'Node.js, Express, MongoDB, Redis, BullMQ',
+                ' with an automated ticket assignment algorithm.'
+            ],
+            [
+                'Designed multi-tenant architecture with ',
+                'RBAC',
+                ', serving 5+ teams with 200–250 members, providing Jira-like functionality for different client organizations.'
+            ],
+            [
+                'Led full-stack development as sole contributor: designed UI using ',
+                'Next.js, Tailwind CSS, Shadcn, Framer Motion',
+                ', integrated APIs, implemented pagination, infinite scroll using react-virtualized, dynamic filtering, responsive layouts, and real-time updates for high-performance frontend.'
+            ],
+            [
+                'Implemented a complete end-to-end real-time offline and online notification system using ',
+                'Redis Pub/Sub Adapter, Node.js, Express, Socket.io and PostgreSQL',
+                ', capable of handling over 10,000 concurrent requests per minute with horizontally scalable architecture.'
+            ]
         ]
     },
     {
         id: 3,
-        title: 'Freelancing / Contract work',
-        duration: 'Oct, 2023 - July, 2024',
+        title: 'Software Engineer Intern, Publicis Groupe – Gurugram, India',
+        duration: 'Aug 2024 – Oct 2024',
         overview: [
-            ['Served 10+ international clients providing full stack solutions'],
-            ['Developed mutiple MVPs, DB migrations and deployement monitoring'],
-            ['Tech used: Typescript, Javascript, React.js, Next.js, Node.js, Express.js, Tailwind, AWS, Vercel, Azure, MongoDb, Postgres, Redis, Docker'],
+            [
+                'Contributed as a junior member of the ',
+                'cybersecurity team',
+                ', developing authorized ',
+                'JavaScript malwares',
+                ' to simulate attacks for internal vulnerability assessments.'
+            ],
+            [
+                'Performed hands-on vulnerability research, completed ',
+                'OWASP Top 10 labs',
+                ' and ',
+                'PortSwigger exercises using Burp Suite',
+                ', and practiced defense scenarios on ',
+                'Hack The Box',
+                '.'
+            ],
+            [
+                'Collaborated with senior engineers to improve ',
+                'secure coding',
+                ' and ',
+                'application security practices',
+                '.'
+            ]
         ]
-    },
-    // {
-    //   id: 4,
-    //   title: 'Software Engineering Intern, GBTL',
-    //   duration: 'June, 2024 - Aug, 2024',
-    //   overview: [
-    //     ['Customized and optimized sales and distribution processes using ', 'SAP ERP', ' and ', 'ABAP', ', enhancing business workflow efficiency.'],
-    //     ['Developed and maintained ', 'sales and distribution modules', ' in ABAP, improving order processing and inventory tracking.'],
-    //     ['Worked with cross-functional teams to resolve real-time SAP issues and implement best practices for ERP usage.']
-    //   ]
-    // },
-    // {
-    //   id: 5,
-    //   title: 'Frontend Developer, Comify Technologies',
-    //   duration: 'Contract-based',
-    //   overview: [
-    //     ['Built a fully responsive and engaging landing page using ', 'Next.js', ', ', 'TypeScript', ', and ', 'AOS animations', ' for better UX.'],
-    //     ['Collaborated with designers and developers to improve feature adoption and overall product satisfaction.']
-    //   ]
-    // }
+    }
 ];
-
-
 
 export const skillData = [
     {
         id: 1,
-        "category": "languages",
-        "skills": ["JavaScript", "TypeScript", "C++", "C"]
+        category: "languages",
+        skills: [
+            { name: "JavaScript", logo: "/logos/js.svg" },
+            { name: "TypeScript", logo: "/logos/ts.svg" },
+            { name: "Golang", logo: "/logos/go.svg" },
+        ],
     },
     {
         id: 2,
-        "category": "frameworks",
-        "skills": ["React.js", "Next.js", "Express.js", "Node.js", "Redux", "Zustand"]
+        category: "frameworks",
+        skills: [
+            { name: "React.js", logo: "/logos/react.svg" },
+            { name: "Next.js", logo: "/logos/nextjs.svg" },
+            { name: "Express.js", logo: "/logos/express.svg" },
+            { name: "Node.js", logo: "/logos/nodejs.svg" },
+            { name: "Socket.io", logo: "/logos/sio.svg" },
+        ],
     },
     {
         id: 3,
-        "category": "db",
-        "skills": ["PostgreSQL", "MongoDB", "MySQL", "Firebase", "Redis", "Supabase"]
+        category: "db",
+        skills: [
+            { name: "PostgreSQL", logo: "/logos/psql.svg" },
+            { name: "MongoDB", logo: "/logos/mongo.svg" },
+            { name: "MySQL", logo: "/logos/mysql.svg" },
+            { name: "Redis", logo: "/logos/redis.svg" },
+        ],
     },
     {
         id: 4,
-        "category": "devops/infra",
-        "skills": ["Git", "Docker", "Postman", "AWS (EC2, S3, Cloudfront)", "Azure(Key Vault, Blob storage , VM)", "Cloudflare-workers(Serverless)", "Burp Suite", "Vercel", "Messaging Queues",]
-    }
-]
+        category: "devops/infra",
+        skills: [
+            { name: "Git", logo: "/logos/git.svg" },
+            { name: "Docker", logo: "/logos/docker.svg" },
+            { name: "Postman", logo: "/logos/postman.svg" },
+            { name: "AWS", logo: "/logos/aws.svg" },
+            { name: "Azure", logo: "/logos/azure.svg" },
+            { name: "Cloudflare", logo: "/logos/cloudflare.svg" },
+            { name: "Burp Suite", logo: "/logos/burpsuite.svg" },
+        ],
+    },
+];
+
 
 export const blogData = [
     {
-        id: 1,
-        title: "How to build a fully scalable and customisable job scheduler that can handle thousands of concurrent requests in node.js?",
-        image: "/blog_nodejs.webp",
-        link: "https://medium.com/@shobhnikw/how-to-build-a-fully-scalable-and-customisable-job-scheduler-that-can-handle-thousands-of-13dc5b2d564b"
+        title: "Understanding Concurrency vs Parallelism in Node.js: The Beginner’s Guide – Part 1.",
+        description:
+            "Diving deep into the concepts of concurrency and parallelism in Node.js, exploring how they differ and their significance in building efficient applications.",
+        date: "2025-08-25",
+        readTime: "4 MIN READ",
+        tags: ["NODE.JS", "CONCURRENCY", "PARALLELISM", "BACKEBND", "WORKER THREADS", "CLUSTERING", "EVENT LOOP"],
+        href: "https://medium.com/@shobhnikw/concurrency-vs-parallelism-in-node-js-part-1-introduction-1b87c468b788"
     },
+    {
+        title: "How to engineer a fully scalable, customizable Node.js job scheduler capable of handling thousands of concurrent tasks effortlessly.",
+        description:
+            "A comprehensive guide to building a robust job scheduler in Node.js using BullMQ and Redis, designed to manage thousands of concurrent tasks with ease and efficiency.",
+        date: "2025-07-26",
+        readTime: "5 MIN READ",
+        tags: ["NODE.JS", "BULLMQ", "REDIS", "BACKEND", "WORKERS"],
+        href: "https://medium.com/@shobhnikw/how-to-build-a-fully-scalable-and-customisable-job-scheduler-that-can-handle-thousands-of-13dc5b2d564b"
+    },
+]
 
-];
+export const strengthsData = [
+    "0 → 1 product development, building from scratch",
+    "Designing scalable backend systems",
+    "Building clean, maintainable APIs",
+    "Solving complex data and algorithmic problems",
+    "Writing clean and well documented code",
+    "Rapid prototyping and product development",
+]

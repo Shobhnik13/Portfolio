@@ -8,10 +8,10 @@ const Experiences = () => {
       <p className="font-[500]">worked as.</p>
       <div className="mt-8 flex flex-col gap-y-8">
         {experienceData.map((data) => (
-          <div className="border-l-2 hover:border-purple-300  hover:duration-200 flex flex-col gap-y-1 p-4" key={data.id}>
+          <div className="border-l-2 hover:border-purple-300 dark:hover:border-white  hover:duration-200 flex flex-col gap-y-1 p-4" key={data.id}>
             <div className="flex  items-center justify-between">
               <p className="text-base font-[500] capitalize">{data.title}</p>
-              <p className="capitalize text-sm 2xl:text-base text-gray-500/85">{data.duration}</p>
+              <p className="capitalize text-sm 2xl:text-base text-slate-700 dark:text-slate-400">{data.duration}</p>
             </div>
             <ul className="flex p-4 flex-col gap-y-2">
               {data.overview.map((item, idx) => (
@@ -19,9 +19,9 @@ const Experiences = () => {
                   {Array.isArray(item)
                     ? item.map((part, i) =>
                       i % 2 === 1 ? (
-                        <strong key={i} className="text-gray-800 font-medium">{part}</strong>
+                        <strong key={i} className="text-black font-medium dark:text-white">{part}</strong>
                       ) : (
-                        <span key={i}>{part}</span>
+                        <span className="text-slate-700 dark:text-slate-400" key={i}>{part}</span>
                       )
                     )
                     : item}
