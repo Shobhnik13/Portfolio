@@ -29,9 +29,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/cookie": "^0.6.0",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/prop-types": "^15.7.15",
+    "@types/react": "^18.3.27",
     "@types/react-dom": "^18",
+    "@types/scheduler": "^0.26.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.0.4",
