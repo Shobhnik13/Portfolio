@@ -186,108 +186,137 @@ export const socialData = [
 export const experienceData = [
     {
         id: 1,
-        title: 'Software Engineer, Otomashen (E-solutions)',
-        duration: 'Feb 2025 – Present',
-        location: 'Noida (In-office)',
+        title: 'Backend Engineer, Xane AI',
+        duration: 'Jan 2026 – Present',
+        location: 'Gurugram, Haryana, India (On-site)',
         overview: [
             [
-                'Owned and engineered a custom ',
-                'EDI parser',
-                ' capable of processing over ',
-                '20k files (~6M records) in minutes',
-                ', directly boosting platform efficiency and increasing revenue by ',
-                '166%',
-                '.'
+                'Working as a ',
+                'Backend Engineer',
+                ' building scalable backend services and system architectures for AI-powered products.'
             ],
             [
-                'Redesigned backend using ',
+                'Designing and optimizing APIs and data pipelines using ',
                 'Node.js',
-                ' + ',
-                'Express',
+                ', ',
+                'TypeScript',
+                ', and modern backend practices.'
+            ],
+            [
+                'Collaborating with product and ML teams to deliver high-performance and reliable systems in production.'
+            ]
+        ]
+    },
+
+    {
+        id: 2,
+        title: 'Software Engineer, Otomashen',
+        duration: 'Feb 2025 – Jan 2026',
+        location: 'Noida, Uttar Pradesh, India (On-site)',
+        overview: [
+            [
+                'Built a custom ',
+                'EDI parser',
+                ' capable of processing ',
+                '20K+ files (~6M encrypted records)',
+                ' in minutes and scaled it to handle thousands of requests per minute.'
+            ],
+            [
+                'Optimized backend systems using ',
+                'Node.js',
                 ', ',
                 'PostgreSQL',
                 ', and ',
                 'Redis',
-                ', optimized queries, reduced API response times from ',
-                '10s → <1s',
-                ', and built event-driven microservices integrated with ',
-                'Kafka',
-                ', ',
-                'Grafana',
-                ', and ',
-                'Prometheus',
-                ' for full observability.'
-            ],
-            [
-                'Developed full-stack features including ',
-                'React dashboards with Chart.js',
-                ', integrated APIs, implemented a dynamic ',
-                'RBAC module',
-                ', and built ',
-                'bulk file upload with real-time progress tracking',
+                ', reducing API latency from ',
+                '7–8s → <500ms',
                 '.'
-            ]
-        ]
-    }
-    ,
-    {
-        id: 2,
-        title: 'Software Engineer, Freelancing – Remote',
-        duration: 'Oct 2024 – Jan 2025',
-        overview: [
-            [
-                'Built a scalable ticketing platform for customer support using ',
-                'Node.js, Express, MongoDB, Redis, BullMQ',
-                ' with an automated ticket assignment algorithm.'
             ],
             [
-                'Designed multi-tenant architecture with ',
+                'Developed event-driven microservices using ',
+                'Kafka',
+                ' and integrated ',
+                'Grafana',
+                ' and ',
+                'Prometheus',
+                ' for system monitoring and observability.'
+            ],
+            [
+                'Built internal tools including ',
                 'RBAC',
-                ', serving 5+ teams with 200–250 members, providing Jira-like functionality for different client organizations.'
+                ', bulk file upload, dashboards, and a job scheduler using ',
+                'BullMQ',
+                ' and ',
+                'Redis',
+                '.'
             ],
             [
-                'Led full-stack development as sole contributor: designed UI using ',
-                'Next.js, Tailwind CSS, Shadcn, Framer Motion',
-                ', integrated APIs, implemented pagination, infinite scroll using react-virtualized, dynamic filtering, responsive layouts, and real-time updates for high-performance frontend.'
-            ],
-            [
-                'Implemented a complete end-to-end real-time offline and online notification system using ',
-                'Redis Pub/Sub Adapter, Node.js, Express, Socket.io and PostgreSQL',
-                ', capable of handling over 10,000 concurrent requests per minute with horizontally scalable architecture.'
+                'Contributed to frontend and API development using ',
+                'React',
+                ', ',
+                'Node.js',
+                ', and ',
+                'also optimized the overall database performance',
+                'by indexing, query optimization, schema redesign and caching strategies.'
+            // done 3 client projects  
+            // lead aa team of 5 devs
+            // uber dispatcher
             ]
         ]
     },
+
     {
         id: 3,
-        title: 'Software Engineer Intern, Publicis Groupe – Gurugram, India',
-        duration: 'Aug 2024 – Oct 2024',
+        title: 'Full Stack Engineer, Stealth Startup',
+        duration: 'Aug 2024 – Jan 2025',
+        location: 'San Francisco, California (Remote)',
         overview: [
             [
-                'Contributed as a junior member of the ',
-                'cybersecurity team',
-                ', developing authorized ',
-                'JavaScript malwares',
-                ' to simulate attacks for internal vulnerability assessments.'
+                'Owned and built the entire ',
+                'ticketing system',
+                ' as the sole developer from design to production.'
             ],
             [
-                'Performed hands-on vulnerability research, completed ',
-                'OWASP Top 10 labs',
-                ' and ',
-                'PortSwigger exercises using Burp Suite',
-                ', and practiced defense scenarios on ',
-                'Hack The Box',
-                '.'
+                'Designed backend architecture, database schemas, and core ticket-processing workflows.'
             ],
             [
-                'Collaborated with senior engineers to improve ',
-                'secure coding',
+                'Built a scalable notification pipeline using ',
+                'BullMQ',
+                ', ',
+                'Redis',
+                ', ',
+                'PostgreSQL',
+                ', ',
+                'Socket.io',
+                ', and ',
+                'Node.js/TypeScript',
+                ', delivering thousands of notifications per second.'
+            ],
+            [
+                'Implemented ',
+                'RBAC',
+                ' + ',
+                'multi-tenancy',
+                ' and developed an AI agent using ',
+                'LangGraph',
+                ', ',
+                'LangChain',
+                ', and ',
+                'Gemini',
+                ' for automated ticket assignment and closure.'
+            ],
+            [
+                'Scaled the platform to ',
+                '200–250 users',
                 ' and ',
-                'application security practices',
-                '.'
+                '100K+ tickets',
+                ' in production.'
             ]
         ]
     }
 ];
+
+
 
 export const skillData = [
     {

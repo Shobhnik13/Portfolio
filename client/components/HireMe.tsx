@@ -9,11 +9,11 @@ const HireMe = () => {
     <div className="flex flex-col justify-center gap-y-3 mt-4 bg-purple-100 rounded-lg p-4
       border border-gray-300 dark:bg-black dark:border-gray-700 dark:text-slate-400 transition-colors shadow-sm shadow-purple-200 dark:shadow-slate-400 duration-300">
 
-      <p className="text-sm 2xl:text-base dark:text-slate-400">
+      {/* <p className="text-sm 2xl:text-base dark:text-slate-400">
         I am currently open for
         <span className="font-bold italic dark:text-white"> software engineering / backend roles </span>,
         which involves building and maintaining scalable softwares.
-      </p>
+      </p> */}
 
       <p className="text-sm 2xl:text-base dark:text-slate-400">
         Developers or organizations, who are building great softwares or businesses. Interested in working together?
