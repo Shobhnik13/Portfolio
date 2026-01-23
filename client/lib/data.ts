@@ -210,7 +210,7 @@ export const experienceData = [
 
     {
         id: 2,
-        title: 'Software Engineer, Otomashen',
+        title: 'Software Engineer, Otomashen (E-solutions)',
         duration: 'Feb 2025 – Jan 2026',
         location: 'Noida, Uttar Pradesh, India (On-site)',
         overview: [
