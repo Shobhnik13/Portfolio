@@ -36,7 +36,7 @@ export const projectData = [
             "Users speak naturally, and AI converts it into actionable tasks, so that you can focus on what matters.",
         ],
         type: "fullstack",
-        image: "/projects/mbd.png",
+        image: "/projects/mbd_new.png",
     },
     {
         id: 2,
