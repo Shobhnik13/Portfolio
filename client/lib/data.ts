@@ -3,7 +3,7 @@ export const projectData = [
         id: 5,
         title: "NovaEnv",
         name: "novaenv",
-        LiveLink: "https://novaenv.shobhnik.xyz",
+        LiveLink: "https://novaenv.shobhnik.site",
         gitLink: "https://github.com/Shobhnik13/NovaEnv-frontend",
         status: "Building 🧩",
         techStack: ["Next.js", "Typescript", "Node.js", "Express.js", "MongoDB", "AES-256 Encryption", "Tailwind CSS", "shadcn/ui"],
@@ -18,7 +18,7 @@ export const projectData = [
         id: 1,
         title: "MyBrainDump",
         name: "mybraindump",
-        LiveLink: "https://mybraindump.shobhnik.xyz",
+        LiveLink: "https://mybraindump.shobhnik.site",
         gitLink: "https://github.com/Shobhnik13/MyBrainDump-frontend", // Add GitHub link if available
         status: "Live 👍🏽",
         techStack: [
@@ -56,7 +56,7 @@ export const projectData = [
         id: 3,
         title: "MakeMyPath",
         name: "makemypath",
-        LiveLink: "https://makemypath.shobhnik.xyz/",
+        LiveLink: "https://makemypath.shobhnik.site/",
         gitLink: "https://github.com/Shobhnik13/makemypath",
         status: "In Progress 🧠",
         techStack: ["Next.js", "OpenAI API", "TypeScript", "Tailwind CSS", "Shadcn/ui", "Framer Motion"],

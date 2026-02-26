@@ -2,14 +2,15 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import Navbar from '@/components/Navbar'
+import AppWrapper from '@/components/AppWrapper'
 import './globals.css'
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Serif } from 'next/font/google'
 
 const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-});
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-instrument-serif',
+})
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,10 +27,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${instrumentSerif.variable}`}>
       <body className={`${inter.className} transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <Navbar />
-          <main className="w-full flex flex-col mx-auto p-4 pt-20">
-            {children}
-          </main>
+          <AppWrapper>
+            <Navbar />
+            <main className="w-full flex flex-col mx-auto p-4 pt-20">
+              {children}
+            </main>
+          </AppWrapper>
         </ThemeProvider>
       </body>
     </html>

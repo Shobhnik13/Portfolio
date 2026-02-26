@@ -3,13 +3,16 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function ProjectCard({ title, image, link = "#", name }: any) {
+    const router = useRouter()
     return (
         <motion.div
             whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col rounded-2xl border border-neutral-300 dark:border-neutral-800 bg-neutral-950/50 overflow-hidden backdrop-blur-md hover:border-neutral-700 transition-all duration-300"
+            onClick={() => router.push(`/projects/${name}`)}
+            className="flex hover:cursor-pointer flex-col rounded-2xl border border-neutral-300 dark:border-neutral-800 bg-neutral-950/50 overflow-hidden backdrop-blur-md hover:border-neutral-700 transition-all duration-300"
         >
             {/* Image Section */}
             <div className="relative w-full h-48 sm:h-52 md:h-60 rounded-t-2xl overflow-hidden">
@@ -30,16 +33,6 @@ export default function ProjectCard({ title, image, link = "#", name }: any) {
                 {title}
             </h3>
 
-            {/* Bottom Section */}
-            <div className="flex items-center justify-center border-t  p-3 sm:p-4 rounded-b-2xl 
-                            bg-neutral-200 dark:bg-neutral-950 transition-colors duration-300">
-                <Link
-                    href={`/projects/${name}`}
-                    className="text-sm text-gray-800 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors duration-200 flex items-center"
-                >
-                    Details →
-                </Link>
-            </div>
         </motion.div>
     )
 }

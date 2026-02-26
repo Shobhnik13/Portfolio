@@ -1,6 +1,7 @@
 import AboutMe from '@/components/AboutMe'
 import Contact from '@/components/Contact'
 import Experiences from '@/components/Experiences'
+import GithubContributions from '@/components/GithubContributions'
 import HireMe from '@/components/HireMe'
 import Intro from '@/components/Intro'
 import Skills from '@/components/Skills'
@@ -13,7 +14,8 @@ export default function Home() {
       <Intro />
       </div>
       <AboutMe />
-      <Strengths />
+      <GithubContributions/>
+      {/* <Strengths /> */}
       <HireMe />
       <Experiences />
       <Skills />
