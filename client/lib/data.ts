@@ -241,7 +241,7 @@ export const experienceData = [
             ', led one end-to-end as ',
             'Lead Developer',
             ', owning architecture and execution.'
-        ]
+        ] 
     ]
 },
 {
