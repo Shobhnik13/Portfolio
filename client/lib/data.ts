@@ -12,7 +12,7 @@ export const projectData = [
             "Project-based organization with token-based structure.",
         ],
         type: "fullstack",
-        image: "/projects/nenv.png",
+        image: "/projects/nenv_new.png",
     },
     {
         id: 1,
@@ -50,7 +50,7 @@ export const projectData = [
             "Developed a GitHub profile analyzer that allows users to enter their GitHub username and instantly view a visually rich dashboard of their repositories, contributions, and coding stats."
         ],
         type: "fullstack",
-        image: "/projects/gl.png",
+        image: "/projects/gl_new.png",
     },
     {
         id: 3,
@@ -64,7 +64,7 @@ export const projectData = [
             "An AI-powered roadmap generator that helps users create personalized learning paths based on their goals and interests.",
         ],
         type: "fullstack",
-        image: "/projects/mmp.png",
+        image: "/projects/mmp_mew.png",
     },
     {
         id: 4,
