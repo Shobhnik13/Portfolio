@@ -35,7 +35,7 @@ const HireMe = () => {
         <Link target="_blank"
           className="flex text-sm 2xl:text-base hover:underline flex-row gap-x-1 items-center justify-center
                     text-gray-700 dark:text-slate-400 transition-transform duration-100 ease-in-out hover:scale-95"
-          href={'https://drive.google.com/file/d/1sxseDFQpd88V1lj1owRcq2QePdUL2uGC/view?usp=sharing'}>
+          href={'https://drive.google.com/file/d/1cuEWRpMEgK-7zeMsC5Gf1ETmabCTtz8r/view?usp=drive_link'}>
           Resume <GoArrowUpRight className="text-base mt-1 dark:text-white" />
         </Link>
       </div>
