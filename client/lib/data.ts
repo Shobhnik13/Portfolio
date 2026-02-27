@@ -208,112 +208,89 @@ export const experienceData = [
         ]
     },
 
-    {
-        id: 2,
-        title: 'Software Engineer, Otomashen (E-solutions)',
-        duration: 'Feb 2025 – Jan 2026',
-        location: 'Noida, Uttar Pradesh, India (On-site)',
-        overview: [
-            [
-                'Built a custom ',
-                'EDI parser',
-                ' capable of processing ',
-                '20K+ files (~6M encrypted records)',
-                ' in minutes and scaled it to handle thousands of requests per minute.'
-            ],
-            [
-                'Optimized backend systems using ',
-                'Node.js',
-                ', ',
-                'PostgreSQL',
-                ', and ',
-                'Redis',
-                ', reducing API latency from ',
-                '7–8s → <500ms',
-                '.'
-            ],
-            [
-                'Developed event-driven microservices using ',
-                'Kafka',
-                ' and integrated ',
-                'Grafana',
-                ' and ',
-                'Prometheus',
-                ' for system monitoring and observability.'
-            ],
-            [
-                'Built internal tools including ',
-                'RBAC',
-                ', bulk file upload, dashboards, and a job scheduler using ',
-                'BullMQ',
-                ' and ',
-                'Redis',
-                '.'
-            ],
-            [
-                'Contributed to frontend and API development using ',
-                'React',
-                ', ',
-                'Node.js',
-                ', and ',
-                'also optimized the overall database performance',
-                'by indexing, query optimization, schema redesign and caching strategies.'
-            // done 3 client projects  
-            // lead aa team of 5 devs
-            // uber dispatcher
-            ]
+   {
+    id: 2,
+    title: 'Software Engineer, Otomashen (E-solutions)',
+    duration: 'Feb 2025 – Jan 2026',
+    location: 'Noida, India (On-site)',
+    overview: [
+        [
+            'Built and scaled a high-throughput ',
+            'EDI/X12 processing engine',
+            ' handling ',
+            '20K+ claim files and millions of encrypted denial records',
+            ', driving a ',
+            '166% revenue increase',
+            '.'
+        ],
+        [
+            'Optimized backend services in ',
+            'Node.js/TypeScript',
+            ' with query tuning, indexing, and caching; reduced API latency from ',
+            '10s → <1s',
+            ' at scale.'
+        ],
+        [
+            'Engineered a ',
+            'real-time dispatch system',
+            ' for proximity-based doctor matching, request lifecycle (accept/decline), and instant notifications.'
+        ],
+        [
+            'Delivered ',
+            '4 production-grade client systems',
+            ', led one end-to-end as ',
+            'Lead Developer',
+            ', owning architecture and execution.'
         ]
-    },
-
-    {
-        id: 3,
-        title: 'Full Stack Engineer, Stealth Startup',
-        duration: 'Aug 2024 – Jan 2025',
-        location: 'San Francisco, California (Remote)',
-        overview: [
-            [
-                'Owned and built the entire ',
-                'ticketing system',
-                ' as the sole developer from design to production.'
-            ],
-            [
-                'Designed backend architecture, database schemas, and core ticket-processing workflows.'
-            ],
-            [
-                'Built a scalable notification pipeline using ',
-                'BullMQ',
-                ', ',
-                'Redis',
-                ', ',
-                'PostgreSQL',
-                ', ',
-                'Socket.io',
-                ', and ',
-                'Node.js/TypeScript',
-                ', delivering thousands of notifications per second.'
-            ],
-            [
-                'Implemented ',
-                'RBAC',
-                ' + ',
-                'multi-tenancy',
-                ' and developed an AI agent using ',
-                'LangGraph',
-                ', ',
-                'LangChain',
-                ', and ',
-                'Gemini',
-                ' for automated ticket assignment and closure.'
-            ],
-            [
-                'Scaled the platform to ',
-                '200–250 users',
-                ' and ',
-                '100K+ tickets',
-                ' in production.'
-            ]
+    ]
+},
+{
+    id: 3,
+    title: 'Full Stack Developer, Stealth Startup',
+    duration: 'Aug 2024 – Jan 2025',
+    location: 'Remote',
+    overview: [
+        [
+            'Owned the product end-to-end as the ',
+            'sole engineer',
+            ', building all frontend workflows and integrating backend APIs from design to production.'
+        ],
+        [
+            'Architected the complete backend system, designing scalable architecture, database schema, and core processing workflows.'
+        ],
+        [
+            'Built a high-throughput notification pipeline using ',
+            'Node.js/TypeScript',
+            ', ',
+            'BullMQ',
+            ', ',
+            'Redis',
+            ', ',
+            'PostgreSQL',
+            ', and ',
+            'Socket.io',
+            ', delivering thousands of notifications per second; implemented ',
+            'vector search',
+            ' for fast large-scale retrieval.'
+        ],
+        [
+            'Developed a production-grade AI agent using ',
+            'LangGraph',
+            ', ',
+            'LangChain',
+            ', and ',
+            'Gemini',
+            ' for complex workflow automation.'
+        ],
+        [
+            'Scaled the platform to ',
+            '200–250 active users',
+            ' managing ',
+            '500K+ production records',
+            ' in production.'
         ]
-    }
+    ]
+}
 ];
 
 
