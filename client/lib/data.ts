@@ -64,7 +64,7 @@ export const projectData = [
             "An AI-powered roadmap generator that helps users create personalized learning paths based on their goals and interests.",
         ],
         type: "fullstack",
-        image: "/projects/mmp_mew.png",
+        image: "/projects/mmp_new.png", 
     },
     {
         id: 4,
