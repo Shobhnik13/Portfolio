@@ -78,7 +78,7 @@ export const projectData = [
             "A scalable chat app template built to integrate with various frontends and services.",
         ],
         type: "backend",
-        image: "/projects/chat.png",
+        image: "/projects/chat_new.png",
     },
     {
         id: 6,
@@ -92,7 +92,7 @@ export const projectData = [
             "A fun project to monitor websites and check whether they are up or down",
         ],
         type: "backend",
-        image: "/projects/golang.png",
+        image: "/projects/dd_new.png",
     },
     {
         id: 6,
@@ -106,7 +106,7 @@ export const projectData = [
             "A customizable job scheduler for scheduling one time and recurring jobs",
         ],
         type: "backend",
-        image: "/projects/gs.png",
+        image: "/projects/js_new.png",
     },
     {
         id: 6,
@@ -120,7 +120,7 @@ export const projectData = [
             "A simple load balancer implementing the round robin algorithm to distribute incoming HTTP requests across multiple servers.",
         ],
         type: "backend",
-        image: "/projects/lb.png",
+        image: "/projects/lb_new.png",
     }
 ]
 
