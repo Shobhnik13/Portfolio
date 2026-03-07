@@ -8,8 +8,9 @@ export const projectData = [
         status: "Building 🧩",
         techStack: ["Next.js", "Typescript", "Node.js", "Express.js", "MongoDB", "AES-256 Encryption", "Tailwind CSS", "shadcn/ui"],
         overview: [
-            "Dark, metallic-themed environment variable manager.",
-            "Project-based organization with token-based structure.",
+         "A environment variable manager with project-based organization with token-based structure.",
+         "Fully encrypted with AES-256 encryption.",
+         "Comes with a CLI package as NovaEnv CLI, which can be used to fetch enviornment variables across different projects, into your local machine.",
         ],
         type: "fullstack",
         image: "/projects/nenv_new.png",
@@ -67,6 +68,24 @@ export const projectData = [
         image: "/projects/mmp_new.png", 
     },
     {
+         id: 10,
+        title: "InsightPlus",
+        name: "insightplus",
+        LiveLink: "",
+        gitLink: "https://github.com/Shobhnik13/InsightPlus",
+        status: "Stable 💪",
+        techStack: ["NestJS", "TypeScript", "Redis", "PostgreSQL", "Clickhouse"],
+        overview: [
+            "A fully open source and self hostable customisable analytics engine built with NestJS and TypeScript.",
+            "Built with dual database architecture with PostgreSQL and Clickhouse.",
+            "Can process thousands of events per second.", 
+            "You can add custom metrics, events according to your product needs.",
+            "Read the github docs to know more about it."
+        ],
+        type: "backend",
+        image: "/projects/ip.png", 
+    },
+    {
         id: 4,
         title: "ChatApp",
         name: "chatapp",
@@ -95,7 +114,7 @@ export const projectData = [
         image: "/projects/dd_new.png",
     },
     {
-        id: 6,
+        id: 7,
         title: "Job Scheduler",
         name: "jobscheduler",
         LiveLink: "",
@@ -109,7 +128,7 @@ export const projectData = [
         image: "/projects/js_new.png",
     },
     {
-        id: 6,
+        id: 8,
         title: "LoadBalancer",
         name: "loadbalancer",
         LiveLink: "",
@@ -121,6 +140,20 @@ export const projectData = [
         ],
         type: "backend",
         image: "/projects/lb_new.png",
+    },
+    {
+        id: 9,
+        title: "Dns Resolver",
+        name: "dnsresolver",
+        LiveLink: "",
+        gitLink: "https://github.com/Shobhnik13/go-resolver",
+        status: "Stable 💪",
+        techStack: ["Golang"],
+        overview: [
+            "A simple dns resolver to resolve dns using recursive dns lookup and in memory cache",
+        ],
+        type: "backend",
+        image: "/projects/gr.png",
     }
 ]
 
