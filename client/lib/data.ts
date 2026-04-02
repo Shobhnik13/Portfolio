@@ -8,9 +8,9 @@ export const projectData = [
         status: "Building 🧩",
         techStack: ["Next.js", "Typescript", "Node.js", "Express.js", "MongoDB", "AES-256 Encryption", "Tailwind CSS", "shadcn/ui"],
         overview: [
-         "A environment variable manager with project-based organization with token-based structure.",
-         "Fully encrypted with AES-256 encryption.",
-         "Comes with a CLI package as NovaEnv CLI, which can be used to fetch enviornment variables across different projects, into your local machine.",
+            "A environment variable manager with project-based organization with token-based structure.",
+            "Fully encrypted with AES-256 encryption.",
+            "Comes with a CLI package as NovaEnv CLI, which can be used to fetch enviornment variables across different projects, into your local machine.",
         ],
         type: "fullstack",
         image: "/projects/nenv_new.png",
@@ -65,10 +65,10 @@ export const projectData = [
             "An AI-powered roadmap generator that helps users create personalized learning paths based on their goals and interests.",
         ],
         type: "fullstack",
-        image: "/projects/mmp_new.png", 
+        image: "/projects/mmp_new.png",
     },
     {
-         id: 10,
+        id: 10,
         title: "InsightPlus",
         name: "insightplus",
         LiveLink: "",
@@ -78,12 +78,12 @@ export const projectData = [
         overview: [
             "A fully open source and self hostable customisable analytics engine built with NestJS and TypeScript.",
             "Built with dual database architecture with PostgreSQL and Clickhouse.",
-            "Can process thousands of events per second.", 
+            "Can process thousands of events per second.",
             "You can add custom metrics, events according to your product needs.",
             "Read the github docs to know more about it."
         ],
         type: "backend",
-        image: "/projects/ip.png", 
+        image: "/projects/ip.png",
     },
     {
         id: 4,
@@ -241,89 +241,89 @@ export const experienceData = [
         ]
     },
 
-   {
-    id: 2,
-    title: 'Software Engineer, Otomashen (E-solutions)',
-    duration: 'Feb 2025 – Jan 2026',
-    location: 'Noida, India (On-site)',
-    overview: [
-        [
-            'Built and scaled a high-throughput ',
-            'EDI/X12 processing engine',
-            ' handling ',
-            '20K+ claim files and millions of encrypted denial records',
-            ', driving a ',
-            '166% revenue increase',
-            '.'
-        ],
-        [
-            'Optimized backend services in ',
-            'Node.js/TypeScript',
-            ' with query tuning, indexing, and caching; reduced API latency from ',
-            '10s → <1s',
-            ' at scale.'
-        ],
-        [
-            'Engineered a ',
-            'real-time dispatch system',
-            ' for proximity-based doctor matching, request lifecycle (accept/decline), and instant notifications.'
-        ],
-        [
-            'Delivered ',
-            '4 production-grade client systems',
-            ', led one end-to-end as ',
-            'Lead Developer',
-            ', owning architecture and execution.'
-        ]  
-    ]
-},
-{
-    id: 3,
-    title: 'Full Stack Developer, Stealth Startup',
-    duration: 'Aug 2024 – Jan 2025',
-    location: 'Remote',
-    overview: [
-        [
-            'Owned the product end-to-end as the ',
-            'sole engineer',
-            ', building all frontend workflows and integrating backend APIs from design to production.'
-        ],
-        [
-            'Architected the complete backend system, designing scalable architecture, database schema, and core processing workflows.'
-        ],
-        [
-            'Built a high-throughput notification pipeline using ',
-            'Node.js/TypeScript',
-            ', ',
-            'BullMQ',
-            ', ',
-            'Redis',
-            ', ',
-            'PostgreSQL',
-            ', and ',
-            'Socket.io',
-            ', delivering thousands of notifications per second; implemented ',
-            'vector search',
-            ' for fast large-scale retrieval.'
-        ],
-        [
-            'Developed a production-grade AI agent using ',
-            'LangGraph',
-            ', ',
-            'LangChain',
-            ', and ',
-            'Gemini',
-            ' for complex workflow automation.'
-        ],
-        [
-            'Scaled the platform to ',
-            '200–250 active users',
-            ' managing ',
-            '500K+ production records',
-            ' in production.'
+    {
+        id: 2,
+        title: 'Software Engineer, Otomashen (E-solutions)',
+        duration: 'Feb 2025 – Jan 2026',
+        location: 'Noida, India (On-site)',
+        overview: [
+            [
+                'Built and scaled a high-throughput ',
+                'EDI/X12 processing engine',
+                ' handling ',
+                '20K+ claim files and millions of encrypted denial records',
+                ', driving a ',
+                '166% revenue increase',
+                '.'
+            ],
+            [
+                'Optimized backend services in ',
+                'Node.js/TypeScript',
+                ' with query tuning, indexing, and caching; reduced API latency from ',
+                '10s → <1s',
+                ' at scale.'
+            ],
+            [
+                'Engineered a ',
+                'real-time dispatch system',
+                ' for proximity-based doctor matching, request lifecycle (accept/decline), and instant notifications.'
+            ],
+            [
+                'Delivered ',
+                '4 production-grade client systems',
+                ', led one end-to-end as ',
+                'Lead Developer',
+                ', owning architecture and execution.'
+            ]
         ]
-    ]
-}
+    },
+    {
+        id: 3,
+        title: 'Full Stack Developer, Stealth Startup',
+        duration: 'Aug 2024 – Jan 2025',
+        location: 'Remote',
+        overview: [
+            [
+                'Owned the product end-to-end as the ',
+                'sole engineer',
+                ', building all frontend workflows and integrating backend APIs from design to production.'
+            ],
+            [
+                'Architected the complete backend system, designing scalable architecture, database schema, and core processing workflows.'
+            ],
+            [
+                'Built a high-throughput notification pipeline using ',
+                'Node.js/TypeScript',
+                ', ',
+                'BullMQ',
+                ', ',
+                'Redis',
+                ', ',
+                'PostgreSQL',
+                ', and ',
+                'Socket.io',
+                ', delivering thousands of notifications per second; implemented ',
+                'vector search',
+                ' for fast large-scale retrieval.'
+            ],
+            [
+                'Developed a production-grade AI agent using ',
+                'LangGraph',
+                ', ',
+                'LangChain',
+                ', and ',
+                'Gemini',
+                ' for complex workflow automation.'
+            ],
+            [
+                'Scaled the platform to ',
+                '200–250 active users',
+                ' managing ',
+                '500K+ production records',
+                ' in production.'
+            ]
+        ]
+    }
 ];
 
 
@@ -376,6 +376,15 @@ export const skillData = [
 
 
 export const blogData = [
+    {
+        title: "Simplifying your architecture with PostgresSQL",
+        description:
+            "This article dives deep into how you can leverage PostgreSQL for a wide range of use cases, helping you avoid unnecessary complexity and over-engineering in applications that don’t yet require heavy scaling",
+        date: "2026-03-26",
+        readTime: "6 MIN READ",
+        tags: ["BACKEND", "SYSTEM DESIGN", "POSTGRES", "QUEUES", "DATABASES"],
+        href: "https://medium.com/@shobhnikw/simplifying-your-architecture-with-postgressql-ccef50b5f993"
+    },
     {
         title: "Understanding Concurrency vs Parallelism in Node.js: The Beginner’s Guide – Part 1.",
         description:
