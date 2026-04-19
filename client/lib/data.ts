@@ -206,7 +206,7 @@ export const socialData = [
         id: 7,
         title: 'Resume',
         subText: 'shobhnik13/resume',
-        link: 'https://shobhnik13.github.io/resume/resume.pdf',
+        link: 'https://resume.shobhnik.site/resume.pdf',
     },
     {
         id: 8,
