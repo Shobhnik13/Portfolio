@@ -1,0 +1,96 @@
+---
+---
+
+<div
+  id="app-loader"
+  class="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white dark:bg-black"
+  style="opacity:1;transition:opacity 0.5s ease;"
+>
+  <div class="flex flex-col items-center gap-8">
+    <!-- Ring -->
+    <div class="relative w-16 h-16">
+      <svg viewBox="0 0 64 64" fill="none" class="w-full h-full">
+        <circle
+          cx="32" cy="32" r="28"
+          stroke="black"
+          stroke-opacity="0.1"
+          stroke-width="2"
+          class="dark:stroke-white"
+        />
+        <circle
+          id="loader-ring"
+          cx="32" cy="32" r="28"
+          stroke="black"
+          stroke-width="2"
+          stroke-linecap="round"
+          class="dark:stroke-white"
+          stroke-dasharray="175.93"
+          stroke-dashoffset="175.93"
+          transform="rotate(-90 32 32)"
+          style="transition: stroke-dashoffset 0.1s linear;"
+        />
+      </svg>
+      <span id="loader-pct" class="absolute inset-0 flex items-center justify-center text-xs font-mono text-black/40 dark:text-white/40">0</span>
+    </div>
+
+    <!-- Bar -->
+    <div class="w-40 h-px bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+      <div
+        id="loader-bar"
+        class="h-full bg-black dark:bg-white rounded-full"
+        style="width:0%;transition:width 0.1s linear;"
+      ></div>
+    </div>
+
+    <!-- Message -->
+    <p id="loader-msg" class="text-xs font-mono text-black/50 dark:text-white/50 tracking-wider"></p>
+  </div>
+</div>
+
+<script>
+  const loaderMessages: Record<string, string> = {
+    '/': 'initialising portfolio...',
+    '/projects': 'curating projects...',
+    '/blogs': 'loading blog posts...',
+  }
+
+  function getMsg(path: string): string {
+    return loaderMessages[path] ?? 'loading...'
+  }
+
+  const loader = document.getElementById('app-loader') as HTMLElement
+  const ring = document.getElementById('loader-ring') as SVGCircleElement
+  const bar = document.getElementById('loader-bar') as HTMLElement
+  const pct = document.getElementById('loader-pct') as HTMLElement
+  const msg = document.getElementById('loader-msg') as HTMLElement
+  const pageContent = document.getElementById('page-content') as HTMLElement
+
+  const circumference = 2 * Math.PI * 28 // 175.93
+
+  function runLoader(path: string) {
+    msg.textContent = getMsg(path)
+    let progress = 0
+
+    const interval = setInterval(() => {
+      progress = Math.min(progress + 5, 100)
+      const offset = circumference * (1 - progress / 100)
+      ring.style.strokeDashoffset = String(offset)
+      bar.style.width = progress + '%'
+      pct.textContent = String(Math.round(progress))
+
+      if (progress >= 100) {
+        clearInterval(interval)
+        setTimeout(() => {
+          loader.style.opacity = '0'
+          loader.style.pointerEvents = 'none'
+          pageContent.style.opacity = '1'
+          setTimeout(() => loader.remove(), 500)
+        }, 200)
+      }
+    }, 20)
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    runLoader(window.location.pathname)
+  })
+</script>

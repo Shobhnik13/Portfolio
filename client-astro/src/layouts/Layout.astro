@@ -1,0 +1,67 @@
+---
+import '../styles/globals.css'
+import Navbar from '../components/Navbar.astro'
+import AppLoader from '../components/AppLoader.astro'
+
+interface Props {
+  title?: string
+}
+
+const { title = 'Shobhnik — Portfolio' } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shobhnik's portfolio — backend engineer, full stack developer." />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Flash-free theme: runs before paint -->
+    <script is:inline>
+      ;(function () {
+        try {
+          const stored = localStorage.getItem('theme')
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark')
+          } else if (stored === 'light') {
+            document.documentElement.classList.remove('dark')
+          } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+            document.documentElement.classList.toggle('dark', prefersDark)
+          }
+        } catch (_) {}
+      })()
+    </script>
+
+    <style>
+      :root {
+        --font-inter: 'Inter', sans-serif;
+        --font-instrument-serif: 'Instrument Serif', serif;
+      }
+      html {
+        font-family: var(--font-instrument-serif);
+      }
+      body {
+        font-family: var(--font-inter);
+      }
+    </style>
+  </head>
+  <body>
+    <AppLoader />
+    <Navbar />
+    <main id="page-content" style="opacity:0;transition:opacity 0.4s ease;">
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import ProjectsHero from '../../components/ProjectsHero.astro'
+import ProjectCard from '../../components/ProjectCard.astro'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
+const sorted = projects.sort((a, b) => a.data.id - b.data.id)
+---
+
+<Layout title="Projects — Shobhnik">
+  <div class="w-full flex flex-col items-center justify-center">
+    <ProjectsHero />
+
+    <!-- Filter tabs -->
+    <div class="w-full md:w-[85%] mx-auto mt-12 flex justify-center">
+      <div class="flex border border-neutral-800 rounded-xl overflow-hidden w-fit p-0">
+        {['all', 'fullstack', 'backend'].map((tab) => (
+          <button
+            data-tab={tab}
+            class={`tab-btn px-8 tracking-wide font-[family-name:var(--font-instrument-serif)] py-2 text-sm md:text-base text-neutral-600 dark:text-white font-normal transition-all duration-300 ${tab === 'all' ? 'bg-neutral-900 text-white' : ''}`}
+          >
+            {tab === 'all' ? 'All' : tab === 'fullstack' ? 'Full Stack' : 'Backend'}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Projects grid -->
+    <div
+      id="projects-grid"
+      class="grid grid-cols-1 px-2 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 w-full md:w-[85%] mx-auto pb-16 mt-10"
+    >
+      {sorted.map((project) => (
+        <div data-type={project.data.type} class="project-card-wrapper transition-all duration-300">
+          <ProjectCard
+            title={project.data.title}
+            image={project.data.image}
+            name={project.data.name}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn')
+  const cards = document.querySelectorAll<HTMLElement>('.project-card-wrapper')
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab!
+
+      tabBtns.forEach((b) => b.classList.remove('bg-neutral-900', 'text-white'))
+      btn.classList.add('bg-neutral-900', 'text-white')
+
+      cards.forEach((card) => {
+        const type = card.dataset.type!
+        if (tab === 'all' || type === tab) {
+          card.style.display = ''
+        } else {
+          card.style.display = 'none'
+        }
+      })
+    })
+  })
+</script>

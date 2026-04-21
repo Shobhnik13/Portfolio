@@ -1,0 +1,124 @@
+---
+const pathname = Astro.url.pathname
+
+const navItems = [
+  { id: 'projects', title: 'projects', href: '/projects' },
+  { id: 'blogs', title: 'blogs', href: '/blogs' },
+]
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-in-out pt-0">
+  <div
+    id="navbar-inner"
+    class="mx-auto transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] max-w-6xl px-4 sm:px-6 lg:px-8"
+    style="background:transparent;border:1px solid transparent;"
+  >
+    <div class="flex justify-between items-center h-10 sm:h-12 md:h-16">
+      <!-- Name -->
+      <a
+        href="/"
+        id="nav-name"
+        class="tracking-wide font-[family-name:var(--font-instrument-serif)] text-sm sm:text-base md:text-lg transition-colors duration-300 text-black dark:text-white no-underline"
+      >
+        Shobhnik
+      </a>
+
+      <!-- Links + Theme toggle -->
+      <div class="flex items-center space-x-4 sm:space-x-6">
+        {navItems.map((item) => {
+          const isActive = pathname === item.href
+          return (
+            <a
+              href={item.href}
+              class={`tracking-wide text-sm sm:text-base md:text-lg font-[family-name:var(--font-instrument-serif)] font-medium transition-all duration-200 px-1 sm:px-2 py-1 whitespace-nowrap no-underline ${
+                isActive
+                  ? 'font-bold text-black dark:text-white underline'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white'
+              }`}
+            >
+              {item.title}
+            </a>
+          )
+        })}
+
+        <button
+          id="theme-toggle"
+          aria-label="Toggle theme"
+          class="p-1 sm:p-1.5 rounded-full border border-gray-400 dark:border-gray-600 hover:scale-110 transition-transform"
+        >
+          <!-- Sun (shown in dark mode) -->
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-white sm:w-5 sm:h-5">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- Moon (shown in light mode) -->
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black sm:w-5 sm:h-5">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar') as HTMLElement
+  const inner = document.getElementById('navbar-inner') as HTMLElement
+  const toggleBtn = document.getElementById('theme-toggle') as HTMLButtonElement
+  const iconSun = document.getElementById('icon-sun') as SVGElement
+  const iconMoon = document.getElementById('icon-moon') as SVGElement
+
+  function isDark(): boolean {
+    return document.documentElement.classList.contains('dark')
+  }
+
+  function updateIcons() {
+    if (isDark()) {
+      iconSun.classList.remove('hidden')
+      iconMoon.classList.add('hidden')
+    } else {
+      iconSun.classList.add('hidden')
+      iconMoon.classList.remove('hidden')
+    }
+  }
+
+  function updateScrolledStyle(scrolled: boolean) {
+    const dark = isDark()
+    navbar.style.paddingTop = scrolled ? '8px' : '0'
+    if (scrolled) {
+      inner.classList.remove('max-w-6xl', 'px-4', 'sm:px-6', 'lg:px-8')
+      inner.classList.add('max-w-xs', 'sm:max-w-2xl', 'md:max-w-4xl', 'px-2', 'sm:px-4', 'md:px-6', 'rounded-xl', 'sm:rounded-2xl')
+      inner.style.background = dark ? 'rgba(15,15,15,0.65)' : 'rgba(255,255,255,0.6)'
+      inner.style.backdropFilter = 'blur(20px) saturate(180%)'
+      inner.style.border = dark ? '1px solid rgba(80,80,80,0.4)' : '1px solid rgba(200,200,200,0.5)'
+      inner.style.boxShadow = dark
+        ? '0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(80,80,80,0.3)'
+        : '0 4px 20px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6)'
+    } else {
+      inner.classList.add('max-w-6xl', 'px-4', 'sm:px-6', 'lg:px-8')
+      inner.classList.remove('max-w-xs', 'sm:max-w-2xl', 'md:max-w-4xl', 'px-2', 'sm:px-4', 'md:px-6', 'rounded-xl', 'sm:rounded-2xl')
+      inner.style.background = 'transparent'
+      inner.style.backdropFilter = 'none'
+      inner.style.border = '1px solid transparent'
+      inner.style.boxShadow = 'none'
+    }
+  }
+
+  let scrolled = false
+  window.addEventListener('scroll', () => {
+    const nowScrolled = window.scrollY > 100
+    if (nowScrolled !== scrolled) {
+      scrolled = nowScrolled
+      updateScrolledStyle(scrolled)
+    }
+  })
+
+  toggleBtn.addEventListener('click', () => {
+    const newDark = !isDark()
+    document.documentElement.classList.toggle('dark', newDark)
+    localStorage.setItem('theme', newDark ? 'dark' : 'light')
+    updateIcons()
+    updateScrolledStyle(scrolled)
+  })
+
+  updateIcons()
+</script>
