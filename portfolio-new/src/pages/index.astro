@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import About from '../components/About.astro'
+import Experience from '../components/Experience.astro'
+import Skills from '../components/Skills.astro'
+import Contributions from '../components/Contributions.tsx'
+import { meta } from '../lib/data'
+---
+
+<Layout title="shobhnik.">
+  <Hero />
+
+  <div class="divider mb-8"></div>
+  <About />
+
+  <div class="divider mb-8"></div>
+  <Experience />
+
+  <div class="divider mb-8"></div>
+  <Skills />
+
+  <div class="divider mb-8"></div>
+
+  <section class="sr pb-10">
+    <span class="lbl">contributions</span>
+    <Contributions username={meta.githubUsername} client:idle />
+  </section>
+</Layout>

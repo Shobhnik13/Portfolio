@@ -1,0 +1,69 @@
+---
+import '../styles/globals.css'
+import BottomNav from '../components/BottomNav.astro'
+
+interface Props {
+  title?: string
+}
+
+const { title = 'shobhnik.' } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+
+    <!-- Geist font (Vercel) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Flash-free theme -->
+    <script is:inline>
+      ;(function () {
+        try {
+          var s = localStorage.getItem('theme')
+          if (s === 'light') document.documentElement.classList.remove('dark')
+          else document.documentElement.classList.add('dark')
+        } catch (_) { document.documentElement.classList.add('dark') }
+      })()
+    </script>
+  </head>
+
+  <body class="min-h-screen bg-bg text-fg">
+    <!-- Page content — padded so it clears the bottom dock -->
+    <div class="max-w-2xl mx-auto px-5 pt-14 pb-28">
+      <slot />
+    </div>
+
+    <BottomNav />
+
+    <!-- Scroll reveal -->
+    <script>
+      const io = new IntersectionObserver(
+        (es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in') }),
+        { threshold: 0.08 }
+      )
+      document.querySelectorAll('.sr').forEach((el) => io.observe(el))
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .sr {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .sr.in {
+    opacity: 1;
+    transform: none;
+  }
+</style>

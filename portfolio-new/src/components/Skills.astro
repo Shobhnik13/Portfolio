@@ -1,0 +1,18 @@
+---
+import { skillData } from '../lib/data'
+---
+
+<section class="sr pb-10">
+  <span class="lbl">open source / skills</span>
+
+  <div class="space-y-3">
+    {skillData.map((cat) => (
+      <div class="flex gap-3 text-sm">
+        <span class="text-fg2 w-24 shrink-0">{cat.category.toLowerCase()}</span>
+        <span class="text-fg2">
+          {cat.skills.join(' · ')}
+        </span>
+      </div>
+    ))}
+  </div>
+</section>
