@@ -200,20 +200,28 @@ export const projectData = [
 export const skillData = [
   {
     category: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'Golang'],
+    skills: ['TypeScript', 'Javascript', 'Golang', 'C++'],
   },
   {
     category: 'Frameworks',
-    skills: ['React.js', 'Next.js', 'Express.js', 'Node.js', 'Bun', 'NestJS', 'Socket.io'],
+    skills: ['Express.js', 'NestJS', 'Socket.io', 'React.js', 'Next.js', 'Astro'],
+  },
+  {
+    category: 'Runtime',
+    skills: ['Node.js', 'Bun'],
   },
   {
     category: 'Databases',
-    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Clickhouse'],
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Clickhouse', 'VectorDBs']
   },
   {
     category: 'DevOps / Infra',
-    skills: ['Docker', 'AWS', 'Azure', 'Cloudflare', 'Git', 'Postman', 'Burp Suite'],
+    skills: ['Docker', 'BullMQ', 'AWS', 'Azure', 'Cloudflare', 'Git', 'Postman', 'Burp Suite'],
   },
+  {
+    category: 'Tooling / Agentic stuff',
+    skills: ['Claude code', 'Codex', 'Langchain', 'Langraph', 'Deep agents'],
+  }
 ]
 
 export const blogData = [

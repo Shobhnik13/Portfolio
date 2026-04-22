@@ -18,11 +18,11 @@ import { projectData } from '../lib/data'
 
     <!-- Filter -->
     <div class="flex gap-1.5 mb-8">
-      {(['all', 'fullstack', 'backend'] as const).map((t) => (
+      {(['backend', 'fullstack', 'all'] as const).map((t) => (
         <button
           data-tab={t}
           class={`tab text-xs px-3 py-1 rounded-full border border-border transition-all
-            ${t === 'all' ? 'bg-fg text-bg border-fg' : 'text-fg2 hover:text-fg hover:border-fg2'}`}
+            ${t === 'backend' ? 'bg-fg text-bg border-fg' : 'text-fg2 hover:text-fg hover:border-fg2'}`}
         >
           {t === 'fullstack' ? 'full stack' : t}
         </button>
@@ -84,22 +84,26 @@ import { projectData } from '../lib/data'
   const tabs  = document.querySelectorAll<HTMLButtonElement>('.tab')
   const items = document.querySelectorAll<HTMLElement>('.proj')
 
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const sel = tab.dataset.tab!
-
-      tabs.forEach((t) => {
-        const on = t.dataset.tab === sel
-        t.classList.toggle('bg-fg',      on)
-        t.classList.toggle('text-bg',    on)
-        t.classList.toggle('border-fg',  on)
-        t.classList.toggle('text-fg2',  !on)
-        t.classList.toggle('border-border', !on)
-      })
-
-      items.forEach((item) => {
-        item.style.display = (sel === 'all' || item.dataset.type === sel) ? '' : 'none'
-      })
+  function applyFilter(sel: string) {
+    tabs.forEach((t) => {
+      const on = t.dataset.tab === sel
+      t.classList.toggle('bg-fg',             on)
+      t.classList.toggle('text-bg',           on)
+      t.classList.toggle('border-fg',         on)
+      t.classList.toggle('text-fg2',         !on)
+      t.classList.toggle('border-border',    !on)
+      t.classList.toggle('hover:text-fg',    !on)
+      t.classList.toggle('hover:border-fg2', !on)
     })
+    items.forEach((item) => {
+      item.style.display = (sel === 'all' || item.dataset.type === sel) ? '' : 'none'
+    })
+  }
+
+  // Apply default filter on load
+  applyFilter('backend')
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => applyFilter(tab.dataset.tab!))
   })
 </script>
