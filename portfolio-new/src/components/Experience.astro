@@ -1,7 +1,6 @@
 ---
 import { experienceData } from '../lib/data'
 
-// First letter initials for company avatar
 function initials(company: string) {
   return company.split(' ')[0][0].toUpperCase()
 }
@@ -13,9 +12,24 @@ function initials(company: string) {
   <div class="space-y-6">
     {experienceData.map((job) => (
       <div class="flex gap-3">
-        <!-- Company avatar -->
-        <div class="shrink-0 w-8 h-8 rounded-full bg-bg2 border border-border flex items-center justify-center text-xs font-semibold text-fg2 mt-0.5">
-          {initials(job.company)}
+        <!-- Company avatar: logo if available, fallback to initials -->
+        <div class="shrink-0 w-8 h-8 rounded-full bg-bg2 border border-border flex items-center justify-center text-xs font-semibold text-fg2 mt-0.5 overflow-hidden">
+          {job.logoUrl
+            ? <img
+                src={job.logoUrl}
+                alt={job.company}
+                width="32"
+                height="32"
+                class="w-full h-full object-cover"
+                onError="this.style.display='none';this.nextElementSibling.style.display='flex'"
+              />
+            : null}
+          <span
+            style={job.logoUrl ? 'display:none' : ''}
+            class="w-full h-full flex items-center justify-center"
+          >
+            {initials(job.company)}
+          </span>
         </div>
 
         <div class="flex-1 min-w-0">
@@ -31,14 +45,17 @@ function initials(company: string) {
           <!-- Bullets -->
           <ul class="space-y-1">
             {job.bullets.map((b) => (
-              <li class="text-sm text-fg2 leading-relaxed">
-                {Array.isArray(b)
-                  ? b.map((part, i) =>
-                      i % 2 === 1
-                        ? <span class="text-fg font-medium">{part}</span>
-                        : part
-                    )
-                  : b}
+              <li class="text-sm text-fg2 leading-relaxed flex gap-2">
+                <span class="text-fg3 shrink-0">-</span>
+                <span>
+                  {Array.isArray(b)
+                    ? b.map((part, i) =>
+                        i % 2 === 1
+                          ? <span class="text-fg font-medium">{part}</span>
+                          : part
+                      )
+                    : b}
+                </span>
               </li>
             ))}
           </ul>

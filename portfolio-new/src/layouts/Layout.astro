@@ -4,9 +4,16 @@ import BottomNav from '../components/BottomNav.astro'
 
 interface Props {
   title?: string
+  description?: string
 }
 
-const { title = 'shobhnik.' } = Astro.props
+const {
+  title = 'Shobhnik',
+  description = 'A engineer who build reliable and scalable systems.',
+} = Astro.props
+
+const ogImage = 'https://shobhnik.site/og.svg'
+const canonical = Astro.url.href
 ---
 
 <!doctype html>
@@ -16,6 +23,26 @@ const { title = 'shobhnik.' } = Astro.props
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
+
+    <!-- SEO -->
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonical} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={ogImage} />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@Shobhnik__13" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
 
     <!-- Geist font (Vercel) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

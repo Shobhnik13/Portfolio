@@ -29,6 +29,7 @@ export const experienceData = [
     id: 1,
     role: 'Backend Engineer',
     company: 'Xane AI',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=xane.ai&sz=64',
     duration: 'Jan 2026 – Present',
     location: 'Gurugram, India · On-site',
     bullets: [
@@ -41,6 +42,7 @@ export const experienceData = [
     id: 2,
     role: 'Software Engineer',
     company: 'Otomashen (E-solutions)',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=otomashen.com&sz=64',
     duration: 'Feb 2025 – Jan 2026',
     location: 'Noida, India · On-site',
     bullets: [
@@ -54,6 +56,7 @@ export const experienceData = [
     id: 3,
     role: 'Full Stack Developer',
     company: 'Stealth Startup',
+    logoUrl: '',
     duration: 'Aug 2024 – Jan 2025',
     location: 'Remote',
     bullets: [
@@ -199,7 +202,7 @@ export const skillData = [
   },
   {
     category: 'Frameworks',
-    skills: ['React.js', 'Next.js', 'Express.js', 'Node.js', 'NestJS', 'Socket.io'],
+    skills: ['React.js', 'Next.js', 'Express.js', 'Node.js', 'Bun', 'NestJS', 'Socket.io'],
   },
   {
     category: 'Databases',

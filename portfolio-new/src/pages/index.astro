@@ -8,11 +8,16 @@ import Contributions from '../components/Contributions.tsx'
 import { meta } from '../lib/data'
 ---
 
-<Layout title="shobhnik.">
+<Layout title="Shobhnik">
   <Hero />
 
   <div class="divider mb-8"></div>
   <About />
+  
+  <section class="sr pb-10">
+    <span class="lbl">contributions</span>
+    <Contributions username={meta.githubUsername} client:idle />
+  </section>
 
   <div class="divider mb-8"></div>
   <Experience />
@@ -22,8 +27,4 @@ import { meta } from '../lib/data'
 
   <div class="divider mb-8"></div>
 
-  <section class="sr pb-10">
-    <span class="lbl">contributions</span>
-    <Contributions username={meta.githubUsername} client:idle />
-  </section>
 </Layout>

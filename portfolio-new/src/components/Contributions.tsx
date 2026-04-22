@@ -16,14 +16,15 @@ export default function Contributions({ username }: { username: string }) {
     <div className="overflow-x-auto">
       <GitHubCalendar
         username={username}
+        colorScheme={dark ? 'dark' : 'light'}
         blockSize={10}
         blockMargin={3}
         fontSize={11}
         showTotalCount={false}
         showColorLegend={false}
         theme={{
-          light: ['#e5e5e5', '#d4d4d4', '#a3a3a3', '#737373', '#404040'],
-          dark:  ['#262626', '#404040', '#525252', '#737373', '#a3a3a3'],
+          light: ['#e8e8e8', '#a8a8a8', '#787878', '#484848', '#181818'],
+          dark:  ['#202020', '#484848', '#686868', '#909090', '#c0c0c0'],
         }}
       />
     </div>

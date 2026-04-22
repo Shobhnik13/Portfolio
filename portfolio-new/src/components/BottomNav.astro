@@ -81,7 +81,7 @@ const isBlogs    = path === '/blogs'
     </a>
 
     <a
-      href="https://drive.google.com/file/d/1cuEWRpMEgK-7zeMsC5Gf1ETmabCTtz8r/view?usp=drive_link"
+      href="https://resume.shobhnik.site/resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
       data-tip="resume / cv"
@@ -178,9 +178,15 @@ const isBlogs    = path === '/blogs'
     tooltip.classList.remove('opacity-100', 'translate-y-0')
   }
 
-  btns.forEach((btn, i) => {
-    btn.addEventListener('mouseenter', () => { applyMag(i); showTip(btn) })
-    btn.addEventListener('mouseleave', () => { resetMag();  hideTip()    })
+  // Drive magnification + tooltip from dock-level mousemove to avoid jitter
+  // caused by scaled buttons moving their own bounding box under the cursor
+  dock.addEventListener('mousemove', (e) => {
+    const target = (e.target as HTMLElement).closest<HTMLElement>('.dock-btn')
+    if (!target) return
+    const idx = btns.indexOf(target)
+    if (idx === -1) return
+    applyMag(idx)
+    showTip(target)
   })
 
   dock.addEventListener('mouseleave', () => { resetMag(); hideTip() })
