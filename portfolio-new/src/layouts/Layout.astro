@@ -1,6 +1,7 @@
 ---
 import '../styles/globals.css'
 import BottomNav from '../components/BottomNav.astro'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
   title?: string
@@ -21,7 +22,9 @@ const canonical = Astro.url.href
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
     <title>{title}</title>
 
     <!-- SEO -->
@@ -52,7 +55,9 @@ const canonical = Astro.url.href
       rel="stylesheet"
     />
 
-    <!-- Flash-free theme -->
+    <ViewTransitions />
+
+    <!-- Flash-free theme (initial load + carry dark class across view transitions) -->
     <script is:inline>
       ;(function () {
         try {
@@ -61,6 +66,11 @@ const canonical = Astro.url.href
           else document.documentElement.classList.add('dark')
         } catch (_) { document.documentElement.classList.add('dark') }
       })()
+
+      document.addEventListener('astro:before-swap', function (e) {
+        var dark = document.documentElement.classList.contains('dark')
+        e.newDocument.documentElement.classList.toggle('dark', dark)
+      })
     </script>
   </head>
 
@@ -70,15 +80,19 @@ const canonical = Astro.url.href
       <slot />
     </div>
 
-    <BottomNav />
+    <BottomNav transition:persist />
 
-    <!-- Scroll reveal -->
+    <!-- Scroll reveal — re-runs after each view transition -->
     <script>
-      const io = new IntersectionObserver(
-        (es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in') }),
-        { threshold: 0.08 }
-      )
-      document.querySelectorAll('.sr').forEach((el) => io.observe(el))
+      function initReveal() {
+        const io = new IntersectionObserver(
+          (es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in') }),
+          { threshold: 0.08 }
+        )
+        document.querySelectorAll('.sr').forEach((el) => io.observe(el))
+      }
+      initReveal()
+      document.addEventListener('astro:after-swap', initReveal)
     </script>
   </body>
 </html>

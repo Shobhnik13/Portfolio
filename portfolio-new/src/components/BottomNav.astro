@@ -1,10 +1,8 @@
 ---
-const path = Astro.url.pathname
-const isHome     = path === '/'
-const isProjects = path === '/projects'
-const isBlogs    = path === '/blogs'
+// active state is set client-side so it stays correct after transition:persist swaps
 ---
 
+<div id="bottom-nav-root" transition:persist>
 <!-- Shared tooltip -->
 <div
   id="dock-tip"
@@ -21,19 +19,19 @@ const isBlogs    = path === '/blogs'
   >
     <!-- Row 1: page links + socials -->
     <div class="flex items-center gap-0.5">
-      <a href="/" data-tip="home" class={`dock-btn ${isHome ? 'dock-active' : ''}`}>
+      <a href="/" data-tip="home" data-page="/" class="dock-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
       </a>
 
-      <a href="/projects" data-tip="projects" class={`dock-btn ${isProjects ? 'dock-active' : ''}`}>
+      <a href="/projects" data-tip="projects" data-page="/projects" class="dock-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
         </svg>
       </a>
 
-      <a href="/blogs" data-tip="writing" class={`dock-btn ${isBlogs ? 'dock-active' : ''}`}>
+      <a href="/blogs" data-tip="writing" data-page="/blogs" class="dock-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
         </svg>
@@ -108,6 +106,7 @@ const isBlogs    = path === '/blogs'
     </div>
   </div>
 </nav>
+</div><!-- /bottom-nav-root -->
 
 <style>
   .dock-btn {
@@ -146,74 +145,95 @@ const isBlogs    = path === '/blogs'
 </style>
 
 <script>
-  const dock    = document.getElementById('dock')!
-  const tooltip = document.getElementById('dock-tip')!
-  const btns    = Array.from(dock.querySelectorAll<HTMLElement>('.dock-btn'))
+  const dock     = document.getElementById('dock')!
+  const tooltip  = document.getElementById('dock-tip')!
+  const themeBtn = document.getElementById('theme-btn')!
+  const sun      = document.getElementById('sun')!
+  const moon     = document.getElementById('moon')!
 
-  // ── Magnification ──────────────────────────────────────────
-  function applyMag(idx: number) {
-    if (window.innerWidth < 640) return
-    btns.forEach((btn, i) => {
-      const d = Math.abs(i - idx)
-      btn.style.transform =
-        d === 0 ? 'scale(1.45) translateY(-5px)' :
-        d === 1 ? 'scale(1.2)  translateY(-3px)' :
-        d === 2 ? 'scale(1.08) translateY(-1px)' : ''
+  // ── Active nav link (re-runs on every swap) ────────────────
+  function updateActive() {
+    const p = window.location.pathname
+    dock.querySelectorAll<HTMLElement>('[data-page]').forEach((el) => {
+      el.classList.toggle('dock-active', el.dataset.page === p)
     })
   }
+  updateActive()
 
-  function resetMag() { btns.forEach((b) => (b.style.transform = '')) }
-
-  // ── Tooltip ────────────────────────────────────────────────
-  function showTip(btn: HTMLElement) {
-    const label = btn.dataset.tip
-    if (!label) return
-    tooltip.textContent = label
-
-    const rect = btn.getBoundingClientRect()
-    const tipW = tooltip.offsetWidth || 60
-    const left = rect.left + rect.width / 2 - tipW / 2
-    const top  = rect.top - 32
-
-    tooltip.style.left = `${Math.max(8, left)}px`
-    tooltip.style.top  = `${top}px`
-    tooltip.classList.remove('opacity-0', '-translate-y-1')
-    tooltip.classList.add('opacity-100', 'translate-y-0')
-  }
-
-  function hideTip() {
-    tooltip.classList.add('opacity-0', '-translate-y-1')
-    tooltip.classList.remove('opacity-100', 'translate-y-0')
-  }
-
-  dock.addEventListener('mousemove', (e) => {
-    const target = (e.target as HTMLElement).closest<HTMLElement>('.dock-btn')
-    if (!target) return
-    const idx = btns.indexOf(target)
-    if (idx === -1) return
-    applyMag(idx)
-    showTip(target)
-  })
-
-  dock.addEventListener('mouseleave', () => { resetMag(); hideTip() })
-
-  // ── Theme toggle ───────────────────────────────────────────
-  const themeBtn = document.getElementById('theme-btn')!
-  const sun  = document.getElementById('sun')!
-  const moon = document.getElementById('moon')!
-
+  // ── Sync icons (safe to call on every script run) ──────────
   function syncIcons() {
     const dark = document.documentElement.classList.contains('dark')
     sun.classList.toggle('hidden', !dark)
-    moon.classList.toggle('hidden', dark)
+    moon.classList.toggle('hidden',  dark)
   }
-
-  themeBtn.addEventListener('click', () => {
-    const dark = !document.documentElement.classList.contains('dark')
-    document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
-    syncIcons()
-  })
-
   syncIcons()
+
+  // ── Guard: only attach listeners once ──────────────────────
+  // window survives every ViewTransition swap; dataset on the
+  // element does NOT when the component has multiple root nodes.
+  if (!(window as any).__dockBound) {
+    ;(window as any).__dockBound = true
+
+    const btns = Array.from(dock.querySelectorAll<HTMLElement>('.dock-btn'))
+
+    // ── Magnification ────────────────────────────────────────
+    function applyMag(idx: number) {
+      if (window.innerWidth < 640) return
+      btns.forEach((btn, i) => {
+        const d = Math.abs(i - idx)
+        btn.style.transform =
+          d === 0 ? 'scale(1.45) translateY(-5px)' :
+          d === 1 ? 'scale(1.2)  translateY(-3px)' :
+          d === 2 ? 'scale(1.08) translateY(-1px)' : ''
+      })
+    }
+
+    function resetMag() { btns.forEach((b) => (b.style.transform = '')) }
+
+    // ── Tooltip ──────────────────────────────────────────────
+    function showTip(btn: HTMLElement) {
+      const label = btn.dataset.tip
+      if (!label) return
+      tooltip.textContent = label
+
+      const rect = btn.getBoundingClientRect()
+      const tipW = tooltip.offsetWidth || 60
+      const left = rect.left + rect.width / 2 - tipW / 2
+      const top  = rect.top - 32
+
+      tooltip.style.left = `${Math.max(8, left)}px`
+      tooltip.style.top  = `${top}px`
+      tooltip.classList.remove('opacity-0', '-translate-y-1')
+      tooltip.classList.add('opacity-100', 'translate-y-0')
+    }
+
+    function hideTip() {
+      tooltip.classList.add('opacity-0', '-translate-y-1')
+      tooltip.classList.remove('opacity-100', 'translate-y-0')
+    }
+
+    dock.addEventListener('mousemove', (e) => {
+      const target = (e.target as HTMLElement).closest<HTMLElement>('.dock-btn')
+      if (!target) return
+      const idx = btns.indexOf(target)
+      if (idx === -1) return
+      applyMag(idx)
+      showTip(target)
+    })
+
+    dock.addEventListener('mouseleave', () => { resetMag(); hideTip() })
+
+    document.addEventListener('astro:after-swap', updateActive)
+
+    // Reset dock state before each swap so no icon stays zoomed/tooltip visible
+    document.addEventListener('astro:before-swap', () => { resetMag(); hideTip() })
+
+    // ── Theme toggle ─────────────────────────────────────────
+    themeBtn.addEventListener('click', () => {
+      const dark = !document.documentElement.classList.contains('dark')
+      document.documentElement.classList.toggle('dark', dark)
+      localStorage.setItem('theme', dark ? 'dark' : 'light')
+      syncIcons()
+    })
+  }
 </script>

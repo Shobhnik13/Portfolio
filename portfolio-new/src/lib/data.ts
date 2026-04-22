@@ -6,6 +6,8 @@ export const meta = {
   calLink: 'https://cal.com/shobhnik13/15min',
   resumeLink: 'https://drive.google.com/file/d/1cuEWRpMEgK-7zeMsC5Gf1ETmabCTtz8r/view?usp=drive_link',
   githubUsername: 'SHOBHNIK13',
+  // Toggle this to false when not available
+  openToCollaborate: true,
 }
 
 export const navLinks = [
