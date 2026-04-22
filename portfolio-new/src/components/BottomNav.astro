@@ -5,7 +5,7 @@ const isProjects = path === '/projects'
 const isBlogs    = path === '/blogs'
 ---
 
-<!-- Shared tooltip (floats above dock, positioned by JS) -->
+<!-- Shared tooltip -->
 <div
   id="dock-tip"
   class="fixed z-[60] pointer-events-none px-2 py-1 rounded-md text-[11px] font-medium
@@ -13,98 +13,103 @@ const isBlogs    = path === '/blogs'
          opacity-0 -translate-y-1 transition-all duration-150 whitespace-nowrap"
 ></div>
 
-<nav class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 max-w-[calc(100vw-1.5rem)]">
+<nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-max max-w-[calc(100vw-1rem)]">
   <div
     id="dock"
-    class="flex items-end gap-0.5 px-2 py-2 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--bg2))] shadow-lg backdrop-blur-sm overflow-x-auto"
-    style="scrollbar-width:none;-ms-overflow-style:none"
+    class="flex flex-col sm:flex-row items-center gap-1 sm:gap-0.5 px-2 py-2 rounded-2xl
+           border border-[hsl(var(--border))] bg-[hsl(var(--bg2))] shadow-lg backdrop-blur-sm"
   >
-    <!-- Page links -->
-    <a href="/" data-tip="home" class={`dock-btn ${isHome ? 'dock-active' : ''}`}>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    </a>
+    <!-- Row 1: page links + socials -->
+    <div class="flex items-center gap-0.5">
+      <a href="/" data-tip="home" class={`dock-btn ${isHome ? 'dock-active' : ''}`}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </a>
 
-    <a href="/projects" data-tip="projects" class={`dock-btn ${isProjects ? 'dock-active' : ''}`}>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-      </svg>
-    </a>
+      <a href="/projects" data-tip="projects" class={`dock-btn ${isProjects ? 'dock-active' : ''}`}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </a>
 
-    <a href="/blogs" data-tip="writing" class={`dock-btn ${isBlogs ? 'dock-active' : ''}`}>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-      </svg>
-    </a>
+      <a href="/blogs" data-tip="writing" class={`dock-btn ${isBlogs ? 'dock-active' : ''}`}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+        </svg>
+      </a>
 
+      <span class="dock-divider"></span>
+
+      <a href="https://github.com/Shobhnik13" target="_blank" rel="noopener" data-tip="GitHub" class="dock-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+          <path d="M9 18c-4.51 2-5-2-7-2"/>
+        </svg>
+      </a>
+
+      <a href="https://www.linkedin.com/in/shobhnik13/" target="_blank" rel="noopener" data-tip="LinkedIn" class="dock-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+
+      <a href="https://twitter.com/Shobhnik__13" target="_blank" rel="noopener" data-tip="Twitter / X" class="dock-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+
+      <a href="mailto:shobhnikw@gmail.com" data-tip="email" class="dock-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Row separator on mobile / vertical divider on desktop -->
     <span class="dock-divider"></span>
 
-    <a href="https://github.com/Shobhnik13" target="_blank" rel="noopener" data-tip="GitHub" class="dock-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-        <path d="M9 18c-4.51 2-5-2-7-2"/>
-      </svg>
-    </a>
+    <!-- Row 2: CTAs + theme -->
+    <div class="flex items-center gap-0.5">
+      <a
+        href="https://cal.com/shobhnik13/15min"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tip="schedule a call"
+        class="dock-btn !w-auto px-2.5 text-[11px] font-medium gap-1"
+      >
+        hire me
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+        </svg>
+      </a>
 
-    <a href="https://www.linkedin.com/in/shobhnik13/" target="_blank" rel="noopener" data-tip="LinkedIn" class="dock-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
-      </svg>
-    </a>
+      <a
+        href="https://resume.shobhnik.site/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tip="resume / cv"
+        class="dock-btn !w-auto px-2.5 text-[11px] font-medium"
+      >
+        cv
+      </a>
 
-    <a href="https://twitter.com/Shobhnik__13" target="_blank" rel="noopener" data-tip="Twitter / X" class="dock-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    </a>
+      <span class="dock-divider"></span>
 
-    <a href="mailto:shobhnikw@gmail.com" data-tip="email" class="dock-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-      </svg>
-    </a>
-
-    <span class="dock-divider"></span>
-
-    <a
-      href="https://cal.com/shobhnik13/15min"
-      target="_blank"
-      rel="noopener noreferrer"
-      data-tip="schedule a call"
-      class="dock-btn !w-auto px-2.5 text-[11px] font-medium gap-1"
-    >
-      hire me
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-      </svg>
-    </a>
-
-    <a
-      href="https://resume.shobhnik.site/resume.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      data-tip="resume / cv"
-      class="dock-btn !w-auto px-2.5 text-[11px] font-medium"
-    >
-      cv
-    </a>
-
-    <span class="dock-divider"></span>
-
-    <button id="theme-btn" data-tip="toggle theme" class="dock-btn">
-      <svg id="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="hidden">
-        <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-      </svg>
-      <svg id="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-      </svg>
-    </button>
+      <button id="theme-btn" data-tip="toggle theme" class="dock-btn">
+        <svg id="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg id="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </nav>
 
 <style>
-  #dock::-webkit-scrollbar { display: none; }
   .dock-btn {
     display: flex;
     align-items: center;
@@ -113,18 +118,14 @@ const isBlogs    = path === '/blogs'
     height: 32px;
     border-radius: 10px;
     color: hsl(var(--fg2));
-    /* only transform transitions — no bg flash */
     transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease;
     transform-origin: bottom center;
     will-change: transform;
     flex-shrink: 0;
   }
-  .dock-btn:hover {
-    color: hsl(var(--fg));
-  }
-  .dock-active {
-    color: hsl(var(--fg));
-  }
+  .dock-btn:hover { color: hsl(var(--fg)); }
+  .dock-active    { color: hsl(var(--fg)); }
+
   .dock-divider {
     width: 1px;
     height: 16px;
@@ -132,6 +133,15 @@ const isBlogs    = path === '/blogs'
     margin: 0 6px;
     align-self: center;
     flex-shrink: 0;
+  }
+
+  /* On mobile the divider between rows becomes a horizontal rule */
+  @media (max-width: 639px) {
+    nav > div > span.dock-divider {
+      width: 100%;
+      height: 1px;
+      margin: 2px 0;
+    }
   }
 </style>
 
@@ -142,7 +152,7 @@ const isBlogs    = path === '/blogs'
 
   // ── Magnification ──────────────────────────────────────────
   function applyMag(idx: number) {
-    if (window.innerWidth < 480) return
+    if (window.innerWidth < 640) return
     btns.forEach((btn, i) => {
       const d = Math.abs(i - idx)
       btn.style.transform =
@@ -152,9 +162,7 @@ const isBlogs    = path === '/blogs'
     })
   }
 
-  function resetMag() {
-    btns.forEach((b) => (b.style.transform = ''))
-  }
+  function resetMag() { btns.forEach((b) => (b.style.transform = '')) }
 
   // ── Tooltip ────────────────────────────────────────────────
   function showTip(btn: HTMLElement) {
@@ -163,9 +171,9 @@ const isBlogs    = path === '/blogs'
     tooltip.textContent = label
 
     const rect = btn.getBoundingClientRect()
-    const tipW = tooltip.offsetWidth || 60   // rough width before paint
+    const tipW = tooltip.offsetWidth || 60
     const left = rect.left + rect.width / 2 - tipW / 2
-    const top  = rect.top - 32              // 32px above the button
+    const top  = rect.top - 32
 
     tooltip.style.left = `${Math.max(8, left)}px`
     tooltip.style.top  = `${top}px`
@@ -178,8 +186,6 @@ const isBlogs    = path === '/blogs'
     tooltip.classList.remove('opacity-100', 'translate-y-0')
   }
 
-  // Drive magnification + tooltip from dock-level mousemove to avoid jitter
-  // caused by scaled buttons moving their own bounding box under the cursor
   dock.addEventListener('mousemove', (e) => {
     const target = (e.target as HTMLElement).closest<HTMLElement>('.dock-btn')
     if (!target) return
