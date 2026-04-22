@@ -12,7 +12,7 @@ function initials(company: string) {
   <div class="space-y-6">
     {experienceData.map((job) => (
       <div class="flex gap-3">
-        <!-- Company avatar: logo if available, fallback to initials -->
+        <!-- Company avatar -->
         <div class="shrink-0 w-8 h-8 rounded-full bg-bg2 border border-border flex items-center justify-center text-xs font-semibold text-fg2 mt-0.5 overflow-hidden">
           {job.logoUrl
             ? <img
@@ -20,14 +20,17 @@ function initials(company: string) {
                 alt={job.company}
                 width="32"
                 height="32"
-                class="w-full h-full object-cover"
+                class="w-5 h-5 object-contain"
                 onError="this.style.display='none';this.nextElementSibling.style.display='flex'"
               />
             : null}
-          <span
-            style={job.logoUrl ? 'display:none' : ''}
-            class="w-full h-full flex items-center justify-center"
-          >
+          {/* Stealth Startup — ghost/lock icon */}
+          {!job.logoUrl
+            ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            : null}
+          <span style="display:none" class="w-full h-full flex items-center justify-center">
             {initials(job.company)}
           </span>
         </div>
