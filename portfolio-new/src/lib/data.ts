@@ -35,9 +35,10 @@ export const experienceData = [
     duration: 'Jan 2026 – Present',
     location: 'Gurugram, India · On-site',
     bullets: [
-      ['Building scalable backend services and system architectures for ', 'AI-powered products', '.'],
-      ['Designing and optimizing APIs and data pipelines in ', 'Node.js', ' and ', 'TypeScript', '.'],
-      ['Collaborating with product and ML teams on high-performance production systems.'],
+      ['Designed system architectures, DB schemas, and APIs for new microservices powering the ', 'main revenue driving product', '.'],
+      ['Migrated a legacy ', 'JS codebase to Bun, TypeScript, and Zod', ' alongside a ', 'multi-tenant DB migration', ' with zero downtime, no production data loss.'],
+      ['Built a lightweight ', 'image inferencing pipeline', ' on Raspberry Pi using ', 'ONNXRuntime-Node, YOLOv26, and Node.js', ', optimised it to run on hardware with minimal CPU resources.'],
+      ['Got hands on with ', 'AWS', ' and cloud architecture sitting with deployment teams and did a lot of R&D about ', 'agents, RAG accuracy frameworks, open source object character recognition(OCR) pieplines like MinerU'],
     ],
   },
   {
@@ -136,6 +137,42 @@ export const projectData = [
     type: 'backend',
   },
   {
+    id: 10,
+    title: 'DNS Resolver',
+    liveLink: '',
+    gitLink: 'https://github.com/Shobhnik13/go-resolver',
+    status: 'Stable',
+    techStack: ['Golang'],
+    overview: [
+      'Recursive DNS resolver with in-memory caching for fast repeated lookups.',
+    ],
+    type: 'backend',
+  },
+  {
+    id: 9,
+    title: 'Load Balancer',
+    liveLink: '',
+    gitLink: 'https://github.com/Shobhnik13/Load-Balancer',
+    status: 'Stable',
+    techStack: ['Golang', 'Round Robin', 'HTTP', 'Goroutines'],
+    overview: [
+      'Round-robin HTTP load balancer distributing requests across multiple backend servers.',
+    ],
+    type: 'backend',
+  },
+  {
+    id: 8,
+    title: 'Job Scheduler',
+    liveLink: '',
+    gitLink: 'https://github.com/Shobhnik13/Scheduler',
+    status: 'Stable',
+    techStack: ['Golang', 'Goroutines', 'Channels', 'Mutex'],
+    overview: [
+      'Customizable scheduler for one-time and recurring jobs using goroutines and channels.',
+    ],
+    type: 'backend',
+  },
+  {
     id: 6,
     title: 'ChatApp',
     liveLink: '',
@@ -159,42 +196,7 @@ export const projectData = [
     ],
     type: 'backend',
   },
-  {
-    id: 8,
-    title: 'Job Scheduler',
-    liveLink: '',
-    gitLink: 'https://github.com/Shobhnik13/Scheduler',
-    status: 'Stable',
-    techStack: ['Golang', 'Goroutines', 'Channels', 'Mutex'],
-    overview: [
-      'Customizable scheduler for one-time and recurring jobs using goroutines and channels.',
-    ],
-    type: 'backend',
-  },
-  {
-    id: 9,
-    title: 'LoadBalancer',
-    liveLink: '',
-    gitLink: 'https://github.com/Shobhnik13/Load-Balancer',
-    status: 'Stable',
-    techStack: ['Golang', 'Round Robin', 'HTTP', 'Goroutines'],
-    overview: [
-      'Round-robin HTTP load balancer distributing requests across multiple backend servers.',
-    ],
-    type: 'backend',
-  },
-  {
-    id: 10,
-    title: 'DNS Resolver',
-    liveLink: '',
-    gitLink: 'https://github.com/Shobhnik13/go-resolver',
-    status: 'Stable',
-    techStack: ['Golang'],
-    overview: [
-      'Recursive DNS resolver with in-memory caching for fast repeated lookups.',
-    ],
-    type: 'backend',
-  },
+  
 ]
 
 export const skillData = [
