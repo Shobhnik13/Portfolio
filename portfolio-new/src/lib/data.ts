@@ -126,7 +126,7 @@ export const projectData = [
   {
     id: 5,
     title: 'InsightPlus',
-    liveLink: '',
+    liveLink: 'https://insightplus.shobhnik.site',
     gitLink: 'https://github.com/Shobhnik13/InsightPlus',
     status: 'Stable',
     techStack: ['NestJS', 'TypeScript', 'Redis', 'PostgreSQL', 'Clickhouse'],
