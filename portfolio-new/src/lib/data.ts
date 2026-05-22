@@ -11,19 +11,19 @@ export const meta = {
 }
 
 export const navLinks = [
-  { label: 'about',      href: '#about' },
-  { label: 'work',       href: '#experience' },
-  { label: 'projects',   href: '#projects' },
-  { label: 'writing',    href: '#blogs' },
+  { label: 'about', href: '#about' },
+  { label: 'work', href: '#experience' },
+  { label: 'projects', href: '#projects' },
+  { label: 'writing', href: '#blogs' },
 ]
 
 export const socialLinks = [
-  { label: 'GitHub',    href: 'https://github.com/Shobhnik13' },
-  { label: 'Twitter',   href: 'https://twitter.com/Shobhnik__13' },
-  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/shobhnik13/' },
-  { label: 'Peerlist',  href: 'https://peerlist.io/shobhnik13' },
-  { label: 'Medium',    href: 'https://medium.com/@shobhnikw' },
-  { label: 'LeetCode',  href: 'https://leetcode.com/Shobhnik_1326/' },
+  { label: 'GitHub', href: 'https://github.com/Shobhnik13' },
+  { label: 'Twitter', href: 'https://twitter.com/Shobhnik__13' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/shobhnik13/' },
+  { label: 'Peerlist', href: 'https://peerlist.io/shobhnik13' },
+  { label: 'Medium', href: 'https://medium.com/@shobhnikw' },
+  { label: 'LeetCode', href: 'https://leetcode.com/Shobhnik_1326/' },
 ]
 
 export const experienceData = [
@@ -137,6 +137,19 @@ export const projectData = [
     type: 'backend',
   },
   {
+    id: 11,
+    title: 'SprintStack',
+    liveLink: 'https://sprintstack.shobhnik.site',
+    gitLink: 'https://github.com/Shobhnik13/sprintstack',
+    status: 'Stable',
+    techStack: ['Bun', 'TypeScript', 'Express.js', 'PostgreSQL', 'Socket.io', 'Redis', 'BullMQ', 'Drizzle ORM'],
+    overview: [
+      'Open-source, fully customizable backend template for building scalable project management platforms.',
+      'Includes workspaces, projects, tasks, sprints, workflows, notifications, search, and realtime collaboration features.',
+    ],
+    type: 'backend',
+  },
+  {
     id: 10,
     title: 'DNS Resolver',
     liveLink: '',
@@ -196,7 +209,7 @@ export const projectData = [
     ],
     type: 'backend',
   },
-  
+
 ]
 
 export const skillData = [
