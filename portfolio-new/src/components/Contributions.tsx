@@ -13,7 +13,7 @@ export default function Contributions({ username }: { username: string }) {
       attributes: true,
       attributeFilter: ["class"],
     });
-    return () => obs.disconnect(false);
+    return () => obs.disconnect();
   }, []);
 
   return (
