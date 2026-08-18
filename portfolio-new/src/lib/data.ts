@@ -458,14 +458,9 @@ export const skillData = [
   {
     category: "AI / Agentic",
     skills: [
-      "Langchain",
-      "LangGraph",
-      "Deep agents",
-      "Mem0",
-      "RAGAS",
-      "MinerU",
       "Claude Code",
       "Codex",
+      'Personalised skill files'
     ],
   },
 ];
