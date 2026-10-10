@@ -4,7 +4,7 @@ export const meta = {
   tagline:
     "I build scalable backend systems, AI agents, and reliable products. Based in India.",
   email: "shobhnikw@gmail.com",
-  calLink: "https://cal.com/shobhnik13/15min",
+  calLink: "https://calendly.com/shobhnikw/whoami",
   resumeLink: "https://resume.shobhnik.site/resume.pdf",
   githubUsername: "SHOBHNIK13",
   // Toggle this to false when not available
@@ -103,7 +103,7 @@ export const experienceData = [
   },
   {
     id: 2,
-    role: "Software Engineer",
+    role: "Product Engineer",
     company: "Roger (YC S24)",
     logoUrl: "https://www.google.com/s2/favicons?domain=hireroger.com&sz=64",
     duration: "May 2026 – June 2026",
@@ -176,7 +176,7 @@ export const experienceData = [
   },
   {
     id: 4,
-    role: "Software Engineer",
+    role: "Founding Product Engineer",
     company: "Stealth Startup (YC-backed)",
     logoUrl: "",
     duration: "Aug 2024 – Jan 2025",

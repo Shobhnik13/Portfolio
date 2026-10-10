@@ -46,7 +46,7 @@ function initials(company: string) {
           <p class="text-xs text-fg2 mt-0.5 mb-2">{job.role.toLowerCase()} · {job.location.split(',')[0].toLowerCase()}</p>
 
           <!-- Bullets -->
-          <ul class="space-y-1">
+          <ul class="exp-bullets space-y-1 max-h-[2.85rem] overflow-hidden transition-[max-height] duration-300 ease-in-out">
             {job.bullets.map((b) => (
               <li class="text-sm text-fg2 leading-relaxed flex gap-2">
                 <span class="text-fg3 shrink-0">-</span>
@@ -62,8 +62,43 @@ function initials(company: string) {
               </li>
             ))}
           </ul>
+
+          <button type="button" class="exp-toggle mt-1 text-xs font-mono text-fg2 hover:text-fg transition-colors">
+            read more
+          </button>
         </div>
       </div>
     ))}
   </div>
 </section>
+
+<style>
+  .exp-bullets:not(.expanded) {
+    mask-image: linear-gradient(to bottom, black 40%, transparent);
+  }
+</style>
+
+<script>
+  function initExperience() {
+    document.querySelectorAll<HTMLElement>('.exp-bullets').forEach((list) => {
+      const btn = list.nextElementSibling as HTMLButtonElement | null
+      if (!btn || list.dataset.bound) return
+      list.dataset.bound = '1'
+
+      if (list.scrollHeight <= list.clientHeight + 1) {
+        list.classList.add('expanded')
+        btn.remove()
+        return
+      }
+
+      btn.addEventListener('click', () => {
+        const open = list.classList.toggle('expanded')
+        list.style.maxHeight = open ? `${list.scrollHeight}px` : ''
+        btn.textContent = open ? 'show less' : 'read more'
+      })
+    })
+  }
+
+  initExperience()
+  document.addEventListener('astro:page-load', initExperience)
+</script>

@@ -61,3 +61,9 @@
     @apply border-t border-[hsl(var(--border))];
   }
 }
+
+/* GitHub calendar hover tooltip */
+body .react-activity-calendar__tooltip {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+}

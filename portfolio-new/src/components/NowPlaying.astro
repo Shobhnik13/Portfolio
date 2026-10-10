@@ -1,0 +1,111 @@
+<section id="now-playing" class="sr pb-10">
+  <span class="lbl">what i'm listening to</span>
+
+  <a
+    id="np-card"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group flex items-center gap-3 p-2 -mx-2 rounded-lg hover:bg-bg2 transition-colors"
+  >
+    <div class="relative shrink-0 w-12 h-12 rounded-md bg-bg2 border border-border overflow-hidden">
+      <img id="np-art" alt="" width="48" height="48" class="hidden w-full h-full object-cover" />
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <p id="np-title" class="text-sm font-medium text-fg truncate">
+        <span class="inline-block w-32 h-3 rounded bg-bg2 animate-pulse align-middle"></span>
+      </p>
+      <p id="np-artist" class="text-xs text-fg2 truncate mt-0.5">
+        <span class="inline-block w-20 h-2.5 rounded bg-bg2 animate-pulse align-middle"></span>
+      </p>
+    </div>
+
+    <div class="shrink-0 flex items-center gap-1.5 text-xs font-mono text-fg2">
+      <span id="np-bars" class="hidden items-end gap-[2px] h-3" aria-hidden="true">
+        <span class="np-bar"></span><span class="np-bar"></span><span class="np-bar"></span>
+      </span>
+      <span id="np-status"></span>
+    </div>
+  </a>
+</section>
+
+<style>
+  .np-bar {
+    width: 2px;
+    height: 100%;
+    background: hsl(var(--fg2));
+    transform-origin: bottom;
+    animation: np-bounce 0.9s ease-in-out infinite;
+  }
+  .np-bar:nth-child(2) { animation-delay: -0.3s; }
+  .np-bar:nth-child(3) { animation-delay: -0.6s; }
+
+  @keyframes np-bounce {
+    0%, 100% { transform: scaleY(0.3); }
+    50%      { transform: scaleY(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .np-bar { animation: none; transform: scaleY(0.6); }
+  }
+</style>
+
+<script>
+  type Track = {
+    isPlaying: boolean
+    title: string
+    artist: string
+    albumArt: string | null
+    url: string
+    playedAt?: string
+  }
+
+  function timeAgo(iso: string) {
+    const mins = Math.round((Date.now() - new Date(iso).getTime()) / 60000)
+    if (mins < 60) return `${Math.max(mins, 1)}m ago`
+    const hrs = Math.round(mins / 60)
+    if (hrs < 24) return `${hrs}h ago`
+    return `${Math.round(hrs / 24)}d ago`
+  }
+
+  async function loadNowPlaying() {
+    const section = document.getElementById('now-playing')
+    if (!section) return
+
+    try {
+      const res = await fetch('/api/now-playing')
+      if (res.status !== 200) throw new Error()
+      const t: Track = await res.json()
+
+      const card = document.getElementById('np-card') as HTMLAnchorElement
+      const art = document.getElementById('np-art') as HTMLImageElement
+      const bars = document.getElementById('np-bars')!
+
+      card.href = t.url
+      document.getElementById('np-title')!.textContent = t.title
+      document.getElementById('np-artist')!.textContent = t.artist
+      document.getElementById('np-status')!.textContent = t.isPlaying ? 'now playing' : t.playedAt ? `last played · ${timeAgo(t.playedAt)}` : 'last played'
+      bars.classList.toggle('hidden', !t.isPlaying)
+      bars.classList.toggle('flex', t.isPlaying)
+
+      if (t.albumArt) {
+        art.src = t.albumArt
+        art.alt = `${t.title} cover`
+        art.classList.remove('hidden')
+      }
+    } catch {
+      section.remove()
+    }
+  }
+
+  function initNowPlaying() {
+    loadNowPlaying()
+    clearInterval((window as any).__npInterval)
+    ;(window as any).__npInterval = setInterval(() => {
+      if (document.visibilityState === 'visible') loadNowPlaying()
+    }, 30000)
+  }
+
+  initNowPlaying()
+  document.addEventListener('astro:page-load', initNowPlaying)
+</script>

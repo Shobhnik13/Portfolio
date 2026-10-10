@@ -5,6 +5,7 @@ import About from '../components/About.astro'
 import Experience from '../components/Experience.astro'
 import Skills from '../components/Skills.astro'
 import Contributions from '../components/Contributions.tsx'
+import NowPlaying from '../components/NowPlaying.astro'
 import { meta } from '../lib/data'
 ---
 
@@ -15,9 +16,10 @@ import { meta } from '../lib/data'
   <About />
   
   <section class="sr pb-10">
-    <span class="lbl">contributions</span>
     <Contributions username={meta.githubUsername} client:idle />
   </section>
+
+  <NowPlaying />
 
   <div class="divider mb-8"></div>
   <Experience />

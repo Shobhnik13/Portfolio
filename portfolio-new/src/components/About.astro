@@ -15,7 +15,7 @@
             most of my code? agents write it. i just make sure it doesn't sucks.
         </p>
         <p class="pt-1">
-            ~2 years in. shipped things, broke things, got better.
+            ~3 years in. shipped things, broke things, got better.
         </p>
         <p class="pt-1">
             <a href="/projects" class="ul-link text-fg font-medium">
@@ -26,24 +26,91 @@
         <!-- Hire me + Resume -->
         <div class="flex items-center gap-3 pt-4">
             <a
-                href="https://cal.com/shobhnik13/15min"
+                href="https://calendly.com/shobhnikw/whoami"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-fg text-bg text-xs font-medium hover:opacity-80 transition-opacity"
+                class="hire group relative inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-fg text-bg text-xs font-medium transition-transform hover:-translate-y-px"
             >
-                hire me
-                <svg
-                    width="11"
-                    height="11"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                <!-- Video call preview (hover / focus) -->
+                <span
+                    class="hire-call pointer-events-none absolute bottom-full left-0 mb-3 w-[232px] rounded-xl border border-border bg-bg p-2 shadow-xl text-fg"
+                    aria-hidden="true"
                 >
-                    <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
-                </svg>
+                    <span class="flex items-center gap-1.5 px-0.5 pb-2 text-[10px] font-mono text-fg2">
+                        <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-60"></span>
+                            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500"></span>
+                        </span>
+                        a short intro call
+                    </span>
+
+                    <span class="grid grid-cols-2 gap-1.5">
+                        <span class="hire-tile relative flex aspect-[4/3] items-center justify-center rounded-lg bg-bg2 border border-border overflow-hidden">
+                            <img src="/IntroImg.jpeg" alt="" class="w-9 h-9 rounded-full object-cover grayscale" />
+                            <span class="absolute bottom-1 left-1.5 text-[9px] font-mono text-fg2">me</span>
+                        </span>
+                        <span class="hire-tile relative flex aspect-[4/3] items-center justify-center rounded-lg bg-bg2 border border-dashed border-border overflow-hidden">
+                            <span class="flex w-9 h-9 items-center justify-center rounded-full border border-border text-fg3">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path>
+                                </svg>
+                            </span>
+                            <span class="absolute bottom-1 left-1.5 text-[9px] font-mono text-fg2">you</span>
+                            <span class="hire-dots absolute top-1 right-1.5 flex gap-0.5">
+                                <span></span><span></span><span></span>
+                            </span>
+                        </span>
+                    </span>
+
+                    <span class="flex items-center justify-center gap-1.5 pt-2">
+                        <span class="flex w-6 h-6 items-center justify-center rounded-full bg-bg2 border border-border text-fg2">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v4"></path>
+                            </svg>
+                        </span>
+                        <span class="flex w-6 h-6 items-center justify-center rounded-full bg-bg2 border border-border text-fg2">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                            </svg>
+                        </span>
+                        <span class="flex h-6 px-2.5 items-center justify-center gap-1 rounded-full bg-green-600 text-white text-[10px] font-medium">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path>
+                            </svg>
+                            join
+                        </span>
+                    </span>
+                </span>
+
+                hire me
+                <span class="relative w-[11px] h-[11px]">
+                    <svg
+                        class="absolute inset-0 transition-all duration-200 group-hover:opacity-0 group-hover:translate-x-1 group-hover:-translate-y-1"
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+                    </svg>
+                    <svg
+                        class="absolute inset-0 opacity-0 scale-50 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100"
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                    </svg>
+                </span>
             </a>
             <a
                 href="https://resume.shobhnik.site/resume.pdf"
@@ -66,7 +133,7 @@
                 </svg>
             </a>
             <a
-                href="https://drive.google.com/file/d/1vQ_1nbgzUYIv2t9vxVFL7qbVIL2F0lJH/view"
+                href="https://drive.google.com/file/d/1vQ_1nbgzUYIv2t9vxVFL7qbVIL2F0lJH/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-1.5 text-xs text-fg2 hover:text-fg transition-colors ul-link"
@@ -88,3 +155,56 @@
         </div>
     </div>
 </section>
+
+<style>
+    .hire-call {
+        opacity: 0;
+        transform: translateY(6px) scale(0.96);
+        transform-origin: bottom left;
+        transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    }
+    .hire:hover .hire-call,
+    .hire:focus-visible .hire-call {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .hire-tile {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.25s ease, transform 0.3s ease;
+    }
+    .hire:hover .hire-tile,
+    .hire:focus-visible .hire-tile {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .hire:hover .hire-tile:nth-child(2),
+    .hire:focus-visible .hire-tile:nth-child(2) {
+        transition-delay: 0.12s;
+    }
+
+    .hire-dots span {
+        width: 3px;
+        height: 3px;
+        border-radius: 9999px;
+        background: hsl(var(--fg3));
+        animation: hire-dot 1.2s ease-in-out infinite;
+    }
+    .hire-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .hire-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes hire-dot {
+        0%, 100% { opacity: 0.3; }
+        50%      { opacity: 1; }
+    }
+
+    @media (hover: none) {
+        .hire-call { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hire-call, .hire-tile { transition: opacity 0.15s ease; transform: none !important; }
+        .hire-dots span { animation: none; }
+    }
+</style>
