@@ -8,7 +8,6 @@ const tabs = [
   { id: 'all', label: 'all' },
 ] as const
 
-const count = (id: string) => (id === 'all' ? projectData.length : projectData.filter((p) => p.type === id).length)
 
 ---
 
@@ -35,7 +34,6 @@ const count = (id: string) => (id === 'all' ? projectData.length : projectData.f
           class="pseg-btn relative z-10 inline-flex items-center px-3 py-1 text-xs text-fg2 transition-colors"
         >
           {t.label}
-          <span class="pseg-count ml-1.5 font-mono text-[10px] text-fg3 tabular-nums">{count(t.id)}</span>
         </button>
       ))}
     </div>
@@ -101,9 +99,6 @@ const count = (id: string) => (id === 'all' ? projectData.length : projectData.f
   }
   .pseg-btn[aria-selected='true'] {
     color: hsl(var(--fg));
-  }
-  .pseg-btn[aria-selected='true'] .pseg-count {
-    color: hsl(var(--fg2));
   }
 
   .proj {
