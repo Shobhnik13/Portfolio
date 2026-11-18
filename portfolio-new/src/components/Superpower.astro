@@ -1,0 +1,166 @@
+---
+const words = ['i', 'figure', 'things', 'out.']
+---
+
+<section class="sr pb-10">
+  <h2 class="lbl">my superpower</h2>
+
+  <div class="sp relative overflow-hidden rounded-xl border border-border bg-bg2 px-5 py-5">
+    <span class="sp-glow pointer-events-none absolute inset-0" aria-hidden="true"></span>
+    <span class="sp-edge pointer-events-none absolute inset-x-0 top-0 h-px" aria-hidden="true"></span>
+
+    <div class="sp-content relative">
+      <p class="text-[15px] font-medium text-fg tracking-tight mb-1">
+        {words.map((w, i) => <span class="sp-word" style={`--i:${i}`}>{w}</span>)}
+      </p>
+      <p class="sp-line text-sm text-fg2 leading-relaxed">
+        throw me at a messy, half-broken system, hand me coffee and my playlist, and i'll come back with
+        <span class="sp-accent">ideas you never saw coming</span>.
+      </p>
+      <p class="sp-oops mt-3 text-right text-[11px] font-mono text-fg3" aria-live="polite">oops, now you know it :)</p>
+    </div>
+
+    <button
+      type="button"
+      class="sp-cover absolute inset-0 flex items-center justify-center"
+      aria-label="reveal my superpower"
+    >
+      <span class="sp-pill inline-flex items-center gap-1.5 rounded-full border border-border bg-bg px-3 py-1.5 text-xs font-medium text-fg">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="sp-star">
+          <path d="M12 2c.4 4.6 2.6 7.6 8 10-5.4 2.4-7.6 5.4-8 10-.4-4.6-2.6-7.6-8-10 5.4-2.4 7.6-5.4 8-10Z"></path>
+        </svg>
+        reveal
+      </span>
+    </button>
+  </div>
+</section>
+
+<style>
+  .sp {
+    --sky: #7dd3fc;
+    --blue: #60a5fa;
+  }
+  :global(html:not(.dark)) .sp {
+    --sky: #1e3a8a;
+    --blue: #1d4ed8;
+  }
+
+  .sp-content {
+    filter: blur(7px);
+    opacity: 0.45;
+    transition: filter 0.6s ease, opacity 0.6s ease;
+    user-select: none;
+  }
+  .sp-word {
+    display: inline-block;
+    margin-right: 0.25em;
+  }
+
+  .sp-cover {
+    cursor: pointer;
+    transition: opacity 0.35s ease;
+  }
+  .sp-pill {
+    transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1), border-color 0.2s ease;
+  }
+  .sp-cover:hover .sp-pill,
+  .sp-cover:focus-visible .sp-pill {
+    transform: scale(1.06);
+    border-color: var(--sky);
+  }
+  .sp-star {
+    color: var(--sky);
+    animation: sp-twinkle 2.4s ease-in-out infinite;
+  }
+
+  .sp-glow {
+    background:
+      radial-gradient(110% 160% at 85% -40%, color-mix(in srgb, var(--sky) 34%, transparent), transparent 55%),
+      radial-gradient(80% 120% at 15% -50%, color-mix(in srgb, var(--blue) 18%, transparent), transparent 60%);
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 1s ease 0.3s, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+  }
+  .sp-edge {
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--blue) 70%, transparent) 35%, color-mix(in srgb, var(--sky) 70%, transparent) 70%, transparent);
+    opacity: 0;
+    transition: opacity 0.8s ease 0.5s;
+  }
+  .sp.open .sp-edge {
+    opacity: 1;
+  }
+
+  .sp-accent {
+    font-weight: 500;
+    color: transparent;
+    background: linear-gradient(90deg, var(--sky), var(--blue) 50%, hsl(var(--fg2)) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  /* revealed */
+  .sp.open .sp-content {
+    filter: none;
+    opacity: 1;
+    user-select: auto;
+  }
+  .sp.open .sp-cover {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sp.open .sp-glow {
+    opacity: 1;
+    transform: none;
+  }
+  .sp.open .sp-word {
+    animation: sp-word 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 0.07s);
+  }
+  .sp.open .sp-accent {
+    animation: sp-sweep 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.55s;
+  }
+
+  .sp-oops {
+    opacity: 0;
+    transform: translateY(4px) rotate(-2deg);
+  }
+  .sp.open .sp-oops {
+    animation: sp-oops 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) forwards 1.5s;
+  }
+  @keyframes sp-oops {
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes sp-word {
+    from { transform: translateY(5px); opacity: 0.4; }
+  }
+  @keyframes sp-sweep {
+    to { background-position: 0 0; }
+  }
+  @keyframes sp-twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50%      { transform: scale(0.8) rotate(45deg); opacity: 0.7; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sp-content, .sp-cover, .sp-glow, .sp-edge { transition: none; }
+    .sp-star, .sp.open .sp-word { animation: none; }
+    .sp.open .sp-accent { animation: none; background-position: 0 0; }
+    .sp.open .sp-oops { animation: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<script>
+  function initSuperpower() {
+    document.querySelectorAll<HTMLElement>('.sp').forEach((card) => {
+      if (card.dataset.bound) return
+      card.dataset.bound = '1'
+      card.querySelector('.sp-cover')?.addEventListener('click', () => card.classList.add('open'))
+    })
+  }
+
+  initSuperpower()
+  document.addEventListener('astro:page-load', initSuperpower)
+</script>

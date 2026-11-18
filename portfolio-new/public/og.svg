@@ -37,7 +37,7 @@
   <text x="80" y="300" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="80" font-weight="600" fill="#f0f0f0" letter-spacing="-2">shobhnik.</text>
 
   <!-- Role -->
-  <text x="82" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="400" fill="#666666" letter-spacing="0.2">a engineer who build reliable and scalable systems</text>
+  <text x="82" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="400" fill="#666666" letter-spacing="0.2">an engineer who builds reliable and scalable systems</text>
 
   <!-- Divider -->
   <line x1="80" y1="400" x2="360" y2="400" stroke="#333333" stroke-width="1"/>

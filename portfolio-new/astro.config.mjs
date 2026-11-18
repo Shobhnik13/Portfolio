@@ -24,6 +24,7 @@ const vercelApiInDev = {
 }
 
 export default defineConfig({
+  site: 'https://shobhnik.site',
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),

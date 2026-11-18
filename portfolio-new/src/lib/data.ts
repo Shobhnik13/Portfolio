@@ -107,7 +107,7 @@ export const experienceData = [
     company: "Roger (YC S24)",
     logoUrl: "https://www.google.com/s2/favicons?domain=hireroger.com&sz=64",
     duration: "May 2026 – June 2026",
-    location: "Remote · Freelance/Contract",
+    location: "Remote",
     bullets: [
       [
         "Built an ",
@@ -422,7 +422,7 @@ export const projectData = [
 export const skillData = [
   {
     category: "Languages",
-    skills: ["JavaScript", "TypeScript", "Golang (Go)"],
+    skills: ["JavaScript", "TypeScript", "Python", "Golang (Go)"],
   },
   {
     category: "Frameworks",
@@ -433,6 +433,7 @@ export const skillData = [
       "Express.js",
       "Langchain",
       "Deep agents",
+      "Mastra",
     ],
   },
   {
@@ -441,7 +442,7 @@ export const skillData = [
   },
   {
     category: "DevOps / Infra",
-    skills: ["AWS", "Azure", "Vercel", "Git", "Docker", "Github Actions"],
+    skills: ["AWS", "GCP", "Cloudflare", "Kubernetes (K8s)", "Docker", "Git", "Github Actions", "Mixpanel"],
   },
   {
     category: "Databases",
@@ -460,8 +461,29 @@ export const skillData = [
     skills: [
       "Claude Code",
       "Codex",
-      'Personalised skill files'
+      "MCP",
+      "Personalised skill files",
     ],
+  },
+];
+
+export const freeTimeData = [
+  {
+    title: "product case studies",
+    detail:
+      "user experience, taste, design and the engineering behind great products.",
+  },
+  {
+    title: "technical blogs",
+    detail: "reading how teams build, ship and scale.",
+  },
+  {
+    title: "prototyping with new AI tools",
+    detail: "trying new models and frameworks the week they drop.",
+  },
+  {
+    title: "games",
+    detail: "both online and physical.",
   },
 ];
 

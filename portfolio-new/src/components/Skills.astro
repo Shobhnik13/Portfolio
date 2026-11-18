@@ -3,45 +3,73 @@ import { skillData } from '../lib/data'
 ---
 
 <section class="sr pb-10">
-  <span class="lbl">skills / tools</span>
+  <h2 class="lbl">skills / tools</h2>
 
-  <div class="space-y-5">
+  <div class="space-y-2.5">
     {skillData.map((cat) => (
-      <div>
-        <!-- Category label -->
-        <p class="text-[10px] uppercase tracking-widest text-fg3 font-medium mb-2">
-          {cat.category}
-        </p>
-
-        <!-- Skill pills -->
-        <div class="flex flex-wrap gap-1.5">
-          {cat.skills.map((skill) => (
-            <span class="skill-pill">
-              {skill}
-            </span>
+      <div class="grid grid-cols-1 sm:grid-cols-[8.5rem_1fr] gap-x-3 gap-y-1">
+        <p class="text-[10px] uppercase tracking-widest text-fg3 font-medium sm:pt-[3px]">{cat.category}</p>
+        <p class="text-xs text-fg2 leading-relaxed">
+          {cat.skills.map((skill, j) => (
+            <>
+              <span class="skill">{skill}</span>
+              {j < cat.skills.length - 1 && <span class="text-fg3"> · </span>}
+            </>
           ))}
-        </div>
+        </p>
       </div>
     ))}
   </div>
+
+  <p class="eta-line mt-5 text-[11px] font-mono text-fg3">
+    skill you need not listed? nevermind, i'll figure it out in
+    <span class="eta relative inline-flex">
+      <span class="eta-old">4–5</span>
+      <span class="eta-new" aria-hidden="true">2</span>
+    </span>
+    business days :)
+  </p>
 </section>
 
 <style>
-  .skill-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-family: ui-monospace, 'Geist Mono', monospace;
-    color: hsl(var(--fg2));
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--bg2));
-    transition: color 0.15s ease, border-color 0.15s ease;
-    white-space: nowrap;
+  .skill {
+    transition: color 0.15s ease;
   }
-  .skill-pill:hover {
+  .skill:hover {
     color: hsl(var(--fg));
-    border-color: hsl(var(--fg2));
+  }
+
+  .eta-line {
+    cursor: default;
+  }
+  .eta {
+    transition: margin-right 0.25s ease;
+  }
+  .eta-old {
+    background: linear-gradient(currentColor, currentColor) 0 55% / 0% 1px no-repeat;
+    transition: background-size 0.3s ease, color 0.3s ease;
+  }
+  .eta-new {
+    position: absolute;
+    left: 100%;
+    margin-left: 0.35em;
+    color: hsl(var(--fg));
+    opacity: 0;
+    transform: translateY(-6px) rotate(-8deg);
+    transition: opacity 0.25s ease 0.2s, transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) 0.2s;
+  }
+  .eta-line:hover .eta-old {
+    background-size: 100% 1px;
+  }
+  .eta-line:hover .eta {
+    margin-right: 1.1em;
+  }
+  .eta-line:hover .eta-new {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .eta, .eta-old, .eta-new { transition: none; }
   }
 </style>

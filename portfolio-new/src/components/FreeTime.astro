@@ -1,0 +1,20 @@
+---
+import { freeTimeData } from '../lib/data'
+---
+
+<section class="sr pb-10">
+  <h2 class="lbl">what i love to do in free time</h2>
+
+  <ul class="space-y-2">
+    {freeTimeData.map((item) => (
+      <li class="text-sm text-fg2 leading-relaxed flex gap-2">
+        <span class="text-fg3 shrink-0">-</span>
+        <span>
+          <span class="text-fg font-medium">{item.title}</span>
+          {' — '}
+          {item.detail}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>

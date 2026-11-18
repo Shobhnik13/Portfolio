@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { blogData } from '../lib/data'
+
+const minutes = (t: string) => parseInt(t, 10) || 1
+const maxMin = Math.max(...blogData.map((b) => minutes(b.readTime)))
 ---
 
 <Layout title="writing. — shobhnik">
   <section class="pb-10">
-    <!-- Back button -->
     <a href="/" class="inline-flex items-center gap-1.5 text-sm text-fg2 hover:text-fg transition-colors mb-8 group">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-0.5">
         <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
@@ -13,30 +15,132 @@ import { blogData } from '../lib/data'
       home
     </a>
 
-    <h1 class="text-xl font-semibold text-fg tracking-tight mb-1">writing.</h1>
+    <h1 class="text-xl font-semibold text-fg tracking-tight mb-1">writing<span class="accent-dot">.</span></h1>
     <p class="text-sm text-fg2 mb-8">things i had opinions about - could be genius, could be garbage.</p>
 
-    <div class="space-y-0">
-      {blogData.map((post) => (
+    <div>
+      {blogData.map((post, i) => (
         <a
           href={post.href}
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex items-start justify-between gap-4 py-5 border-t border-border hover:bg-bg2 -mx-3 px-3 rounded-lg transition-colors"
+          class="post group relative flex items-start gap-4 py-5 -mx-3 px-3 border-t border-border"
+          style={`--n:${i}`}
         >
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-fg group-hover:underline underline-offset-2 leading-snug">
-              {post.title}
+          <span class="post-glow pointer-events-none absolute inset-0 rounded-lg" aria-hidden="true"></span>
+
+          <span class="post-num relative font-mono text-[11px] text-fg3 pt-0.5 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+
+          <div class="relative flex-1 min-w-0">
+            <p class="post-title text-sm font-medium text-fg leading-snug">
+              <span class="post-ul">{post.title}</span>
             </p>
-            <p class="text-xs text-fg2 font-mono mt-1.5">
-              {post.date} · {post.readTime} read
-            </p>
+            <div class="flex items-center gap-2.5 mt-2 text-xs text-fg2 font-mono">
+              <span>{post.date.toLowerCase()}</span>
+              <span class="text-fg3">·</span>
+              <span class="read flex items-center gap-1.5">
+                <span class="read-track" aria-hidden="true">
+                  {Array.from({ length: maxMin }, (_, j) => (
+                    <span class:list={['read-seg', j < minutes(post.readTime) && 'on']} style={`--j:${j}`}></span>
+                  ))}
+                </span>
+                {post.readTime} read
+              </span>
+            </div>
           </div>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-fg2 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-          </svg>
+
+          <span class="post-arrow relative shrink-0 mt-0.5" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+            </svg>
+          </span>
         </a>
       ))}
     </div>
+
+    <p class="mt-6 text-[11px] font-mono text-fg3">
+      more on <a href="https://medium.com/@shobhnikw" target="_blank" rel="noopener noreferrer" class="ul-link hover:text-fg2">medium</a>, when the coffee hits.
+    </p>
   </section>
 </Layout>
+
+<style>
+  .accent-dot {
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .post {
+    animation: post-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--n) * 60ms + 80ms);
+  }
+  @keyframes post-in {
+    from { opacity: 0; transform: translateY(8px); }
+  }
+
+  .post-glow {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--sky) 8%, transparent), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .post:hover .post-glow {
+    opacity: 1;
+  }
+
+  .post-num {
+    transition: color 0.2s ease;
+  }
+  .post:hover .post-num {
+    color: var(--sky);
+  }
+
+  .post-ul {
+    background-image: linear-gradient(90deg, var(--sky), var(--blue));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 1px;
+    transition: background-size 0.4s cubic-bezier(0.3, 1, 0.4, 1);
+  }
+  .post:hover .post-ul {
+    background-size: 100% 1px;
+  }
+
+  .read-track {
+    display: inline-flex;
+    gap: 2px;
+  }
+  .read-seg {
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background: hsl(var(--border));
+    transition: background-color 0.2s ease;
+  }
+  .read-seg.on {
+    background: hsl(var(--fg3));
+  }
+  .post:hover .read-seg.on {
+    background: var(--sky);
+    transition-delay: calc(var(--j) * 50ms);
+  }
+
+  .post-arrow {
+    color: hsl(var(--fg3));
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1), color 0.2s ease;
+  }
+  .post:hover .post-arrow {
+    opacity: 1;
+    transform: none;
+    color: var(--sky);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post { animation: none; }
+    .post-ul, .post-arrow, .read-seg { transition: none; }
+  }
+</style>

@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/Hero.astro'
 import About from '../components/About.astro'
+import Superpower from '../components/Superpower.astro'
 import Experience from '../components/Experience.astro'
 import Skills from '../components/Skills.astro'
 import Contributions from '../components/Contributions.tsx'
 import NowPlaying from '../components/NowPlaying.astro'
+import FreeTime from '../components/FreeTime.astro'
 import { meta } from '../lib/data'
 ---
 
@@ -14,7 +16,9 @@ import { meta } from '../lib/data'
 
   <div class="divider mb-8"></div>
   <About />
-  
+
+  <Superpower />
+
   <section class="sr pb-10">
     <Contributions username={meta.githubUsername} client:idle />
   </section>
@@ -28,5 +32,7 @@ import { meta } from '../lib/data'
   <Skills />
 
   <div class="divider mb-8"></div>
+  <FreeTime />
 
+  <div class="divider mb-8"></div>
 </Layout>

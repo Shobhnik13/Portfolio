@@ -2,20 +2,24 @@
 
 ---
 
-<section class="sr pb-10">
-    <span class="lbl">about</span>
+<section id="about" class="sr pb-10 scroll-mt-10">
+    <h2 class="lbl">about</h2>
 
     <div class="space-y-2 text-sm text-fg2 leading-relaxed">
         <p>
-            i figure out the system architecture, break down hard problems, and
-            care a lot about code review, basically all the things that still
-            and will always needs a human mind.
+            backend & AI engineer with a product mindset. i've owned 0→1
+            systems end-to-end at YC and early-stage startups, from
+            architecture and APIs to production.
         </p>
         <p>
-            most of my code? agents write it. i just make sure it doesn't sucks.
+            i care about systems that hold up at scale, not just code that
+            works. most of my code? agents write it. i design the
+            architecture, break down hard problems and make sure it doesn't
+            suck.
         </p>
-        <p class="pt-1">
-            ~3 years in. shipped things, broke things, got better.
+        <p>
+            i work closely with founders, product and design teams, from
+            system design and AI agents to launch and scale.
         </p>
         <p class="pt-1">
             <a href="/projects" class="ul-link text-fg font-medium">
@@ -24,94 +28,39 @@
         </p>
 
         <!-- Hire me + Resume -->
-        <div class="flex items-center gap-3 pt-4">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 pt-4">
             <a
                 href="https://calendly.com/shobhnikw/whoami"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="hire group relative inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-fg text-bg text-xs font-medium transition-transform hover:-translate-y-px"
+                class="hire hire-cta group relative inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap"
+                aria-label="hire me, book an intro call"
             >
-                <!-- Video call preview (hover / focus) -->
-                <span
-                    class="hire-call pointer-events-none absolute bottom-full left-0 mb-3 w-[232px] rounded-xl border border-border bg-bg p-2 shadow-xl text-fg"
-                    aria-hidden="true"
-                >
-                    <span class="flex items-center gap-1.5 px-0.5 pb-2 text-[10px] font-mono text-fg2">
-                        <span class="relative flex h-1.5 w-1.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-60"></span>
-                            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500"></span>
-                        </span>
-                        a short intro call
-                    </span>
+                <span class="hire-sheen pointer-events-none absolute inset-0 rounded-lg overflow-hidden" aria-hidden="true"></span>
 
-                    <span class="grid grid-cols-2 gap-1.5">
-                        <span class="hire-tile relative flex aspect-[4/3] items-center justify-center rounded-lg bg-bg2 border border-border overflow-hidden">
-                            <img src="/IntroImg.jpeg" alt="" class="w-9 h-9 rounded-full object-cover grayscale" />
-                            <span class="absolute bottom-1 left-1.5 text-[9px] font-mono text-fg2">me</span>
-                        </span>
-                        <span class="hire-tile relative flex aspect-[4/3] items-center justify-center rounded-lg bg-bg2 border border-dashed border-border overflow-hidden">
-                            <span class="flex w-9 h-9 items-center justify-center rounded-full border border-border text-fg3">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path>
-                                </svg>
-                            </span>
-                            <span class="absolute bottom-1 left-1.5 text-[9px] font-mono text-fg2">you</span>
-                            <span class="hire-dots absolute top-1 right-1.5 flex gap-0.5">
-                                <span></span><span></span><span></span>
-                            </span>
-                        </span>
-                    </span>
-
-                    <span class="flex items-center justify-center gap-1.5 pt-2">
-                        <span class="flex w-6 h-6 items-center justify-center rounded-full bg-bg2 border border-border text-fg2">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v4"></path>
-                            </svg>
-                        </span>
-                        <span class="flex w-6 h-6 items-center justify-center rounded-full bg-bg2 border border-border text-fg2">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect>
-                            </svg>
-                        </span>
-                        <span class="flex h-6 px-2.5 items-center justify-center gap-1 rounded-full bg-green-600 text-white text-[10px] font-medium">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path>
-                            </svg>
-                            join
-                        </span>
-                    </span>
+                <span class="hire-tip pointer-events-none absolute bottom-full left-0 mb-2.5 rounded-lg border border-border bg-bg2 px-2.5 py-1.5 text-[11px] font-medium text-fg shadow-xl" aria-hidden="true">
+                    a short intro call
+                    <span class="hire-tip-arrow absolute top-full left-6"></span>
                 </span>
 
-                hire me
-                <span class="relative w-[11px] h-[11px]">
-                    <svg
-                        class="absolute inset-0 transition-all duration-200 group-hover:opacity-0 group-hover:translate-x-1 group-hover:-translate-y-1"
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
+                <span class="hire-roll relative inline-grid" aria-hidden="true">
+                    <span class="hire-face"><span class="hire-l" style="--i:0">h</span><span class="hire-l" style="--i:1">i</span><span class="hire-l" style="--i:2">r</span><span class="hire-l" style="--i:3">e</span><span class="hire-l" style="--i:4">&nbsp;</span><span class="hire-l" style="--i:5">m</span><span class="hire-l" style="--i:6">e</span></span>
+                    <span class="hire-face hire-face-back"><span class="hire-l" style="--i:0">l</span><span class="hire-l" style="--i:1">e</span><span class="hire-l" style="--i:2">t</span><span class="hire-l" style="--i:3">'</span><span class="hire-l" style="--i:4">s</span><span class="hire-l" style="--i:5">&nbsp;</span><span class="hire-l" style="--i:6">t</span><span class="hire-l" style="--i:7">a</span><span class="hire-l" style="--i:8">l</span><span class="hire-l" style="--i:9">k</span></span>
+                </span>
+
+                <span class="relative w-[11px] h-[11px]" aria-hidden="true">
+                    <svg class="hire-arrow absolute inset-0" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
-                    </svg>
-                    <svg
-                        class="absolute inset-0 opacity-0 scale-50 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100"
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect>
                     </svg>
                 </span>
             </a>
+            <button
+                type="button"
+                data-copy-email="shobhnikw@gmail.com"
+                class="inline-flex items-center gap-1.5 text-xs text-fg2 hover:text-fg transition-colors ul-link"
+            >
+                copy email
+            </button>
             <a
                 href="https://resume.shobhnik.site/resume.pdf"
                 target="_blank"
@@ -157,54 +106,171 @@
 </section>
 
 <style>
-    .hire-call {
-        opacity: 0;
-        transform: translateY(6px) scale(0.96);
-        transform-origin: bottom left;
-        transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    .hire-cta {
+        background: linear-gradient(100deg, #7dd3fc, #60a5fa);
+        color: #0b0b0b;
+        box-shadow: 0 0 0 0 rgb(125 211 252 / 0);
+        transition: transform 0.35s cubic-bezier(0.3, 1.4, 0.5, 1), box-shadow 0.3s ease;
+        animation: hire-breathe 3.2s ease-in-out infinite;
     }
-    .hire:hover .hire-call,
-    .hire:focus-visible .hire-call {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+    :global(html:not(.dark)) .hire-cta {
+        background: linear-gradient(100deg, #0b1220, #1d4ed8);
+        color: #f8fafc;
     }
-
-    .hire-tile {
-        opacity: 0;
-        transform: scale(0.9);
-        transition: opacity 0.25s ease, transform 0.3s ease;
+    :global(html:not(.dark)) .hire-cta:hover {
+        box-shadow: 0 0 0 4px rgb(37 99 235 / 0.15), 0 10px 30px -8px rgb(29 78 216 / 0.6);
     }
-    .hire:hover .hire-tile,
-    .hire:focus-visible .hire-tile {
-        opacity: 1;
-        transform: scale(1);
+    :global(html:not(.dark)) .hire-sheen::after {
+        background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.25) 50%, transparent 70%);
     }
-    .hire:hover .hire-tile:nth-child(2),
-    .hire:focus-visible .hire-tile:nth-child(2) {
-        transition-delay: 0.12s;
+    .hire-cta:hover {
+        animation: none;
+        box-shadow: 0 0 0 4px rgb(125 211 252 / 0.2), 0 10px 30px -8px rgb(59 130 246 / 0.65);
     }
-
-    .hire-dots span {
-        width: 3px;
-        height: 3px;
-        border-radius: 9999px;
-        background: hsl(var(--fg3));
-        animation: hire-dot 1.2s ease-in-out infinite;
-    }
-    .hire-dots span:nth-child(2) { animation-delay: 0.2s; }
-    .hire-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes hire-dot {
-        0%, 100% { opacity: 0.3; }
-        50%      { opacity: 1; }
+    .hire-cta:active {
+        transition-duration: 0.1s;
+        scale: 0.96;
     }
 
-    @media (hover: none) {
-        .hire-call { display: none; }
+    .hire-sheen::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.75) 50%, transparent 70%);
+        transform: translateX(-120%);
+    }
+    .hire-cta:hover .hire-sheen::after {
+        transition: transform 0.7s ease;
+        transform: translateX(120%);
+    }
+
+    @keyframes hire-breathe {
+        0%, 100% { box-shadow: 0 0 0 0 rgb(125 211 252 / 0); }
+        50%      { box-shadow: 0 0 0 5px rgb(125 211 252 / 0.14); }
+    }
+
+    :global(.hire-spark) {
+        position: fixed;
+        z-index: 100;
+        width: 6px;
+        height: 6px;
+        border-radius: 2px;
+        background: #7dd3fc;
+        pointer-events: none;
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .hire-call, .hire-tile { transition: opacity 0.15s ease; transform: none !important; }
-        .hire-dots span { animation: none; }
+        .hire-cta { animation: none; transition: box-shadow 0.2s ease; }
+        .hire-sheen::after { display: none; }
+    }
+
+    .hire-roll {
+        overflow: hidden;
+        line-height: 1.25;
+    }
+    .hire-face {
+        grid-area: 1 / 1;
+        display: inline-flex;
+        justify-content: center;
+    }
+    .hire-l {
+        display: inline-block;
+        transition: transform 0.45s cubic-bezier(0.6, 0, 0.2, 1);
+        transition-delay: calc(var(--i) * 22ms);
+    }
+    .hire-face-back .hire-l {
+        transform: translateY(110%);
+    }
+    .hire-cta:hover .hire-face:not(.hire-face-back) .hire-l,
+    .hire-cta:focus-visible .hire-face:not(.hire-face-back) .hire-l {
+        transform: translateY(-110%);
+    }
+    .hire-cta:hover .hire-face-back .hire-l,
+    .hire-cta:focus-visible .hire-face-back .hire-l {
+        transform: none;
+    }
+
+    .hire-arrow {
+        transition: transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1);
+    }
+    .hire-cta:hover .hire-arrow {
+        transform: rotate(45deg);
+    }
+
+    .hire-tip {
+        opacity: 0;
+        transform: translateY(6px) scale(0.95);
+        transform-origin: bottom left;
+        transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1);
+    }
+    .hire-cta:hover .hire-tip,
+    .hire-cta:focus-visible .hire-tip {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.15s;
+    }
+    .hire-tip-arrow {
+        width: 8px;
+        height: 8px;
+        background: hsl(var(--bg2));
+        border-right: 1px solid hsl(var(--border));
+        border-bottom: 1px solid hsl(var(--border));
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    @media (hover: none) {
+        .hire-tip { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hire-l, .hire-arrow { transition: none; }
+        .hire-tip { transition: opacity 0.15s ease; }
     }
 </style>
+
+<script>
+    function initHire() {
+        const btn = document.querySelector<HTMLElement>('.hire-cta')
+        if (!btn || btn.dataset.bound) return
+        btn.dataset.bound = '1'
+
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+
+        if (fine && !reduce) {
+            btn.addEventListener('mousemove', (e) => {
+                const r = btn.getBoundingClientRect()
+                const x = (e.clientX - r.left - r.width / 2) * 0.25
+                const y = (e.clientY - r.top - r.height / 2) * 0.4
+                btn.style.transform = `translate(${x}px, ${y}px)`
+            })
+            btn.addEventListener('mouseleave', () => (btn.style.transform = ''))
+        }
+
+        btn.addEventListener('click', (e) => {
+            if (reduce) return
+            const r = btn.getBoundingClientRect()
+            const cx = e.clientX || r.left + r.width / 2
+            const cy = e.clientY || r.top + r.height / 2
+            for (let i = 0; i < 12; i++) {
+                const s = document.createElement('span')
+                s.className = 'hire-spark'
+                s.style.background = i % 2 ? '#60a5fa' : '#7dd3fc'
+                s.style.left = `${cx - 3}px`
+                s.style.top = `${cy - 3}px`
+                document.body.appendChild(s)
+                const a = (Math.PI * 2 * i) / 12 + Math.random() * 0.4
+                const d = 28 + Math.random() * 26
+                s.animate(
+                    [
+                        { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: 1 },
+                        { transform: `translate(${Math.cos(a) * d}px, ${Math.sin(a) * d}px) scale(0.2) rotate(${120 + Math.random() * 120}deg)`, opacity: 0 },
+                    ],
+                    { duration: 600 + Math.random() * 200, easing: 'cubic-bezier(0.2, 0.8, 0.3, 1)' },
+                ).onfinish = () => s.remove()
+            }
+        })
+    }
+
+    initHire()
+    document.addEventListener('astro:page-load', initHire)
+</script>

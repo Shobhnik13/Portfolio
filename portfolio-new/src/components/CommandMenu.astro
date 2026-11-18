@@ -1,0 +1,323 @@
+---
+import { meta } from '../lib/data'
+
+const coverLetter = 'https://drive.google.com/file/d/1vQ_1nbgzUYIv2t9vxVFL7qbVIL2F0lJH/view'
+
+const groups = [
+  {
+    label: 'navigate',
+    items: [
+      { id: 'home', label: 'home', hint: 'G H', action: 'nav', value: '/' },
+      { id: 'experience', label: 'experience', hint: 'G E', action: 'nav', value: '/#experience' },
+      { id: 'projects', label: 'projects', hint: 'G P', action: 'nav', value: '/projects' },
+      { id: 'writing', label: 'writing', hint: 'G W', action: 'nav', value: '/blogs' },
+    ],
+  },
+  {
+    label: 'get in touch',
+    items: [
+      { id: 'call', label: 'book an intro call', hint: '↗', action: 'open', value: meta.calLink },
+      { id: 'email', label: 'copy email', hint: 'C', action: 'copy', value: meta.email },
+      { id: 'resume', label: 'open resume', hint: '↗', action: 'open', value: meta.resumeLink },
+      { id: 'cover', label: 'open cover letter', hint: '↗', action: 'open', value: coverLetter },
+    ],
+  },
+  {
+    label: 'preferences',
+    items: [{ id: 'theme', label: 'toggle theme', hint: 'T', action: 'theme', value: '' }],
+  },
+]
+---
+
+<div id="cmdk-root" transition:persist>
+  <div id="cmdk" class="cmdk fixed inset-0 z-[70] hidden items-start justify-center px-4 pt-[18vh]" aria-hidden="true">
+    <div class="cmdk-scrim absolute inset-0 bg-black/30 backdrop-blur-[2px]" data-close></div>
+
+    <div
+      class="cmdk-panel relative w-full max-w-[420px] rounded-xl border border-border bg-bg shadow-2xl overflow-hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-label="command menu"
+    >
+      <div class="flex items-center gap-2 px-3.5 border-b border-border">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-fg3 shrink-0">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <input
+          id="cmdk-input"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="where to?"
+          class="w-full bg-transparent py-3 text-sm text-fg placeholder:text-fg3 outline-none"
+        />
+        <kbd class="kbd">esc</kbd>
+      </div>
+
+      <div id="cmdk-list" class="max-h-[300px] overflow-y-auto p-1.5" role="listbox">
+        {groups.map((g) => (
+          <div class="cmdk-group" data-group>
+            <p class="px-2 pt-2 pb-1 text-[10px] uppercase tracking-widest text-fg3">{g.label}</p>
+            {g.items.map((item) => (
+              <button
+                type="button"
+                role="option"
+                class="cmdk-item w-full flex items-center justify-between gap-3 px-2 py-1.5 rounded-md text-left text-sm text-fg2"
+                data-action={item.action}
+                data-value={item.value}
+                data-label={item.label}
+              >
+                <span>{item.label}</span>
+                <kbd class="kbd">{item.hint}</kbd>
+              </button>
+            ))}
+          </div>
+        ))}
+        <p id="cmdk-empty" class="hidden px-2 py-6 text-center text-xs text-fg3">nothing here. try "call" or "resume".</p>
+      </div>
+
+      <div class="flex items-center gap-3 px-3.5 py-2 border-t border-border text-[10px] font-mono text-fg3">
+        <span><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> move</span>
+        <span><kbd class="kbd">↵</kbd> select</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast fixed left-1/2 top-5 z-[80] -translate-x-1/2 flex items-center gap-2 w-max max-w-[calc(100vw-2rem)] rounded-full border border-border bg-bg2 px-3 py-1.5 text-xs text-fg shadow-lg pointer-events-none" role="status" aria-live="polite">
+    <svg id="toast-icon-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0">
+      <path class="toast-check" d="M20 6 9 17l-5-5"></path>
+    </svg>
+    <svg id="toast-icon-moon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="toast-moon hidden shrink-0">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+    <span id="toast-text"></span>
+  </div>
+</div>
+
+<style is:global>
+  .kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 5px;
+    border: 1px solid hsl(var(--border));
+    border-bottom-width: 2px;
+    background: hsl(var(--bg2));
+    font-family: ui-monospace, 'Geist Mono', monospace;
+    font-size: 10px;
+    line-height: 1;
+    color: hsl(var(--fg2));
+  }
+</style>
+
+<style>
+  .cmdk.open {
+    display: flex;
+  }
+  .cmdk-scrim {
+    animation: cmdk-fade 0.15s ease;
+  }
+  .cmdk-panel {
+    animation: cmdk-in 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  }
+  .cmdk-item.active {
+    background: hsl(var(--bg2));
+    color: hsl(var(--fg));
+  }
+  .cmdk-item.active .kbd {
+    color: hsl(var(--fg));
+  }
+
+  .toast {
+    opacity: 0;
+    transform: translate(-50%, -8px) scale(0.96);
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  .toast-moon {
+    color: var(--blue);
+    animation: toast-moon 0.6s cubic-bezier(0.3, 1.5, 0.5, 1);
+  }
+  @keyframes toast-moon {
+    from { transform: rotate(-60deg) scale(0.5); opacity: 0; }
+  }
+  .toast-check {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+  }
+  .toast.show .toast-check {
+    transition: stroke-dashoffset 0.35s ease 0.1s;
+    stroke-dashoffset: 0;
+  }
+
+  @keyframes cmdk-fade {
+    from { opacity: 0; }
+  }
+  @keyframes cmdk-in {
+    from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cmdk-panel, .cmdk-scrim { animation: none; }
+    .toast { transition: opacity 0.15s ease; transform: translate(-50%, 0); }
+  }
+</style>
+
+<script>
+  import { navigate } from 'astro:transitions/client'
+
+  const w = window as any
+
+  function toast(text: string, icon: 'check' | 'moon' = 'check', ms = 1800) {
+    const el = document.getElementById('toast')!
+    document.getElementById('toast-text')!.textContent = text
+    document.getElementById('toast-icon-check')!.classList.toggle('hidden', icon !== 'check')
+    document.getElementById('toast-icon-moon')!.classList.toggle('hidden', icon !== 'moon')
+    el.classList.remove('show')
+    void el.offsetWidth
+    el.classList.add('show')
+    clearTimeout(w.__toastTimer)
+    w.__toastTimer = setTimeout(() => el.classList.remove('show'), ms)
+  }
+  w.__toast = toast
+
+  function go(href: string) {
+    const [path, hash] = href.split('#')
+    if (hash && window.location.pathname === path) {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+      history.replaceState(null, '', `#${hash}`)
+      return
+    }
+    navigate(href)
+  }
+
+  async function copy(value: string) {
+    try {
+      await navigator.clipboard.writeText(value)
+      toast('email copied, talk soon')
+    } catch {
+      window.location.href = `mailto:${value}`
+    }
+  }
+
+  if (!w.__cmdkBound) {
+    w.__cmdkBound = true
+
+    const root = document.getElementById('cmdk')!
+    const input = document.getElementById('cmdk-input') as HTMLInputElement
+    const empty = document.getElementById('cmdk-empty')!
+    const items = Array.from(root.querySelectorAll<HTMLButtonElement>('.cmdk-item'))
+    const groups = Array.from(root.querySelectorAll<HTMLElement>('[data-group]'))
+    let active = 0
+    let lastKey = ''
+    let lastKeyAt = 0
+
+    const visible = () => items.filter((i) => !i.hidden)
+
+    function setActive(i: number) {
+      const list = visible()
+      if (!list.length) return
+      active = (i + list.length) % list.length
+      items.forEach((el) => el.classList.remove('active'))
+      list[active].classList.add('active')
+      list[active].scrollIntoView({ block: 'nearest' })
+    }
+
+    function filter() {
+      const q = input.value.trim().toLowerCase()
+      items.forEach((el) => (el.hidden = !!q && !el.dataset.label!.includes(q)))
+      groups.forEach((g) => (g.hidden = !g.querySelector('.cmdk-item:not([hidden])')))
+      empty.classList.toggle('hidden', visible().length > 0)
+      setActive(0)
+    }
+
+    function open() {
+      root.classList.add('open')
+      root.setAttribute('aria-hidden', 'false')
+      input.value = ''
+      filter()
+      requestAnimationFrame(() => input.focus())
+    }
+
+    function close() {
+      root.classList.remove('open')
+      root.setAttribute('aria-hidden', 'true')
+    }
+    w.__cmdkOpen = open
+
+    function run(el: HTMLElement) {
+      const { action, value } = el.dataset
+      close()
+      if (action === 'nav') go(value!)
+      if (action === 'open') window.open(value, '_blank', 'noopener')
+      if (action === 'copy') copy(value!)
+      if (action === 'theme') document.getElementById('theme-btn')?.click()
+    }
+
+    const typing = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName))
+
+    document.addEventListener('keydown', (e) => {
+      const isOpen = root.classList.contains('open')
+
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        isOpen ? close() : open()
+        return
+      }
+
+      if (isOpen) {
+        if (e.key === 'Escape') close()
+        if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1) }
+        if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1) }
+        if (e.key === 'Enter') {
+          e.preventDefault()
+          const el = visible()[active]
+          if (el) run(el)
+        }
+        return
+      }
+
+      if (typing(e.target) || e.metaKey || e.ctrlKey || e.altKey) return
+
+      const key = e.key.toLowerCase()
+      const now = Date.now()
+      if (lastKey === 'g' && now - lastKeyAt < 800) {
+        const dest = ({ h: '/', e: '/#experience', p: '/projects', w: '/blogs' } as Record<string, string>)[key]
+        if (dest) go(dest)
+        lastKey = ''
+        return
+      }
+      lastKey = key
+      lastKeyAt = now
+
+      if (key === '/') { e.preventDefault(); open() }
+      if (key === 't') document.getElementById('theme-btn')?.click()
+      if (key === 'c') copy(items.find((i) => i.dataset.action === 'copy')!.dataset.value!)
+    })
+
+    input.addEventListener('input', filter)
+    root.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement
+      if (t.closest('[data-close]')) return close()
+      const item = t.closest<HTMLElement>('.cmdk-item')
+      if (item) run(item)
+    })
+    root.addEventListener('mousemove', (e) => {
+      const item = (e.target as HTMLElement).closest<HTMLButtonElement>('.cmdk-item')
+      if (item) setActive(visible().indexOf(item))
+    })
+
+    document.addEventListener('click', (e) => {
+      const trigger = (e.target as HTMLElement).closest('[data-cmdk-open]')
+      if (trigger) { e.preventDefault(); open() }
+      const copyBtn = (e.target as HTMLElement).closest<HTMLElement>('[data-copy-email]')
+      if (copyBtn) { e.preventDefault(); copy(copyBtn.dataset.copyEmail!) }
+    })
+  }
+</script>

@@ -1,11 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { projectData } from '../lib/data'
+
+const tabs = [
+  { id: 'backend', label: 'backend' },
+  { id: 'fullstack', label: 'full stack' },
+  { id: 'all', label: 'all' },
+] as const
+
+const count = (id: string) => (id === 'all' ? projectData.length : projectData.filter((p) => p.type === id).length)
+
 ---
 
 <Layout title="projects. — shobhnik">
   <section class="pb-10">
-    <!-- Back button -->
     <a href="/" class="inline-flex items-center gap-1.5 text-sm text-fg2 hover:text-fg transition-colors mb-8 group">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-0.5">
         <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
@@ -13,37 +21,37 @@ import { projectData } from '../lib/data'
       home
     </a>
 
-    <h1 class="text-xl font-semibold text-fg tracking-tight mb-1">projects.</h1>
+    <h1 class="text-xl font-semibold text-fg tracking-tight mb-1">projects<span class="accent-dot">.</span></h1>
     <p class="text-sm text-fg2 mb-8">things i broke, fixed, and shipped.</p>
 
-    <!-- Filter -->
-    <div class="flex gap-1.5 mb-8">
-      {(['backend', 'fullstack', 'all'] as const).map((t) => (
+    <div class="pseg relative inline-flex p-0.5 mb-8 rounded-lg border border-border bg-bg2" role="tablist">
+      <span class="pseg-thumb absolute top-0.5 bottom-0.5 rounded-md bg-bg border border-border" aria-hidden="true"></span>
+      {tabs.map((t, i) => (
         <button
-          data-tab={t}
-          class={`tab text-xs px-3 py-1 rounded-full border border-border transition-all
-            ${t === 'backend' ? 'bg-fg text-bg border-fg' : 'text-fg2 hover:text-fg hover:border-fg2'}`}
+          type="button"
+          role="tab"
+          data-tab={t.id}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          class="pseg-btn relative z-10 inline-flex items-center px-3 py-1 text-xs text-fg2 transition-colors"
         >
-          {t === 'fullstack' ? 'full stack' : t}
+          {t.label}
+          <span class="pseg-count ml-1.5 font-mono text-[10px] text-fg3 tabular-nums">{count(t.id)}</span>
         </button>
       ))}
     </div>
 
-    <!-- List -->
-    <div class="space-y-0" id="list">
+    <div id="list">
       {projectData.map((p) => (
-        <article
-          data-type={p.type}
-          class="proj py-5 border-t border-border"
-        >
-          <!-- Row 1: title + icons -->
-          <div class="flex items-start justify-between gap-4 mb-2">
-            <div class="flex items-center gap-2 flex-wrap">
-              <h2 class="text-sm font-semibold text-fg">{p.title}</h2>
+        <article data-type={p.type} class="proj group relative py-5 px-3 -mx-3 border-t border-border">
+          <span class="proj-glow pointer-events-none absolute inset-0 rounded-lg" aria-hidden="true"></span>
+
+          <div class="relative flex items-start justify-between gap-4 mb-2">
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <h2 class="proj-title text-sm font-semibold text-fg">{p.title}</h2>
             </div>
-            <div class="flex gap-2 shrink-0">
+            <div class="flex gap-1 shrink-0">
               {p.gitLink && (
-                <a href={p.gitLink} target="_blank" rel="noopener" class="text-fg2 hover:text-fg transition-colors" title="GitHub">
+                <a href={p.gitLink} target="_blank" rel="noopener" class="icon-btn" data-label="source" aria-label={`${p.title} source code`}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
                     <path d="M9 18c-4.51 2-5-2-7-2"/>
@@ -51,7 +59,7 @@ import { projectData } from '../lib/data'
                 </a>
               )}
               {p.liveLink && (
-                <a href={p.liveLink} target="_blank" rel="noopener" class="text-fg2 hover:text-fg transition-colors" title="Live">
+                <a href={p.liveLink} target="_blank" rel="noopener" class="icon-btn icon-live" data-label="try it" aria-label={`open ${p.title}`}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
                   </svg>
@@ -60,13 +68,7 @@ import { projectData } from '../lib/data'
             </div>
           </div>
 
-          <!-- Tech stack -->
-          <p class="text-[11px] text-fg2 font-mono mb-2.5">
-            {p.techStack.join(' · ')}
-          </p>
-
-          <!-- Bullets -->
-          <ul class="space-y-1">
+          <ul class="relative space-y-1 mb-2.5">
             {p.overview.map((pt) => (
               <li class="text-sm text-fg2 leading-relaxed flex gap-2">
                 <span class="text-fg3 shrink-0">-</span>
@@ -74,36 +76,163 @@ import { projectData } from '../lib/data'
               </li>
             ))}
           </ul>
+
+          <p class="relative flex flex-wrap gap-x-1.5 gap-y-0.5 text-[11px] font-mono text-fg3">
+            {p.techStack.map((t, i) => (
+              <span class="chip" style={`--i:${i}`}>{t}{i < p.techStack.length - 1 && <span class="text-fg3"> ·</span>}</span>
+            ))}
+          </p>
         </article>
       ))}
     </div>
   </section>
 </Layout>
 
-<script>
-  const tabs  = document.querySelectorAll<HTMLButtonElement>('.tab')
-  const items = document.querySelectorAll<HTMLElement>('.proj')
+<style>
+  .accent-dot {
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 
-  function applyFilter(sel: string) {
-    tabs.forEach((t) => {
-      const on = t.dataset.tab === sel
-      t.classList.toggle('bg-fg',             on)
-      t.classList.toggle('text-bg',           on)
-      t.classList.toggle('border-fg',         on)
-      t.classList.toggle('text-fg2',         !on)
-      t.classList.toggle('border-border',    !on)
-      t.classList.toggle('hover:text-fg',    !on)
-      t.classList.toggle('hover:border-fg2', !on)
-    })
+  .pseg-thumb {
+    transition: left 0.3s cubic-bezier(0.3, 1.2, 0.4, 1), width 0.3s cubic-bezier(0.3, 1.2, 0.4, 1);
+  }
+  .pseg-btn[aria-selected='true'] {
+    color: hsl(var(--fg));
+  }
+  .pseg-btn[aria-selected='true'] .pseg-count {
+    color: hsl(var(--fg2));
+  }
+
+  .proj {
+    --mx: 50%;
+    --my: 50%;
+    transition: background-color 0.2s ease;
+  }
+  .proj-glow {
+    background: radial-gradient(260px circle at var(--mx) var(--my), color-mix(in srgb, var(--sky) 9%, transparent), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .proj:hover .proj-glow {
+    opacity: 1;
+  }
+  .proj-title {
+    transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1);
+  }
+  .proj:hover .proj-title {
+    transform: translateX(3px);
+  }
+
+  .chip {
+    transition: color 0.2s ease;
+  }
+  .proj:hover .chip {
+    color: hsl(var(--fg2));
+    transition-delay: calc(var(--i) * 30ms);
+  }
+
+  .icon-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    color: hsl(var(--fg2));
+    transition: color 0.15s ease, background-color 0.15s ease, transform 0.25s cubic-bezier(0.3, 1.5, 0.5, 1);
+  }
+  .icon-btn:hover {
+    color: hsl(var(--fg));
+    background: hsl(var(--bg2));
+  }
+  .icon-live:hover {
+    color: var(--sky);
+    transform: translate(1px, -1px);
+  }
+  .icon-btn::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    right: 0;
+    padding: 3px 7px;
+    border-radius: 6px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--bg2));
+    color: hsl(var(--fg));
+    font-size: 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(3px);
+    transition: opacity 0.15s ease, transform 0.2s ease;
+  }
+  .icon-btn:hover::after {
+    opacity: 1;
+    transform: none;
+  }
+
+  .proj.enter {
+    animation: proj-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--n) * 45ms);
+  }
+  @keyframes proj-in {
+    from { opacity: 0; transform: translateY(8px); }
+  }
+
+  @media (hover: none) {
+    .icon-btn::after { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pseg-thumb, .proj-title, .icon-btn { transition: none; }
+    .proj.enter { animation: none; }
+  }
+</style>
+
+<script>
+  function initProducts() {
+    const seg = document.querySelector<HTMLElement>('.pseg')
+    if (!seg || seg.dataset.bound) return
+    seg.dataset.bound = '1'
+
+    const thumb = seg.querySelector<HTMLElement>('.pseg-thumb')!
+    const tabs = Array.from(seg.querySelectorAll<HTMLButtonElement>('.pseg-btn'))
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.proj'))
+
+    function apply(btn: HTMLButtonElement) {
+      const sel = btn.dataset.tab
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t === btn)))
+      thumb.style.left = `${btn.offsetLeft}px`
+      thumb.style.width = `${btn.offsetWidth}px`
+
+      let n = 0
+      items.forEach((item) => {
+        const show = sel === 'all' || item.dataset.type === sel
+        item.style.display = show ? '' : 'none'
+        item.classList.remove('enter')
+        if (show) {
+          void item.offsetWidth
+          item.style.setProperty('--n', String(n++))
+          item.classList.add('enter')
+        }
+      })
+    }
+
+    tabs.forEach((t) => t.addEventListener('click', () => apply(t)))
+    apply(tabs[0])
+
     items.forEach((item) => {
-      item.style.display = (sel === 'all' || item.dataset.type === sel) ? '' : 'none'
+      item.addEventListener('mousemove', (e) => {
+        const r = item.getBoundingClientRect()
+        item.style.setProperty('--mx', `${e.clientX - r.left}px`)
+        item.style.setProperty('--my', `${e.clientY - r.top}px`)
+      })
     })
   }
 
-  // Apply default filter on load
-  applyFilter('backend')
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => applyFilter(tab.dataset.tab!))
-  })
+  initProducts()
+  document.addEventListener('astro:page-load', initProducts)
 </script>

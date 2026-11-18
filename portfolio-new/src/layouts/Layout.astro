@@ -1,6 +1,9 @@
 ---
 import '../styles/globals.css'
 import BottomNav from '../components/BottomNav.astro'
+import CommandMenu from '../components/CommandMenu.astro'
+import { experienceData, meta, skillData, socialLinks } from '../lib/data'
+import { SITE } from '../lib/agent'
 import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
@@ -10,11 +13,34 @@ interface Props {
 
 const {
   title = 'Shobhnik',
-  description = 'A engineer who build reliable and scalable systems.',
+  description = 'An engineer who builds reliable and scalable systems.',
 } = Astro.props
 
-const ogImage = 'https://shobhnik.site/og.png'
+const ogImage = `${SITE}/og.png`
 const canonical = Astro.url.href
+
+const path = Astro.url.pathname.replace(/\/$/, '')
+const markdownPath = `${path || '/index'}.md`
+
+const current = experienceData.find((j) => /present/i.test(j.duration))
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: SITE,
+  mainEntity: {
+    '@type': 'Person',
+    name: meta.name,
+    jobTitle: meta.role,
+    description: meta.tagline,
+    url: SITE,
+    image: `${SITE}/IntroImg.jpeg`,
+    email: `mailto:${meta.email}`,
+    address: { '@type': 'PostalAddress', addressLocality: 'Gurugram', addressCountry: 'IN' },
+    worksFor: current ? { '@type': 'Organization', name: current.company } : undefined,
+    knowsAbout: skillData.flatMap((c) => c.skills),
+    sameAs: socialLinks.map((s) => s.href),
+  },
+}
 ---
 
 <!doctype html>
@@ -30,6 +56,13 @@ const canonical = Astro.url.href
     <!-- SEO -->
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+
+    <!-- Agent-friendly versions -->
+    <link rel="alternate" type="text/markdown" href={markdownPath} title="Markdown version of this page" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-friendly full content" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
 
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
@@ -75,12 +108,15 @@ const canonical = Astro.url.href
   </head>
 
   <body class="min-h-screen bg-bg text-fg">
+    <div id="scroll-progress" aria-hidden="true"></div>
+
     <!-- Page content — padded so it clears the bottom dock -->
     <div class="max-w-2xl mx-auto px-5 pt-14 pb-28">
       <slot />
     </div>
 
     <BottomNav transition:persist />
+    <CommandMenu />
 
     <!-- Scroll reveal — re-runs after each view transition -->
     <script>
@@ -93,6 +129,16 @@ const canonical = Astro.url.href
       }
       initReveal()
       document.addEventListener('astro:after-swap', initReveal)
+
+      function updateProgress() {
+        const bar = document.getElementById('scroll-progress')
+        if (!bar) return
+        const max = document.documentElement.scrollHeight - window.innerHeight
+        bar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`
+      }
+      updateProgress()
+      window.addEventListener('scroll', updateProgress, { passive: true })
+      document.addEventListener('astro:after-swap', updateProgress)
     </script>
   </body>
 </html>
@@ -106,5 +152,31 @@ const canonical = Astro.url.href
   .sr.in {
     opacity: 1;
     transform: none;
+  }
+
+  ::selection {
+    background: hsl(var(--fg));
+    color: hsl(var(--bg));
+  }
+
+  #scroll-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 1px;
+    z-index: 90;
+    background: hsl(var(--fg2));
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+  }
+
+  html.theme-switching::view-transition-old(root),
+  html.theme-switching::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sr { transition: none; opacity: 1; transform: none; }
   }
 </style>
