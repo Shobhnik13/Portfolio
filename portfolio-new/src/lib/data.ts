@@ -171,6 +171,20 @@ export const experienceData = [
 
 export const projectData = [
   {
+    id: 17,
+    title: "ReachToYC",
+    liveLink: "https://reachtoyc.vercel.app/",
+    gitLink: "https://github.com/Shobhnik13/reachtoyc",
+    status: "Live",
+    techStack: ["Node.js", "Next.js", "PostgreSQL", "Apify", "Claude / OpenAI"],
+    overview: [
+      "Cold outreach to YC founders, done for you: pick a YC batch, add your Claude or OpenAI key and an Apify token, and it finds the founders of every company in that batch.",
+      "Drafts a cold email to each founder, shaped by your own prompt file, resume and portfolio.",
+      "Send them all from your own inbox, not a bulk mailer, so they don't land in spam. Runs fully locally. Free forever and open source.",
+    ],
+    type: "fullstack",
+  },
+  {
     id: 16,
     title: "FindMeJob",
     liveLink: "https://findmejob.xyz",
