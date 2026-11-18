@@ -171,6 +171,20 @@ export const experienceData = [
 
 export const projectData = [
   {
+    id: 16,
+    title: "FindMeJob",
+    liveLink: "https://findmejob.xyz",
+    gitLink: "",
+    status: "Live",
+    techStack: ["Golang", "Wails"],
+    overview: [
+      "Job hunting in one place: 100k+ jobs pulled from Wellfound, Greenhouse and other job boards, with filters for seniority, skills and experience.",
+      "Connect your local agents (Claude Code, Codex, OpenCode) to research a company, find its founders and write outreach emails, all in one app.",
+      "Download the app, sign in and start. Free forever.",
+    ],
+    type: "fullstack",
+  },
+  {
     id: 15,
     title: "Jev-check",
     liveLink: "https://jev-check-five.vercel.app/",
