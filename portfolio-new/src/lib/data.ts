@@ -449,6 +449,8 @@ export const skillData = [
       "Codex",
       "MCP",
       "Personalised skill files",
+      "Hermes",
+      "OpenClaw",
     ],
   },
 ];
