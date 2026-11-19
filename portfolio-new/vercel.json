@@ -29,15 +29,20 @@
   ],
   "rewrites": [
     {
+      "source": "/resume",
+      "destination": "https://resume.shobhnik.site/resume/software-resume.pdf"
+    },
+    {
       "source": "/resume.pdf",
-      "destination": "https://resume.shobhnik.site/resume.pdf"
-    }
-  ],
-  "redirects": [
+      "destination": "https://resume.shobhnik.site/resume/software-resume.pdf"
+    },
     {
       "source": "/cover-letter",
-      "destination": "https://drive.google.com/file/d/1vQ_1nbgzUYIv2t9vxVFL7qbVIL2F0lJH/view?usp=sharing",
-      "permanent": false
+      "destination": "https://resume.shobhnik.site/cover-letter/software-cover-letter.pdf"
+    },
+    {
+      "source": "/cover-letter.pdf",
+      "destination": "https://resume.shobhnik.site/cover-letter/software-cover-letter.pdf"
     }
   ]
 }
