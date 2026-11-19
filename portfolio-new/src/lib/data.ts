@@ -5,7 +5,7 @@ export const meta = {
     "I build scalable backend systems, AI agents, and reliable products. Based in India.",
   email: "shobhnikw@gmail.com",
   calLink: "https://calendly.com/shobhnikw/whoami",
-  resumeLink: "https://resume.shobhnik.site/resume.pdf",
+  resumeLink: "https://shobhnik.site/resume.pdf",
   githubUsername: "SHOBHNIK13",
   // Toggle this to false when not available
   openToCollaborate: true,
