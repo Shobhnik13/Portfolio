@@ -32,5 +32,12 @@
       "source": "/resume.pdf",
       "destination": "https://resume.shobhnik.site/resume.pdf"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/cover-letter",
+      "destination": "https://drive.google.com/file/d/1vQ_1nbgzUYIv2t9vxVFL7qbVIL2F0lJH/view?usp=sharing",
+      "permanent": false
+    }
   ]
 }
