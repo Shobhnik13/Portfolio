@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="404 — shobhnik" description="This page either wasn't needed, or it's still being built.">
+  <section class="nf relative pt-6 pb-10">
+    <div class="nf-bg pointer-events-none absolute -inset-x-5 -top-14 bottom-0 overflow-hidden" aria-hidden="true">
+      <span class="nf-blob"></span>
+      <span class="nf-dots"></span>
+    </div>
+
+    <div class="relative">
+      <p class="nf-code select-none" aria-hidden="true">
+        <span class="nf-digit" style="--i:0">4</span><span class="nf-digit nf-zero" style="--i:1">0</span><span class="nf-digit" style="--i:2">4</span>
+      </p>
+
+      <h1 class="text-xl font-semibold text-fg tracking-tight mt-4 mb-2">
+        this page either wasn't needed<span class="text-fg3">,</span><br />
+        or it's <span class="nf-accent">still being built</span>.
+      </h1>
+      <p class="text-sm text-fg2 leading-relaxed max-w-md">
+        you reached <span id="nf-path" class="font-mono text-fg">this url</span>, but there's nothing here yet. if it's the second one, check back soon :)
+      </p>
+
+      <div class="nf-term mt-7 rounded-xl border border-border bg-bg2 overflow-hidden">
+        <div class="flex items-center gap-1.5 px-3 py-2 border-b border-border">
+          <span class="h-2 w-2 rounded-full bg-fg3 opacity-50"></span>
+          <span class="h-2 w-2 rounded-full bg-fg3 opacity-50"></span>
+          <span class="h-2 w-2 rounded-full bg-fg3 opacity-50"></span>
+          <span class="ml-2 text-[10px] font-mono text-fg3">build.log</span>
+        </div>
+        <div class="px-4 py-3 font-mono text-[11px] leading-relaxed text-fg2">
+          <p class="nf-line" style="--d:0.2s"><span class="text-fg3">$</span> resolving route<span class="nf-ellipsis"></span></p>
+          <p class="nf-line" style="--d:0.9s"><span class="text-fg3">$</span> checking if this was ever needed<span class="nf-ellipsis"></span></p>
+          <p class="nf-line" style="--d:1.6s"><span class="nf-warn">warn</span> page not found (yet)</p>
+          <div class="nf-line mt-2 flex items-center gap-3" style="--d:2.1s">
+            <span class="nf-bar relative h-1 flex-1 rounded-full bg-border overflow-hidden"><span class="nf-bar-fill absolute inset-y-0 left-0 rounded-full"></span></span>
+            <span class="text-fg3 shrink-0">building</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-7">
+        <a href="/" class="nf-home group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-0.5">
+            <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+          </svg>
+          take me home
+        </a>
+        <a href="/projects" class="text-xs text-fg2 hover:text-fg transition-colors ul-link">see what i've built</a>
+        <a href="/blogs" class="text-xs text-fg2 hover:text-fg transition-colors ul-link">read my writing</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .nf-bg {
+    mask-image: radial-gradient(ellipse 60% 100% at 30% 0%, black 40%, transparent 100%);
+  }
+  .nf-blob {
+    position: absolute;
+    width: 340px;
+    height: 220px;
+    top: -60px;
+    left: -40px;
+    border-radius: 9999px;
+    background: var(--sky);
+    opacity: 0.14;
+    filter: blur(70px);
+    animation: nf-drift 14s ease-in-out infinite;
+  }
+  :global(html:not(.dark)) .nf-blob {
+    opacity: 0.12;
+  }
+  .nf-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(hsl(var(--fg) / 0.12) 1px, transparent 1.2px);
+    background-size: 18px 18px;
+    mask-image: radial-gradient(ellipse 70% 80% at 30% 20%, black, transparent 75%);
+  }
+  @keyframes nf-drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(60px, 20px) scale(1.1); }
+  }
+
+  .nf-code {
+    font-size: clamp(64px, 18vw, 112px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+  .nf-digit {
+    display: inline-block;
+    background: linear-gradient(180deg, hsl(var(--fg)), hsl(var(--fg) / 0.35));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: nf-rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both, nf-bob 3.2s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.08s), calc(0.8s + var(--i) * 0.25s);
+  }
+  .nf-zero {
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  @keyframes nf-rise {
+    from { opacity: 0; transform: translateY(18px); }
+  }
+  @keyframes nf-bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+  }
+
+  .nf-accent {
+    background: linear-gradient(90deg, var(--sky), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .nf-line {
+    opacity: 0;
+    transform: translateY(3px);
+    animation: nf-in 0.35s ease forwards;
+    animation-delay: var(--d);
+  }
+  @keyframes nf-in {
+    to { opacity: 1; transform: none; }
+  }
+  .nf-warn {
+    color: #f59e0b;
+    margin-right: 0.4em;
+  }
+  .nf-ellipsis::after {
+    content: '';
+    animation: nf-dots 1.2s steps(4, end) infinite;
+  }
+  @keyframes nf-dots {
+    0%   { content: ''; }
+    25%  { content: '.'; }
+    50%  { content: '..'; }
+    75%  { content: '...'; }
+  }
+
+  .nf-bar-fill {
+    width: 40%;
+    background: linear-gradient(90deg, var(--sky), var(--blue));
+    animation: nf-load 2.4s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  }
+  @keyframes nf-load {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(260%); }
+  }
+
+  .nf-home {
+    background: linear-gradient(100deg, #7dd3fc, #60a5fa);
+    color: #0b0b0b;
+    transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1), box-shadow 0.3s ease;
+  }
+  .nf-home:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 4px rgb(125 211 252 / 0.2), 0 10px 30px -8px rgb(59 130 246 / 0.65);
+  }
+  :global(html:not(.dark)) .nf-home {
+    background: linear-gradient(100deg, #0b1220, #1d4ed8);
+    color: #f8fafc;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nf-blob, .nf-digit, .nf-bar-fill, .nf-ellipsis::after { animation: none; }
+    .nf-line { animation: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<script>
+  function initNotFound() {
+    const el = document.getElementById('nf-path')
+    if (el) el.textContent = window.location.pathname
+  }
+  initNotFound()
+  document.addEventListener('astro:page-load', initNotFound)
+</script>

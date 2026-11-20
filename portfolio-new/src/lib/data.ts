@@ -465,6 +465,65 @@ export const freeTimeData = [
   },
 ];
 
+export const learningData = [
+  {
+    type: "book",
+    title: "Designing Data-Intensive Applications",
+    by: "Martin Kleppmann",
+    note: "how databases, replication and queues actually work under the hood.",
+    href: "https://dataintensive.net/",
+  },
+  {
+    type: "video",
+    title: "Backend engineering",
+    by: "Hussein Nasser",
+    note: "protocols, proxies and databases explained from first principles.",
+    href: "https://www.youtube.com/@hnasr",
+  },
+  {
+    type: "blog",
+    title: "System design & database internals",
+    by: "Arpit Bhayani",
+    note: "deep dives into how real systems are built and why.",
+    href: "https://arpitbhayani.me/",
+  },
+  {
+    type: "blog",
+    title: "Use The Index, Luke",
+    by: "Markus Winand",
+    note: "sql indexing, the reason my apis went from 10s to under 1s.",
+    href: "https://use-the-index-luke.com/",
+  },
+  {
+    type: "video",
+    title: "What the heck is the event loop anyway?",
+    by: "Philip Roberts",
+    note: "the talk that finally made async javascript click.",
+    href: "https://www.youtube.com/watch?v=8aGhZQkoFbQ",
+  },
+  {
+    type: "blog",
+    title: "How Discord stores trillions of messages",
+    by: "Discord engineering",
+    note: "what scaling a database looks like in the real world.",
+    href: "https://discord.com/blog/how-discord-stores-trillions-of-messages",
+  },
+  {
+    type: "video",
+    title: "Neural Networks: Zero to Hero",
+    by: "Andrej Karpathy",
+    note: "building llms from scratch, no magic left.",
+    href: "https://karpathy.ai/zero-to-hero.html",
+  },
+  {
+    type: "blog",
+    title: "Building effective agents",
+    by: "Anthropic",
+    note: "the simplest mental model for agents i've come across.",
+    href: "https://www.anthropic.com/engineering/building-effective-agents",
+  },
+];
+
 export const blogData = [
   {
     title: "Simplifying your architecture with PostgreSQL",

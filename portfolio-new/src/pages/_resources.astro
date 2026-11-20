@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { learningData } from '../lib/data'
+
+const tabs = [
+  { id: 'blog', label: 'blogs' },
+  { id: 'video', label: 'videos' },
+  { id: 'book', label: 'books' },
+].filter((t) => learningData.some((l) => l.type === t.id))
+---
+
+<Layout title="resources. — shobhnik">
+  <section class="pb-10">
+    <a href="/" class="inline-flex items-center gap-1.5 text-sm text-fg2 hover:text-fg transition-colors mb-8 group">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-0.5">
+        <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+      </svg>
+      home
+    </a>
+
+    <h1 class="text-xl font-semibold text-fg tracking-tight mb-1">resources<span class="accent-dot">.</span></h1>
+    <p class="text-sm text-fg2 mb-8">resources that taught me more than my cs degree.</p>
+
+    {tabs.length > 1 && (
+      <div class="lseg relative inline-flex p-0.5 mb-8 rounded-lg border border-border bg-bg2" role="tablist">
+        <span class="lseg-thumb absolute top-0.5 bottom-0.5 rounded-md bg-bg border border-border" aria-hidden="true"></span>
+        {tabs.map((t, i) => (
+          <button
+            type="button"
+            role="tab"
+            data-tab={t.id}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            class="lseg-btn relative z-10 inline-flex items-center px-3 py-1 text-xs text-fg2 transition-colors"
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+    )}
+
+    {tabs.length === 0 ? (
+      <p class="text-sm text-fg3">nothing here yet.</p>
+    ) : (
+      <div>
+        {learningData.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-type={item.type}
+            class:list={['learn group relative block py-4 px-3 -mx-3 border-t border-border', item.type !== tabs[0].id && 'hidden']}
+          >
+            <span class="learn-glow pointer-events-none absolute inset-0 rounded-lg" aria-hidden="true"></span>
+
+            <span class="relative flex items-start justify-between gap-4">
+              <span class="min-w-0">
+                <span class="learn-title block text-sm font-semibold text-fg leading-snug">{item.title}</span>
+                <span class="block mt-0.5 text-[11px] font-mono text-fg3">{item.by.toLowerCase()}</span>
+              </span>
+              <svg class="learn-arrow shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+              </svg>
+            </span>
+
+            <span class="relative mt-1.5 flex gap-2 text-sm text-fg2 leading-relaxed">
+              <span class="text-fg3 shrink-0">-</span>
+              {item.note}
+            </span>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .accent-dot {
+    background: linear-gradient(135deg, var(--sky), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lseg-thumb {
+    transition: left 0.3s cubic-bezier(0.3, 1.2, 0.4, 1), width 0.3s cubic-bezier(0.3, 1.2, 0.4, 1);
+  }
+  .lseg-btn[aria-selected='true'] {
+    color: hsl(var(--fg));
+  }
+
+  .learn {
+    --mx: 50%;
+    --my: 50%;
+  }
+  .learn-glow {
+    background: radial-gradient(260px circle at var(--mx) var(--my), color-mix(in srgb, var(--sky) 9%, transparent), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .learn:hover .learn-glow {
+    opacity: 1;
+  }
+  .learn-title {
+    transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1);
+  }
+  .learn:hover .learn-title {
+    transform: translateX(3px);
+  }
+  .learn-arrow {
+    color: hsl(var(--fg3));
+    transition: color 0.2s ease, transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1);
+  }
+  .learn:hover .learn-arrow {
+    color: var(--sky);
+    transform: translate(1px, -1px);
+  }
+
+  .learn.enter {
+    animation: learn-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--n) * 45ms);
+  }
+  @keyframes learn-in {
+    from { opacity: 0; transform: translateY(8px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lseg-thumb, .learn-title, .learn-arrow { transition: none; }
+    .learn.enter { animation: none; }
+  }
+</style>
+
+<script>
+  function initLearning() {
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.learn'))
+    items.forEach((item) => {
+      if (item.dataset.bound) return
+      item.dataset.bound = '1'
+      item.addEventListener('mousemove', (e) => {
+        const r = item.getBoundingClientRect()
+        item.style.setProperty('--mx', `${e.clientX - r.left}px`)
+        item.style.setProperty('--my', `${e.clientY - r.top}px`)
+      })
+    })
+
+    const seg = document.querySelector<HTMLElement>('.lseg')
+    if (!seg || seg.dataset.bound) return
+    seg.dataset.bound = '1'
+
+    const thumb = seg.querySelector<HTMLElement>('.lseg-thumb')!
+    const tabs = Array.from(seg.querySelectorAll<HTMLButtonElement>('.lseg-btn'))
+
+    function apply(btn: HTMLButtonElement, animate = true) {
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t === btn)))
+      thumb.style.left = `${btn.offsetLeft}px`
+      thumb.style.width = `${btn.offsetWidth}px`
+
+      let n = 0
+      items.forEach((item) => {
+        const show = item.dataset.type === btn.dataset.tab
+        item.classList.toggle('hidden', !show)
+        item.classList.remove('enter')
+        if (show && animate) {
+          void item.offsetWidth
+          item.style.setProperty('--n', String(n++))
+          item.classList.add('enter')
+        }
+      })
+    }
+
+    tabs.forEach((t) => t.addEventListener('click', () => apply(t)))
+    apply(tabs[0], false)
+  }
+
+  initLearning()
+  document.addEventListener('astro:page-load', initLearning)
+</script>
