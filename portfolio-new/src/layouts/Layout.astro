@@ -2,8 +2,7 @@
 import '../styles/globals.css'
 import BottomNav from '../components/BottomNav.astro'
 import CommandMenu from '../components/CommandMenu.astro'
-import { experienceData, meta, skillData, socialLinks } from '../lib/data'
-import { SITE } from '../lib/agent'
+import { SITE, experienceData, meta, skillData, socialLinks } from '../lib/data'
 import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
@@ -18,9 +17,6 @@ const {
 
 const ogImage = `${SITE}/og.png`
 const canonical = Astro.url.href
-
-const path = Astro.url.pathname.replace(/\/$/, '')
-const markdownPath = `${path || '/index'}.md`
 
 const current = experienceData.find((j) => /present/i.test(j.duration))
 const personLd = {
@@ -57,10 +53,6 @@ const personLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- Agent-friendly versions -->
-    <link rel="alternate" type="text/markdown" href={markdownPath} title="Markdown version of this page" />
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary" />
-    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-friendly full content" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
 

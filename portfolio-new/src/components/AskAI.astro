@@ -1,6 +1,5 @@
 ---
-import { experienceData, meta, projectData } from '../lib/data'
-import { SITE } from '../lib/agent'
+import { SITE, experienceData, meta, projectData } from '../lib/data'
 
 const flat = (b: string | string[]) => (Array.isArray(b) ? b.join('') : b)
 
@@ -13,7 +12,7 @@ const snapshot = [
 ].join('\n')
 
 const prompt = [
-  `I'm hiring engineers and looking at Shobhnik's portfolio: ${SITE} (agent-friendly version: ${SITE}/llms.txt, full content: ${SITE}/llms-full.txt). Read it and brief me like a sharp engineering hiring manager would:`,
+  `I'm hiring engineers and looking at Shobhnik's portfolio: ${SITE}. Read it and brief me like a sharp engineering hiring manager would:`,
   '',
   '1. The pitch: who he is and what makes him stand out as an engineer, in 2 lines.',
   '2. Proof: the systems he designed and shipped, with the real numbers (users served, throughput, latency, revenue impact).',

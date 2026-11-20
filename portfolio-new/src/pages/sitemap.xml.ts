@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
-import { SITE } from '../lib/agent'
+import { SITE } from '../lib/data'
 
-const pages = ['/', '/projects', '/blogs', '/llms.txt', '/llms-full.txt', '/index.md', '/projects.md', '/blogs.md']
+const pages = ['/', '/projects', '/blogs']
 
 export const GET: APIRoute = () =>
   new Response(
